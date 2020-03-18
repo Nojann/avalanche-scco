@@ -1,0 +1,47 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">Characters editor</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="FormControlSelect1">Character ID</label>
+                <select class="form-control" id="FormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+              <!--
+                <div class="form-group">
+                <label for="TopPosition">Vertical position</label>
+                <input type="range" class="custom-range" id="TopPosition" ">
+                <input type="range" class="custom-range" id="TopPosition" [(ngModel)]="console()">
+                </div>
+              -->
+              
+            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                <label for="TopPosition">Vertical position</label>
+                <button type="button" class="btn btn-outline-secondary" id="TopPosition" (click)="positionTopUp()">
+                    <img src="../../assets/images/icons/keyboard_arrow_up-24px.svg" class="img-fluid" alt="Up">
+                </button>
+                <button type="button" class="btn btn-outline-secondary" id="TopPosition">
+                    <img src="../../assets/images/icons/keyboard_arrow_down-24px.svg" class="img-fluid" alt="Down">
+                </button>
+              </div>
+        
+            <div class="form-group">
+                <label for="LeftPosition">Horizontal position</label>
+                <input type="range" class="custom-range" id="LeftPosition" >
+            </div>
+
+            <div class="form-group">
+                <label for="customRange3">Width</label>
+                <input type="range" class="custom-range" id="customRange3">
+            </div>
+        </form>
+
+    </div>
+  </div>
+

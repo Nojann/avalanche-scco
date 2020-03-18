@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="assets/images/mountain.svg" width="40" height="40" alt="">
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Jeu <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Hypothèses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tâches</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Résultats</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-xl">
+  <div class="row">
+    <div class="col-fluid">
+      Infos Perso
+    </div>
+    <div class="col-8">
+      <div class="card mb-3">
+        <app-scenery></app-scenery>
+        <div class="card-body">
+          <h5 class="card-title">Scenery</h5>
+          <p class="card-text">Step 1.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-fluid">
+      <app-scenery-editor></app-scenery-editor>
+    </div>
+  </div>
+</div>
