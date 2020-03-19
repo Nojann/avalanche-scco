@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SceneryComponent } from './scenery/scenery.component';
 import { CharactersComponent } from './characters/characters.component';
 import { SceneryEditorComponent } from './scenery-editor/scenery-editor.component';
+import { CharacterService } from './services/character.service';
 
 
 
@@ -25,7 +26,7 @@ import { SceneryEditorComponent } from './scenery-editor/scenery-editor.componen
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CharacterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { Character } from './character';
+import {CharacterService} from '../services/character.service'
+import { Character } from '../model/character';
 
 @Component({
   selector: 'app-characters',
@@ -8,57 +9,41 @@ import { Character } from './character';
 })
 export class CharactersComponent implements OnInit {
 
-  character1 : Character = {
-    id:1,
-    imageName:"skier1.svg",
-    positionTop:26,
-    positionLeft:25,
-    width:28
-};
-  
+  public character1;
+
+  constructor(private _characterService: CharacterService){
+    
+  }
 
   ngOnInit(): void {
+    this.character1 = this._characterService.getCharacter();
   }
+
+  getPositionTop(character: Character) :number{
+    return character.positionTop;
+  }
+  
+  getPositionLeft(character: Character) :number{
+    return character.positionLeft;
+  }
+  
+  getImageName(character: Character) :string{
+    return character.imageName;
+  }
+  
+  getWidth(character: Character) :number{
+    return character.width;
+  }
+
+  
 
   /*setPositionTop(character: Character) :void{
 
   }*/
 
-  getPositionTop(character: Character) :number{
-    return character.positionTop;
-  }
-
-  getPositionLeft(character: Character) :number{
-    return character.positionLeft;
-  }
-
-  getImageName(character: Character) :string{
-    return character.imageName;
-  }
-
-  getWidth(character: Character) :number{
-    return character.width;
-  }
-
-  setPositionTop(character: Character, positionTop: number) :void{
-    character.positionTop = positionTop;
-  }
-
-  setPositionLeft(character: Character, positionLeft: number) :void{
-    character.positionLeft = positionLeft;
-  }
-
-  setImageName(character: Character, imageName: string) :void{
-    character.imageName = imageName;
-  }
-
-  setWidth(character: Character, positionWidth: number) :void{
-    character.positionLeft = positionWidth;
-  }
-
   //path in the form of '../../assets/images/scenery/{{getImagePath()}}' 
-  getImagePath() :string{
+  /*getImagePath() :string{
     return 'skier1.svg';
-  }
+  }*/
 
 }
