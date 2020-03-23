@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { Character } from '../model/character';
-import { CharacterService } from '../services/character.service'
+import { Character } from '../../model/character';
+import { CharacterService } from '../../services/character.service'
 
 
 @Component({
@@ -47,11 +47,12 @@ export class SceneryEditorComponent implements OnInit {
     this._characterService.setWidth(1);
   }
 
+  save() : void {
+    this._characterService.saveCharactersToServer();
+  }
 
-
-
-
-
-  
+  charge() : void {
+    this._characterService.getCharactersFromServer();
+  }
 
 }

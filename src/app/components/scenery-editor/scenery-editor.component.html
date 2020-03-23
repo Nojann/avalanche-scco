@@ -18,20 +18,20 @@
         <div class="row mx-auto mt-3">
           <div>
             <button type="button" class="btn btn-outline-secondary" id="LeftPosition" (click)="positionLeftLeft()">
-              <img src="../../assets/images/icons/keyboard_arrow_left-24px.svg" class="img-fluid" alt="Up">
+              <img src="assets/images/icons/keyboard_arrow_left-24px.svg" class="img-fluid" alt="Up">
             </button>
           
             <div class="btn-group-vertical" role="group" aria-label="Vertical position">
               <button type="button" class="btn btn-outline-secondary" id="TopPosition" (click)="positionTopUp()">
-                  <img src="../../assets/images/icons/keyboard_arrow_up-24px.svg" class="img-fluid" alt="Up">
+                  <img src="assets/images/icons/keyboard_arrow_up-24px.svg" class="img-fluid" alt="Up">
               </button>
               <button type="button" class="btn btn-outline-secondary" id="TopPosition" (click)="positionTopDown()">
-                  <img src="../../assets/images/icons/keyboard_arrow_down-24px.svg" class="img-fluid" alt="Down">
+                  <img src="assets/images/icons/keyboard_arrow_down-24px.svg" class="img-fluid" alt="Down">
               </button>
             </div>
           
             <button type="button" class="btn btn-outline-secondary" id="LeftPosition" (click)="positionLeftRight()">
-              <img src="../../assets/images/icons/keyboard_arrow_right-24px.svg" class="img-fluid" alt="Down">
+              <img src="assets/images/icons/keyboard_arrow_right-24px.svg" class="img-fluid" alt="Down">
             </button>
         </div>
         </div>
@@ -40,22 +40,17 @@
           <div class="row mx-auto mt-3">
             <div class="btn-group mx-auto" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-outline-secondary" (click)="widthUp()">
-                <img src="../../assets/images/icons/zoom_in-24px.svg" class="img-fluid" alt="zoom_in">
+                <img src="assets/images/icons/zoom_in-24px.svg" class="img-fluid" alt="zoom_in">
               </button>
               <button type="button" class="btn btn-outline-secondary" (click)="widthDown()">
-                <img src="../../assets/images/icons/zoom_out-24px.svg" class="img-fluid" alt="zoom_out">
+                <img src="assets/images/icons/zoom_out-24px.svg" class="img-fluid" alt="zoom_out">
               </button>
             </div>
           </div>
           
           <div class="row mx-auto mt-3">
-            <span>
-              id = {{character1.id}},
-              imageName = {{character1.imageName}},
-              positionTop = {{character1.positionTop}},
-              positionLeft = {{character1.positionLeft}},
-              width = {{character1.width}}
-            </span>
+            <button type="button" class="btn btn-outline-primary" (click)="charge()">Charge</button>
+            <button type="button" class="btn btn-outline-primary" (click)="save()">Save</button>
           </div>
 
       </div>
