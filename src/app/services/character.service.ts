@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +22,27 @@ export class CharacterService implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.getCharactersFromServer().subscribe(
-      (character => this.character = character));
+    this.getCharactersFromServer();
   }
 
-  getCharactersFromServer() : Observable<Character> {
-    return this.httpClient
+  getCharactersFromServer() : void {
+
+    var ref = firebase.database().ref('/');
+
+    ref.on("child_added", (data) =>
+      this.character=<Character>data.val()
+      );
+
+    console.log("data :", this.character);
+
+
+
+    /*return this.httpClient
       .get<Character>('https://avalanche-scco.firebaseio.com/characters.json')
       .pipe(
         tap(_ => console.log("Character charged."))
-      );
+      );*/
+    
   }
 
   getCharacter() : Observable<Character> {
@@ -38,7 +50,10 @@ export class CharacterService implements OnInit {
   }
 
   saveCharactersToServer() : void {
-    this.httpClient
+    
+    firebase.database().ref('/characters').set(this.character);
+  
+    /*this.httpClient
     .put('https://avalanche-scco.firebaseio.com/characters.json', this.character)
     .subscribe(
       () => {
@@ -47,7 +62,7 @@ export class CharacterService implements OnInit {
       (error) => {
         console.log('Error : '+ error);
       }
-    )
+    )*/
   }
   
   setPositionTop(positionTopIncrement: number) :void{
