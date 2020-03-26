@@ -1,9 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Character } from '../model/character';
+import { Character } from '../models/character.model';
 import { Observable, of } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 
 @Injectable({
@@ -11,13 +10,9 @@ import * as firebase from 'firebase';
 })
 export class CharacterService implements OnInit {
 
-  character : Character = {
-    id:1,
-    imageName:"",
-    positionTop:0,
-    positionLeft:0,
-    width:0
-  }
+
+  characters : Character[];
+  currentId : number = 1;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -30,55 +25,47 @@ export class CharacterService implements OnInit {
     var ref = firebase.database().ref('/');
 
     ref.on("child_added", (data) =>
-      this.character=<Character>data.val()
-      );
-
-    console.log("data :", this.character);
-
-
-
-    /*return this.httpClient
-      .get<Character>('https://avalanche-scco.firebaseio.com/characters.json')
-      .pipe(
-        tap(_ => console.log("Character charged."))
-      );*/
-    
+        this.characters=(<Character[]>data.val())
+    );
   }
 
-  getCharacter() : Observable<Character> {
-    return of(this.character);
+  getCharacters() : Observable<Character[]> {
+    return of(this.characters);
   }
 
   saveCharactersToServer() : void {
-    
-    firebase.database().ref('/characters').set(this.character);
-  
-    /*this.httpClient
-    .put('https://avalanche-scco.firebaseio.com/characters.json', this.character)
-    .subscribe(
-      () => {
-        console.log('Characaters saved');
-       },
-      (error) => {
-        console.log('Error : '+ error);
-      }
-    )*/
+
+      /*let character : Character = {
+        id:4,
+        imageName: "skier4.svg",
+        positionTop: 50,
+        positionLeft: 40,
+        width: 23 
+      }*/
+
+      firebase.database().ref('/characters/'+this.currentId).set(this.characters[this.currentId]);
+      //firebase.database().ref(`/characters/${this.currentId}`).set(this.characters[this.currentId]);
+  }
+
+  setCurrentId(id:number) : void{
+    this.currentId = id;
+    console.log("Current Id : "+this.currentId);
   }
   
   setPositionTop(positionTopIncrement: number) :void{
-    this.character.positionTop = this.character.positionTop-positionTopIncrement;
+    this.characters[this.currentId].positionTop -= positionTopIncrement;
   }
 
   setPositionLeft(positionLeftIncrement: number) :void{
-    this.character.positionLeft = this.character.positionLeft-positionLeftIncrement;
+    this.characters[this.currentId].positionLeft -= positionLeftIncrement;
   }
 
-  setImageName(character: Character, imageName: string) :void{
-    character.imageName = imageName;
+  setImageName(imageName: string) :void{
+    this.characters[this.currentId].imageName = imageName;
   }
 
   setWidth(widthIncrement: number) :void{
-    this.character.width = this.character.width-widthIncrement;
+    this.characters[this.currentId].width -= widthIncrement;
   }
 
 }

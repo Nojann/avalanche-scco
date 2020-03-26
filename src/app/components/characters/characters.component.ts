@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CharacterService} from '../../services/character.service';
-import { Character } from '../../model/character';
+import { Character } from 'src/app/models/character.model';
 //import { Observable, of } from 'rxjs';
 
+//TODO : implement ngFor in the template
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -18,80 +19,49 @@ export class CharactersComponent implements OnInit {
     this._characterService.ngOnInit();
   }
 
-  getPositionTop() :number{
-    let positionTop: number;
-    this._characterService.getCharacter().
-      subscribe((character) => positionTop = character.positionTop);
+  getPositionTop(id: number) :number{
+    let positionTop: number = 0;
+
+    this._characterService.getCharacters().
+      subscribe(
+        (characters) => characters ?
+          positionTop = characters[id].positionTop
+          : console.log("Waiting characters.positionTop") 
+        );
+    
     return positionTop;
   }
   
-  getPositionLeft() :number{
-    let positionLeft: number;
-    this._characterService.getCharacter().
-      subscribe(character => positionLeft = character.positionLeft);
-    
+  getPositionLeft(id: number) :number{
+    let positionLeft: number = 0;
+      this._characterService.getCharacters().
+        subscribe(characters => characters ?
+          positionLeft = characters[id].positionLeft
+          : console.log("Waiting characters.positionLeft")    
+        );
+
     return positionLeft;
   }
 
-  getImageName() :string{
-    let imageName: string;
-    this._characterService.getCharacter().
-      subscribe(character => imageName = character.imageName);
-    
+  getImageName(id: number) :string{
+    let imageName: string = "Waiting";
+      this._characterService.getCharacters().
+      subscribe(characters => characters ?
+        imageName = characters[id].imageName
+        : console.log("Waiting characters.imageName")
+      );
     return imageName;
   }
   
-  getWidth() :number{
-    let width: number;
-    this._characterService.getCharacter().
-      subscribe(character => width = character.width);
-    
+  getWidth(id: number) :number{
+    let width: number = 0;
+      this._characterService.getCharacters().
+      subscribe(characters => characters ?
+        width = characters[id].width
+        : console.log("Waiting characters.width")
+      );
+
     return width;
   }
-
-    /*getPositionTop() : number{
-    let positionTop : number;
-    this._characterService.getPositionTop()
-      .subscribe(positionTop => this.character1.positionTop = positionTop);
-    return positionTop;
-  }
-  
-  getPositionLeft() : number{
-    let positionLeft : number;
-    this._characterService.getPositionLeft()
-      .subscribe(positionLeft => this.character1.positionLeft = positionLeft);
-    return positionLeft;
-  }
-
-  getImageName() : string{
-    let imageName : string;
-    this._characterService.getImageName()
-      .subscribe(imageName => this.character1.imageName = imageName);
-    return imageName;
-  }
-  
-  getWidth() : number{
-    let width : number;
-    this._characterService.getWidth()
-      .subscribe(width => this.character1.width = width);
-    return width;
-  }*/
-
-  /*ngOnInit(): void {
-    /*this._characterService.getCharactersFromServer()
-      .subscribe(
-        (character) => {
-          this.character1 = character
-        },
-        (error) => {
-          console.log("OnInit Component : "+this.character1);
-        });
-    
-      this._characterService.getCharactersFromServer()
-      .subscribe(character1 => this.character1 = character1);
-      //this.character1 = this._characterService.getCharacter();
-    
-  }*/
-
 
 }

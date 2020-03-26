@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { Character } from '../../model/character';
+import { Character } from '../../models/character.model';
 import { CharacterService } from '../../services/character.service'
 
 
@@ -13,14 +13,12 @@ import { CharacterService } from '../../services/character.service'
 export class SceneryEditorComponent implements OnInit {
   @Input() character:Character;
 
-  public character1;
-
   constructor(private _characterService: CharacterService) { 
 
   }
 
   ngOnInit(): void {
-    this.character1 = this._characterService.getCharacter();
+
   }
 
   positionTopUp() : void {
@@ -45,6 +43,15 @@ export class SceneryEditorComponent implements OnInit {
 
   widthDown() : void {
     this._characterService.setWidth(1);
+  }
+
+  imageNameChange(imageName : string) :void{
+    this._characterService.setImageName(imageName);
+  }
+
+  idChange(id: number){
+    console.log("id Change: "+id);
+    this._characterService.setCurrentId(id);
   }
 
   save() : void {
