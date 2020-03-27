@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
-import { Character } from '../../models/character.model';
-import { CharacterService } from '../../services/character.service'
-
+import { Character } from '../../../models/character.model';
+import { CharacterService } from '../../../services/character.service'
 
 @Component({
   selector: 'app-scenery-editor',

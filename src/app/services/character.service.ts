@@ -25,7 +25,8 @@ export class CharacterService implements OnInit {
     var ref = firebase.database().ref('/');
 
     ref.on("child_added", (data) =>
-        this.characters=(<Character[]>data.val())
+        this.characters=(<Character[]>data.val()),
+        (Error) => console.log("error : ",Error)
     );
   }
 

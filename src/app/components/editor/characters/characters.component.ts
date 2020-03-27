@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CharacterService} from '../../services/character.service';
-import { Character } from 'src/app/models/character.model';
-//import { Observable, of } from 'rxjs';
+import {CharacterService} from '../../../services/character.service';
 
 //TODO : implement ngFor in the template
 @Component({
@@ -10,8 +8,6 @@ import { Character } from 'src/app/models/character.model';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-
-  
 
   constructor(private _characterService: CharacterService){}
 
