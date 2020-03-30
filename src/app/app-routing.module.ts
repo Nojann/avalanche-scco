@@ -5,13 +5,14 @@ import { VideoPrimingComponent } from './components/video-priming/video-priming.
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthGuardService } from './services/auth-guard.service';
-
+import { GameComponent } from './components/game/game.component';
 
 const routes: Routes = [
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
   { path: 'editor', canActivate: [AuthGuardService], component: EditorComponent },
   { path: 'priming', component: VideoPrimingComponent },
+  { path: 'game', component: GameComponent}
 ];
 
 @NgModule({

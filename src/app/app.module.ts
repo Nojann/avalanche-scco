@@ -10,8 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { SceneryComponent } from './components/editor/scenery/scenery.component';
-import { CharactersComponent } from './components/editor/characters/characters.component';
+import { SceneryComponent } from './components/scenery/scenery.component';
+import { CharactersComponent } from './components/scenery/characters/characters.component';
 import { SceneryEditorComponent } from './components/editor/scenery-editor/scenery-editor.component';
 import { CharacterService } from './services/character.service';
 import { VideoPrimingComponent } from './components/video-priming/video-priming.component';
@@ -21,6 +21,10 @@ import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthService } from './services/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { GameComponent } from './components/game/game.component';
+import { CharacterFeaturesComponent } from './components/game/character-features/character-features.component';
+import { RiskPerceptionComponent } from './components/game/risk-perception/risk-perception.component';
+import { DialogComponent } from './components/game/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,10 @@ import { AuthGuardService } from './services/auth-guard.service';
     SignupComponent,
     SigninComponent,
     HeaderComponent,
+    GameComponent,
+    CharacterFeaturesComponent,
+    RiskPerceptionComponent,
+    DialogComponent,
     
   ],
   imports: [

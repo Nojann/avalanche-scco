@@ -11,7 +11,7 @@
           <a class="nav-link" routerLink="/priming" routerLinkActive="active">Video priming</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Game</a>
+          <a class="nav-link" routerLink="/game" routerLinkActive="active">Game</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/editor" routerLinkActive="active">Scenery editor</a>
@@ -22,7 +22,7 @@
         <ul class="navbar-nav">
           <!--<li routerLinkActive="active" *ngIf="!isAuth">
             <a routerLink="auth/signup">Sign up</a>
-          </li> -->
+          </li>-->
           <li routerLinkActive="active" *ngIf="!isAuth">
             <a routerLink="auth/signin">
               <button type="button" class="btn btn-outline-primary ">Sign in</button>
