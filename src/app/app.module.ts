@@ -25,6 +25,8 @@ import { GameComponent } from './components/game/game.component';
 import { CharacterFeaturesComponent } from './components/game/character-features/character-features.component';
 import { RiskPerceptionComponent } from './components/game/risk-perception/risk-perception.component';
 import { DialogComponent } from './components/game/dialog/dialog.component';
+import { CharacterEditorComponent } from './components/editor/character-editor/character-editor.component';
+import { DisplayDataComponent } from './components/editor/display-data/display-data.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { DialogComponent } from './components/game/dialog/dialog.component';
     CharacterFeaturesComponent,
     RiskPerceptionComponent,
     DialogComponent,
+    CharacterEditorComponent,
+    DisplayDataComponent,
     
   ],
   imports: [

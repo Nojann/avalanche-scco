@@ -1,0 +1,29 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">Current Data</div>
+            <div class="col">
+                <button class="btn btn-secondary" (click)="getScenery()" >Refresh</button>
+            </div>
+        </div>  
+    </div>
+    <div class="card-body" *ngIf="getScenery()">
+        <ul class="list-group" >
+
+            <li class="list-group-item list-group-item-primary"> Scenery ID : {{getScenery().id}}</li>
+            <li class="list-group-item">background : {{getScenery().background}}</li>
+            <li class="list-group-item">dialog1 : {{getScenery().dialog[1]}}</li>
+            <li class="list-group-item">dialog2 : {{getScenery().dialog[2]}}</li>
+        </ul>
+        <div *ngFor="let character of getScenery().characters">
+            <ul class="list-group p-1" *ngIf="character">
+                <li class="list-group-item list-group-item-secondary"> Character ID : {{character.id}}</li>
+                <li class="list-group-item"> imageName : {{character.imageName}}</li>
+                <li class="list-group-item"> positionTop : {{character.positionTop}}</li>
+                <li class="list-group-item"> positionLeft : {{character.positionLeft}}</li>
+                <li class="list-group-item"> width : {{character.width}}</li> 
+            </ul>
+        </div>
+          
+    </div>
+</div>

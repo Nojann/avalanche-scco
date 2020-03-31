@@ -2,7 +2,6 @@ import { Injectable, OnInit } from '@angular/core';
 import { Character } from '../models/character.model';
 import { Observable, of } from 'rxjs';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as firebase from 'firebase';
 
 @Injectable({
@@ -13,8 +12,10 @@ export class CharacterService implements OnInit {
 
   characters : Character[];
   currentId : number = 1;
+  private pathCharacters : string = '/';
+  private pathCharactersChild : string = '/characters/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.getCharactersFromServer();
@@ -22,9 +23,9 @@ export class CharacterService implements OnInit {
 
   getCharactersFromServer() : void {
 
-    var ref = firebase.database().ref('/');
+    var ref = firebase.database().ref(this.pathCharactersChild);
 
-    ref.on("child_added", (data) =>
+    ref.on("value", (data) =>
         this.characters=(<Character[]>data.val()),
         (Error) => console.log("error : ",Error)
     );
@@ -32,6 +33,10 @@ export class CharacterService implements OnInit {
 
   getCharacters() : Observable<Character[]> {
     return of(this.characters);
+  }
+
+  getCharactersArray() : Character[] {
+    return this.characters;
   }
 
   saveCharactersToServer() : void {
@@ -44,13 +49,11 @@ export class CharacterService implements OnInit {
         width: 23 
       }*/
 
-      firebase.database().ref('/characters/'+this.currentId).set(this.characters[this.currentId]);
-      //firebase.database().ref(`/characters/${this.currentId}`).set(this.characters[this.currentId]);
+      firebase.database().ref(this.pathCharactersChild+this.currentId).set(this.characters[this.currentId]);
   }
 
   setCurrentId(id:number) : void{
     this.currentId = id;
-    console.log("Current Id : "+this.currentId);
   }
   
   setPositionTop(positionTopIncrement: number) :void{

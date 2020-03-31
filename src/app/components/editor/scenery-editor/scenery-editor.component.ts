@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { Character } from '../../../models/character.model';
-import { CharacterService } from '../../../services/character.service'
+import { SceneryService } from '../../../services/scenery.service'
 
 @Component({
   selector: 'app-scenery-editor',
@@ -9,9 +7,8 @@ import { CharacterService } from '../../../services/character.service'
   styleUrls: ['./scenery-editor.component.scss']
 })
 export class SceneryEditorComponent implements OnInit {
-  @Input() character:Character;
 
-  constructor(private _characterService: CharacterService) { 
+  constructor(private _sceneryService: SceneryService) { 
 
   }
 
@@ -19,45 +16,16 @@ export class SceneryEditorComponent implements OnInit {
 
   }
 
-  positionTopUp() : void {
-    this._characterService.setPositionTop(1);
+  idChange(id: number) : void {
+    this._sceneryService.setCurrentId(id);
   }
 
-  positionTopDown() : void {
-    this._characterService.setPositionTop(-1);
-  }
-  
-  positionLeftLeft() : void {
-    this._characterService.setPositionLeft(1);
+  imageNameChange(imageName : string) : void { 
+    this._sceneryService.setBackground(imageName);
   }
 
-  positionLeftRight() : void {
-    this._characterService.setPositionLeft(-1);
-  }
-
-  widthUp() : void {
-    this._characterService.setWidth(-1);
-  }
-
-  widthDown() : void {
-    this._characterService.setWidth(1);
-  }
-
-  imageNameChange(imageName : string) :void{
-    this._characterService.setImageName(imageName);
-  }
-
-  idChange(id: number){
-    console.log("id Change: "+id);
-    this._characterService.setCurrentId(id);
-  }
-
-  save() : void {
-    this._characterService.saveCharactersToServer();
-  }
-
-  charge() : void {
-    this._characterService.getCharactersFromServer();
+  dialogChange(dialogID : number, dialog : string) : void {
+    this._sceneryService.setDialog(dialogID, dialog);
   }
 
 }

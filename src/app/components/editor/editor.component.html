@@ -1,13 +1,27 @@
-<div class="w-100 m-0 mx-auto">
-    <div class="row">
-      <div class="col-fluid">
-        Col
+<div class="container-fluid">
+    <div class="row m-2">
+      <div class="col-fluid m-3">
+        <div class="row">
+          <app-display-data></app-display-data>
+        </div>
       </div>
-      <div class="col-xl">
-          <app-scenery></app-scenery>
+      <div class="col-fluid m-3">
+        <app-scenery></app-scenery>
       </div>
-      <div class="col-fluid">
-        <app-scenery-editor></app-scenery-editor>
+      <div class="col-fluid m-3">
+        <div class="row">
+          <app-scenery-editor></app-scenery-editor>
+        </div>
+        <div class="row">    
+          <app-character-editor></app-character-editor>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card bg-light mb-3 mx-auto" style="max-width: 18rem;">
+                <button type="button" class="btn btn-outline-primary " (click)="save()">Save</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

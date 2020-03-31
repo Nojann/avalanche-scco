@@ -1,0 +1,79 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">Characters editor</div>
+
+    <div class="card-body">
+
+      <div class="container">
+
+        <!--<div class="row mx-auto mt-3">
+          <select class="form-control" id="FormControlSelect1" (change)="idChange(selected)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div> -->
+
+        <div class="row mx-auto mt-3">
+          <form (submit)="idChange(id.value)">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+              </div>
+              <input #id type="text" class="form-control">
+            </div>
+          </form>
+        </div>
+
+        <div class="row mx-auto mt-3">
+          <form (submit)="imageNameChange(imageName.value)">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">ImageName</span>
+              </div>
+              <input #imageName type="text" class="form-control">
+            </div>
+          </form>
+        </div>
+
+        <div class="row mx-auto mt-3">
+          <div class="mx-auto">
+            <button type="button" class="btn btn-outline-secondary" id="LeftPosition" (click)="positionLeftLeft()">
+              <img src="assets/images/icons/keyboard_arrow_left-24px.svg" class="img-fluid" alt="Up">
+            </button>
+          
+            <div class="btn-group-vertical" role="group" aria-label="Vertical position">
+              <button type="button" class="btn btn-outline-secondary" id="TopPosition" (click)="positionTopUp()">
+                  <img src="assets/images/icons/keyboard_arrow_up-24px.svg" class="img-fluid" alt="Up">
+              </button>
+              <button type="button" class="btn btn-outline-secondary" id="TopPosition" (click)="positionTopDown()">
+                  <img src="assets/images/icons/keyboard_arrow_down-24px.svg" class="img-fluid" alt="Down">
+              </button>
+            </div>
+          
+            <button type="button" class="btn btn-outline-secondary" id="LeftPosition" (click)="positionLeftRight()">
+              <img src="assets/images/icons/keyboard_arrow_right-24px.svg" class="img-fluid" alt="Down">
+            </button>
+        </div>
+        </div>
+        
+        
+          <div class="row mx-auto mt-3">
+            <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-secondary" (click)="widthUp()">
+                <img src="assets/images/icons/zoom_in-24px.svg" class="img-fluid" alt="zoom_in">
+              </button>
+              <button type="button" class="btn btn-outline-secondary" (click)="widthDown()">
+                <img src="assets/images/icons/zoom_out-24px.svg" class="img-fluid" alt="zoom_out">
+              </button>
+            </div>
+          </div>
+          
+          <!-- <div class="row mx-auto mt-4">
+            <div class="col">
+              <button type="button" class="btn float-right btn-outline-primary " (click)="save()">Save</button>
+          </div>
+      </div> -->
+    </div> 
+  </div>
+

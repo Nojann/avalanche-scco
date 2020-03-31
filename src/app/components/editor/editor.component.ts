@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../../services/character.service';
+import { SceneryService } from '../../services/scenery.service'
+
 
 @Component({
   selector: 'app-editor',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _characterService: CharacterService, private _sceneryService: SceneryService) { }
 
   ngOnInit(): void {
+    this._sceneryService.ngOnInit();
+  }
+
+  save() : void {
+    this._sceneryService.saveSceneryToServer(
+      this._characterService.getCharactersArray());
   }
 
 }

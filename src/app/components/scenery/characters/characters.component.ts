@@ -22,7 +22,7 @@ export class CharactersComponent implements OnInit {
       subscribe(
         (characters) => characters ?
           positionTop = characters[id].positionTop
-          : console.log("Waiting characters.positionTop") 
+          : console.log("Waiting characters") 
         );
     
     return positionTop;
@@ -33,7 +33,7 @@ export class CharactersComponent implements OnInit {
       this._characterService.getCharacters().
         subscribe(characters => characters ?
           positionLeft = characters[id].positionLeft
-          : console.log("Waiting characters.positionLeft")    
+          : console.log(".")    
         );
 
     return positionLeft;
@@ -44,7 +44,7 @@ export class CharactersComponent implements OnInit {
       this._characterService.getCharacters().
       subscribe(characters => characters ?
         imageName = characters[id].imageName
-        : console.log("Waiting characters.imageName")
+        : console.log(".")
       );
     return imageName;
   }
@@ -54,7 +54,7 @@ export class CharactersComponent implements OnInit {
       this._characterService.getCharacters().
       subscribe(characters => characters ?
         width = characters[id].width
-        : console.log("Waiting characters.width")
+        : console.log(".")
       );
 
     return width;
