@@ -1,6 +1,16 @@
-<div class="card">
-    <img src="assets/images/scenery/background/background01.png" class="img" alt="scenary">
-    <app-characters></app-characters>
+<div class="container-fluid p-0">
+    <div class="card" *ngIf="getScenery()">
+        <img src="assets/images/scenery/background/{{getScenery().background}}" class="img" alt="scenery">
+    
+        <div *ngFor="let character of getScenery().characters">
+            <img *ngIf="character" src="assets/images/scenery/skiers/{{character.imageName}}"
+            class="character img-fluid" 
+            alt="character" 
+            [ngStyle]="{'top.%': character.positionTop, 
+                        'left.%': character.positionLeft,
+                        'width.%': character.width}">
+        </div>
+    </div>
 </div>
   
 

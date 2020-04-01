@@ -7,11 +7,11 @@ import {CharacterService} from '../../../services/character.service';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent {
 
   constructor(private _characterService: CharacterService){}
 
-  ngOnInit(): void { 
+  /*ngOnInit(): void { 
     this._characterService.ngOnInit();
   }
 
@@ -58,6 +58,6 @@ export class CharactersComponent implements OnInit {
       );
 
     return width;
-  }
+  }*/
 
 }

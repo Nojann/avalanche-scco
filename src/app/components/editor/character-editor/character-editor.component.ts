@@ -16,7 +16,7 @@ export class CharacterEditorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this._characterService.ngOnInit();
   }
 
   positionTopUp() : void {
@@ -50,14 +50,6 @@ export class CharacterEditorComponent implements OnInit {
   idChange(id: number){
     console.log("id Change: "+id);
     this._characterService.setCurrentId(id);
-  }
-
-  save() : void {
-    this._characterService.saveCharactersToServer();
-  }
-
-  charge() : void {
-    this._characterService.getCharactersFromServer();
   }
 
 }

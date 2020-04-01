@@ -42,17 +42,19 @@
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dialog 1</label>
                 <textarea #dialog1 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <button type="submit" class="btn btn-outline-primary float-right">Submit</button>
               </div>
             </div>
           </form>
         </div>
 
         <div class="row mx-auto mt-3">
-          <form (submit)="dialogChange(2, dialog1.value)">
+          <form (submit)="dialogChange(2, dialog2.value)">
             <div class="input-group mb-3">
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dialog 2</label>
                 <textarea #dialog2 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <button type="submit" class="btn btn-outline-primary float-right">Submit</button>
               </div>
             </div>
           </form>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Scenery } from '../../../models/scenery.model';
-import { Character } from '../../../models/character.model';
 import { SceneryService } from '../../../services/scenery.service';
-import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-display-data',
@@ -18,8 +17,8 @@ export class DisplayDataComponent implements OnInit {
   }
 
   getScenery() : Scenery{
-        let sceneryDisplay;
-        let id = 1;
+        let scenery : Scenery;
+        let id : number = 1;
         
     this._sceneryService.getCurrentId().subscribe(
       (currentId) => currentId ? 
@@ -29,10 +28,10 @@ export class DisplayDataComponent implements OnInit {
         
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
-      sceneryDisplay = sceneries[id]
+      scenery = sceneries[id]
       : console.log(".")
     );
-    return sceneryDisplay;
+    return scenery;
   }
 
 }

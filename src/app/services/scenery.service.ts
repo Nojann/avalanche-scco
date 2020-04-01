@@ -34,14 +34,13 @@ export class SceneryService {
     );
   }
   
-  saveSceneryToServer(characters : Character[]) : void {
+  saveSceneryToServer() : void {
     
     if (!this.sceneries[this.currentId]){
       this.sceneries.push(this.scenery);
       console.log("scenery.service.saveSceneryToServer() : A new scenery is created : ",this.scenery);
     }
 
-    this.setCharacters(characters);
     firebase.database().ref().child('sceneries/'+this.currentId).set(this.sceneries[this.currentId]);
     
     console.log("scenery.service.saveSceneryToServer() : the current scenery is saved : ",this.scenery);

@@ -1,25 +1,27 @@
-<div class="w-100 m-0 mx-auto">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm m-2">
+        <div class="col">
             <app-dialog></app-dialog>
         </div>
-      <div class="col-fluid">
+      <div class="col-lg-8 p-0">
           <app-scenery></app-scenery>
       </div>
-      <div class="col-fluid px-md-3">
-          <div class="container">
-            <div class="row m-2">
+      <div class="col">
+          <div class="container-fluid">
+            <div class="row pb-2">
                 <app-character-features></app-character-features>
             </div>
-            <div class="row m-2">
+            <div class="row pb-2">
                 <app-risk-perception></app-risk-perception>
             </div>
             <div class="row m-2">
-                <button type="button" class="btn-lg btn-outline-primary float-right">
+                <button type="button" class="btn-lg btn-outline-primary float-right" (click)="setIndex()">
                     <img src="./assets/images/icons/skip_next-24px.svg">
                 </button>
             </div>
           </div>
       </div>
     </div> 
-  </div>
+</div>
+    
+
