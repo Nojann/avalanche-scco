@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SceneryComponent } from './components/scenery/scenery.component';
-import { CharactersComponent } from './components/scenery/characters/characters.component';
 import { SceneryEditorComponent } from './components/editor/scenery-editor/scenery-editor.component';
 import { CharacterService } from './services/character.service';
 import { VideoPrimingComponent } from './components/video-priming/video-priming.component';
@@ -21,6 +20,7 @@ import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthService } from './services/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthGuardService } from './services/auth-guard.service';
+
 import { GameComponent } from './components/game/game.component';
 import { CharacterFeaturesComponent } from './components/game/character-features/character-features.component';
 import { RiskPerceptionComponent } from './components/game/risk-perception/risk-perception.component';
@@ -28,11 +28,15 @@ import { DialogComponent } from './components/game/dialog/dialog.component';
 import { CharacterEditorComponent } from './components/editor/character-editor/character-editor.component';
 import { DisplayDataComponent } from './components/editor/display-data/display-data.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+
 @NgModule({
   declarations: [
     AppComponent,
     SceneryComponent,
-    CharactersComponent,
     SceneryEditorComponent,
     VideoPrimingComponent,
     EditorComponent,
@@ -53,7 +57,10 @@ import { DisplayDataComponent } from './components/editor/display-data/display-d
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatProgressBarModule,
   ],
   providers: [AuthService, AuthGuardService, CharacterService],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Scenery } from '../../models/scenery.model';
 import { SceneryService } from '../../services/scenery.service';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-scenery',
@@ -8,9 +9,7 @@ import { SceneryService } from '../../services/scenery.service';
   styleUrls: ['./scenery.component.scss']
 })
 export class SceneryComponent implements OnInit {
-  //@Input('index') index : number;
-
-  constructor(private _sceneryService: SceneryService) { }
+  constructor(private _sceneryService: SceneryService, private _gameService: GameService) { }
 
   ngOnInit(): void {
     setTimeout(() => this.getScenery(), 1000);
@@ -20,13 +19,11 @@ export class SceneryComponent implements OnInit {
         let scenery : Scenery;
         let id : number = 1;
     
-    //(!this.index) ?
       this._sceneryService.getCurrentId().subscribe(
         (currentId) => currentId ? 
           id = currentId.valueOf()
           : console.log("Waiting scenery...")
       )
-    //: id=this.index
       
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
@@ -37,4 +34,7 @@ export class SceneryComponent implements OnInit {
     return scenery;
   }
 
+  characterClicked() : void {
+    this._gameService.characterClicked=true;
+  }
 }

@@ -1,32 +1,24 @@
-<div class="card shadow-" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
     <div class="card-header">
         Caractéristiques
     </div>
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
-            <h6 class="card-subtitle mb-2 text-muted">Niveau Technique</h6>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            <h4 class="card-subtitle mb-2 text-muted">Niveau Technique</h4>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="60"></mat-progress-bar>
         </li>
         <li class="list-group-item">
-            <h6 class="card-subtitle mb-2 text-muted">Expérience du hors piste</h6>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            <h4 class="card-subtitle mb-2 text-muted">Expérience du hors piste</h4>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="80"></mat-progress-bar>
         </li>
         <li class="list-group-item">
-            <h6 class="card-subtitle mb-2 text-muted">Condition physique</h6>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            <h4 class="card-subtitle mb-2 text-muted">Condition physique</h4>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="30"></mat-progress-bar>
         </li>
         <li class="list-group-item">
-            <h6 class="card-subtitle mb-2 text-muted">Connaissance du lieu</h6>
-            <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            <h4 class="card-subtitle mb-2 text-muted">Connaissance du lieu</h4>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="10"></mat-progress-bar>
         </li>
       </ul>
   </div>

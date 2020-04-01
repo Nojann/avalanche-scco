@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SceneryService } from 'src/app/services/scenery.service';
 import { Scenery } from 'src/app/models/scenery.model';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-game',
@@ -9,9 +10,7 @@ import { Scenery } from 'src/app/models/scenery.model';
 })
 export class GameComponent implements OnInit {
 
-  //index : number = 1;
-
-  constructor(private _sceneryService: SceneryService) { }
+  constructor(private _sceneryService: SceneryService, private _gameService: GameService) { }
 
   ngOnInit(): void {
     this._sceneryService.ngOnInit();
@@ -37,10 +36,6 @@ export class GameComponent implements OnInit {
   return game; 
   }
 
-  /*getIndex(): number{
-    return this.index;
-  }*/
-
   setIndex() : void {
     console.log("setIndex()");
 
@@ -53,5 +48,13 @@ export class GameComponent implements OnInit {
     );
 
     this._sceneryService.setCurrentId(id);
+  }
+
+  characterClickedOff() : void {
+    this._gameService.characterClicked=false;
+  }
+
+  characterClicked() : boolean {
+    return this._gameService.characterClicked;
   }
 }
