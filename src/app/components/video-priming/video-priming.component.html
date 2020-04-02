@@ -1,7 +1,8 @@
-
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item"
-            src="http://www.youtube.com/embed/D6dEBgrQp0Q"
-            allowfullscreen>
-</iframe>
+<div>
+    <div class="alert alert-success align-middle" role="alert" *ngIf="getVideoStop()">
+        Hum.. Mauvais souvenir ! <a class="alert-link" routerLink="/game" routerLinkActive="active">Poursuivre</a>
+    </div>
+    <div class="embed-responsive embed-responsive-16by9" *ngIf="!getVideoStop()">
+        <youtube-player videoId="D6dEBgrQp0Q" [endSeconds]="292" (stateChange)="setVideoStop($event.data)"></youtube-player>
+    </div>
 </div>

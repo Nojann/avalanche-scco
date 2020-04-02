@@ -6,13 +6,16 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { GameComponent } from './components/game/game.component';
+import { HomeComponent } from './components/home/home.component';
+
 
 const routes: Routes = [
-  { path: 'auth/signup', component: SignupComponent },
+  { path: 'auth/signup', canActivate: [AuthGuardService], component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
-  { path: 'editor', canActivate: [AuthGuardService], component: EditorComponent },
+  { path: 'editor', component: EditorComponent },
   { path: 'priming', component: VideoPrimingComponent },
-  { path: 'game', component: GameComponent}
+  { path: 'game', component: GameComponent},
+  { path: '', component: HomeComponent}
 ];
 
 @NgModule({

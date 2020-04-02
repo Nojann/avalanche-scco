@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '../../services/character.service';
 import { SceneryService } from '../../services/scenery.service'
+import { AuthGuardService } from '../../services/auth-guard.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-editor',
@@ -9,16 +10,29 @@ import { SceneryService } from '../../services/scenery.service'
 })
 export class EditorComponent implements OnInit {
 
-  constructor(private _characterService: CharacterService, private _sceneryService: SceneryService) { }
+  isAuth: boolean;
+
+  constructor(private _sceneryService: SceneryService, private _authGuardService: AuthGuardService) { }
 
   ngOnInit(): void {
     this._sceneryService.ngOnInit();
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if(user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
   }
 
   save() : void {
     this._sceneryService.saveSceneryToServer();
-    /*this._sceneryService.saveSceneryToServer(
-      this._characterService.getCharactersArray());*/
+  }
+
+  getIsAuth(){
+    return this.isAuth;
   }
 
 }

@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col">
+            <div class="alert alert-success" role="alert">
+                <h2 class="alert-heading"> Avalanche Risk est une expérience interactive.</h2>
+                <hr>
+                <p>
+                    Ce petit jeu de type "Point and click" est conçu pour mesurer comment un skieur perçoit le risque d'avalanche. 
+                </p>
+                <hr>
+                <p class="text-justify">
+                    Il est temps de commencer. Voilà une belle journée ensoleillée ! Tu as pris un peu d'avance sur tes coéquipiers.
+                    Tiens ! Ce paysage te rappelle un souvenir, une sortie de ski particulière...
+                </p>
+            </div>
+        </div>
+      <div class="col-lg-8 p-0">
+        <div class="container-fluid p-0">
+            <div class="card">
+                <img src="assets/images/scenery/background/background01.png" class="img" alt="scenery">
+            </div>
+        </div>
+      </div>
+      <div class="col">
+          <div class="container-fluid">
+            <div class="row pb-2" >
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Informations
+                    </div>
+                
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h4 class="card-subtitle mb-2 text-muted">Météo</h4>
+                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="100"></mat-progress-bar>
+                        </li>
+                        <li class="list-group-item">
+                            <h4 class="card-subtitle mb-2 text-muted">Qualité de la neige</h4>
+                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="70"></mat-progress-bar>
+                        </li>
+                        <li class="list-group-item">
+                            <h4 class="card-subtitle mb-2 text-muted">Température</h4>
+                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="10"></mat-progress-bar>
+                        </li>
+                      </ul>
+                  </div>
+            </div>
+            <div class="row pb-2">
+                <app-risk-perception></app-risk-perception>
+            </div>
+            <div class="row pb-2">
+                <div class="col">
+                    <button type="button" class="btn btn-outline-success float-right">
+                        <a routerLink="/priming" routerLinkActive="active">Accéder au souvenir</a>
+                    </button>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div> 
+</div>

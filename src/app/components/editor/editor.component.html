@@ -17,7 +17,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="card bg-light mb-3 mx-auto" style="max-width: 18rem;">
+            <div class="card bg-light mb-3 mx-auto" style="max-width: 18rem;" *ngIf="getIsAuth()">
                 <button type="button" class="btn btn-outline-primary " (click)="save()">Save</button>
             </div>
           </div>

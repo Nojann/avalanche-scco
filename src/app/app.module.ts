@@ -31,7 +31,11 @@ import { DisplayDataComponent } from './components/editor/display-data/display-d
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSliderModule } from '@angular/material/slider';
-import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +53,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     DialogComponent,
     CharacterEditorComponent,
     DisplayDataComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -61,6 +66,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     BrowserAnimationsModule,
     MatSliderModule,
     MatProgressBarModule,
+    YouTubePlayerModule,
   ],
   providers: [AuthService, AuthGuardService, CharacterService],
   bootstrap: [AppComponent]

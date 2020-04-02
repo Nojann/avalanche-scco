@@ -6,19 +6,19 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <h4 class="card-subtitle mb-2 text-muted">Niveau Technique</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="60"></mat-progress-bar>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(0)"></mat-progress-bar>
         </li>
         <li class="list-group-item">
             <h4 class="card-subtitle mb-2 text-muted">Expérience du hors piste</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="80"></mat-progress-bar>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(1)"></mat-progress-bar>
         </li>
         <li class="list-group-item">
             <h4 class="card-subtitle mb-2 text-muted">Condition physique</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="30"></mat-progress-bar>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(2)"></mat-progress-bar>
         </li>
         <li class="list-group-item">
             <h4 class="card-subtitle mb-2 text-muted">Connaissance du lieu</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="10"></mat-progress-bar>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(3)"></mat-progress-bar>
         </li>
       </ul>
   </div>
