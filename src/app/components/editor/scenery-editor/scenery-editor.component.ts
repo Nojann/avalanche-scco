@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SceneryService } from '../../../services/scenery.service'
+import { SceneryService } from '../../../services/scenery.service';
+
+/**
+ * Scenery Editor Component allow to edit Scenery data.
+ * The type of Scenery data is {@link Scenery}
+ */
 
 @Component({
   selector: 'app-scenery-editor',
@@ -8,7 +13,7 @@ import { SceneryService } from '../../../services/scenery.service'
 })
 export class SceneryEditorComponent implements OnInit {
 
-  constructor(private _sceneryService: SceneryService) { 
+  constructor(private _sceneryService: SceneryService) {
 
   }
 
@@ -16,15 +21,15 @@ export class SceneryEditorComponent implements OnInit {
 
   }
 
-  idChange(id: number) : void {
+  idChange(id: number): void {
     this._sceneryService.setCurrentId(id);
   }
 
-  imageNameChange(imageName : string) : void { 
+  imageNameChange(imageName: string): void {
     this._sceneryService.setBackground(imageName);
   }
 
-  dialogChange(dialogID : number, dialog : string) : void {
+  dialogChange(dialogID: number, dialog: string): void {
     this._sceneryService.setDialog(dialogID, dialog);
   }
 

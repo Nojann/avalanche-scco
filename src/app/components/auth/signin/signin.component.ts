@@ -3,6 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
+/**
+ * Sign in component
+ * 
+ * TODO : to integrate to the Admin panel
+ */
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -31,7 +37,6 @@ export class SigninComponent implements OnInit {
   onSubmit() {
     const email = this.signinForm.get('email').value;
     const password = this.signinForm.get('password').value;
-    
     this.authService.signInUser(email, password).then(
       () => {
         this.router.navigate(['/editor']);

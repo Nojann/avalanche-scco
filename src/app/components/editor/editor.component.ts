@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { SceneryService } from '../../services/scenery.service'
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { SceneryService } from '../../services/scenery.service';
 import * as firebase from 'firebase';
+
+/**
+ * Editor Component contains differents components :
+ * 
+ * {@link CharacterEditor}, {@link SceneryEditor}: to edit data,
+ * 
+ * {@link DisplayData}: to display data,
+ * 
+ * {@link Scenery}: to render image with data configuration.
+ */
 
 @Component({
   selector: 'app-editor',
@@ -12,13 +21,14 @@ export class EditorComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private _sceneryService: SceneryService, private _authGuardService: AuthGuardService) { }
+  constructor(private _sceneryService: SceneryService) { }
 
   ngOnInit(): void {
     this._sceneryService.ngOnInit();
+
     firebase.auth().onAuthStateChanged(
       (user) => {
-        if(user) {
+        if (user) {
           this.isAuth = true;
         } else {
           this.isAuth = false;
@@ -27,11 +37,14 @@ export class EditorComponent implements OnInit {
     );
   }
 
-  save() : void {
+  save(): void {
     this._sceneryService.saveSceneryToServer();
   }
 
-  getIsAuth(){
+  /**
+   * getIsAuth() is used to display or not the save button.
+   */
+  getIsAuth() {
     return this.isAuth;
   }
 

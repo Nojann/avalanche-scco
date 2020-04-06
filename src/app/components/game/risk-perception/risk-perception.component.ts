@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Slider allowing to measure a participant risk perception.
+ */
+
 @Component({
   selector: 'app-risk-perception',
   templateUrl: './risk-perception.component.html',

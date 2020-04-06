@@ -1,5 +1,5 @@
 export interface Character {
-  id:number;
+  id: number;
   imageName: string;
   positionTop: number;
   positionLeft: number;

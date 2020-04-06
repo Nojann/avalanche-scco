@@ -3,6 +3,16 @@ import { SceneryService } from 'src/app/services/scenery.service';
 import { Scenery } from 'src/app/models/scenery.model';
 import { GameService } from 'src/app/services/game.service';
 
+/**
+ * Game Component contains:
+ *
+ * {@link SceneryComponent}, {@link CharacterFeaturesComponent}, {@link Dialog}: to display game's information,
+ *
+ * {@link RiskPerceptionComponent}: to get user behaviour,
+ *
+ * internal methods to interact with user.
+ */
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -17,44 +27,47 @@ export class GameComponent implements OnInit {
     setTimeout(() => this.getGame(), 100);
   }
 
-  getGame() : Scenery{
-    let game : Scenery;
-    let id : number = 1;
-    
+  getGame(): Scenery {
+    let game: Scenery;
+    let id: number = 1;
+
     this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ? 
+      (currentId) => currentId ?
       id = currentId.valueOf()
-      : console.log("Waiting game...")
+      : console.log('Waiting game...')
     );
-    
+
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
       game = sceneries[id]
-      : console.log(".")
+      : console.log('.')
     );
 
-  return game; 
+    return game;
   }
 
-  setIndex() : void {
-    console.log("setIndex()");
+  setIndex(): void {
+    console.log('setIndex()');
 
-    let id : number = 1;
+    let id: number = 1;
 
     this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ? 
+      (currentId) => currentId ?
       id = currentId.valueOf()+1
-      : console.log("Waiting scenery...")
+      : console.log('Waiting scenery...')
     );
 
     this._sceneryService.setCurrentId(id);
   }
 
-  characterClickedOff() : void {
-    this._gameService.characterClicked=false;
+  characterClickedOff(): void {
+    this._gameService.characterClicked = false;
   }
 
-  characterClicked() : boolean {
+  /**
+   * Is used to display or not the {@link CharacterFeaturesComponent}, {@link RiskPerceptionComponent}.
+   */
+  characterClicked(): boolean {
     return this._gameService.characterClicked;
   }
 }

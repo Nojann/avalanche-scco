@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     firebase.auth().onAuthStateChanged(
       (user) => {
-        if(user) {
+        if (user) {
           this.isAuth = true;
         } else {
           this.isAuth = false;
@@ -28,5 +28,4 @@ export class HeaderComponent implements OnInit {
   onSignOut() {
     this.authService.signOutUser();
   }
-
 }

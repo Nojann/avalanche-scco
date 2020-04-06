@@ -3,15 +3,22 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Character } from '../../../models/character.model';
 import { CharacterService } from '../../../services/character.service';
 
+/**
+ * Editor Character Component allows to edit Character data.
+ * The type of character data is {@link Character}
+ * 
+ * {@link Character} is included in {@link Scenery}
+ */
+
 @Component({
   selector: 'app-character-editor',
   templateUrl: './character-editor.component.html',
   styleUrls: ['./character-editor.component.scss']
 })
 export class CharacterEditorComponent implements OnInit {
-  @Input() character:Character;
+  @Input() character: Character;
 
-  constructor(private _characterService: CharacterService) { 
+  constructor(private _characterService: CharacterService) {
 
   }
 
@@ -19,36 +26,36 @@ export class CharacterEditorComponent implements OnInit {
     this._characterService.ngOnInit();
   }
 
-  positionTopUp() : void {
+  positionTopUp(): void {
     this._characterService.setPositionTop(1);
   }
 
-  positionTopDown() : void {
+  positionTopDown(): void {
     this._characterService.setPositionTop(-1);
   }
-  
-  positionLeftLeft() : void {
+
+  positionLeftLeft(): void {
     this._characterService.setPositionLeft(1);
   }
 
-  positionLeftRight() : void {
+  positionLeftRight(): void {
     this._characterService.setPositionLeft(-1);
   }
 
-  widthUp() : void {
+  widthUp(): void {
     this._characterService.setWidth(-1);
   }
 
-  widthDown() : void {
+  widthDown(): void {
     this._characterService.setWidth(1);
   }
 
-  imageNameChange(imageName : string) :void{
+  imageNameChange(imageName: string): void{
     this._characterService.setImageName(imageName);
   }
 
   idChange(id: number){
-    console.log("id Change: "+id);
+    console.log('id Change: ' + id);
     this._characterService.setCurrentId(id);
   }
 

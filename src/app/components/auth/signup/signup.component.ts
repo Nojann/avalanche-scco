@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
+/**
+ * Sign up Component
+ * 
+ * TODO : to design a box
+ */
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +37,6 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
-    
     this.authService.createNewUser(email, password).then(
       () => {
         this.router.navigate(['/editor']);

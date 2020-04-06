@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Display features discribing a character.
+ * 
+ * Features are randomly generated.
+ */
+
 @Component({
   selector: 'app-character-features',
   templateUrl: './character-features.component.html',
@@ -7,8 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterFeaturesComponent implements OnInit {
 
-  randomValue : number[] = [0,0,0,0];
-  
+  randomValue: number[] = [0, 0, 0, 0];
   constructor() { }
 
   ngOnInit(): void {
@@ -23,11 +28,11 @@ export class CharacterFeaturesComponent implements OnInit {
    this.randomValue[3] = this.random();
   }
 
-  random() : number {
+  random(): number {
     return Math.floor(Math.random() * Math.floor(100));
   }
 
-  getRandomValue(id : number) : number {
+  getRandomValue(id: number): number {
     return this.randomValue[id];
   }
 

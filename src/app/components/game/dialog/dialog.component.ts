@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Scenery } from 'src/app/models/scenery.model';
 import { SceneryService } from 'src/app/services/scenery.service';
+
+/**
+ * Display dialogs contained in a {@link Scenery}.
+ */
 
 @Component({
   selector: 'app-dialog',
@@ -14,23 +17,23 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getDialog() : String[]{
-    let dialog : String[];
-    let id : number = 1;
-    
+  getDialog(): string[] {
+    let dialog: string[];
+    let id: number = 1;
+
     this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ? 
+      (currentId) => currentId ?
       id = currentId.valueOf()
-      : console.log("Waiting scenery...")
+      : console.log('Waiting scenery...')
     );
-    
+
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
       dialog = sceneries[id].dialog
-      : console.log(".")
+      : console.log('.')
     );
 
-  return dialog; 
+    return dialog;
   }
 
 }

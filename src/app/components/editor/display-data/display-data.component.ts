@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Scenery } from '../../../models/scenery.model';
 import { SceneryService } from '../../../services/scenery.service';
 
+/**
+ * Display Data Component allow an user's feedback in editor.
+ * 
+ * The feedback is about {@link CharacterEditor} and {@link SceneryEditor}.
+ */
 
 @Component({
   selector: 'app-display-data',
@@ -16,22 +21,22 @@ export class DisplayDataComponent implements OnInit {
     setTimeout(() => this.getScenery(), 1000);
   }
 
-  getScenery() : Scenery{
-        let scenery : Scenery;
-        let id : number = 1;
-        
-    this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ? 
+  getScenery(): Scenery {
+        let scenery: Scenery;
+        let id: number = 1;
+
+        this._sceneryService.getCurrentId().subscribe(
+      (currentId) => currentId ?
         id = currentId.valueOf()
-        : console.log("Waiting scenery...")
+        : console.log('Waiting scenery...')
     );
-        
-    this._sceneryService.getSceneries().subscribe(
+
+        this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
       scenery = sceneries[id]
-      : console.log(".")
+      : console.log('.')
     );
-    return scenery;
+        return scenery;
   }
 
 }

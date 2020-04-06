@@ -5,17 +5,20 @@ import { Observable, of } from 'rxjs';
 
 import * as firebase from 'firebase';
 
+/**
+ * Scenery Service manage {@link Scenery} data.
+ */
+
 @Injectable({
   providedIn: 'root'
 })
 export class SceneryService {
 
-  scenery : Scenery;
+  scenery: Scenery;
 
-  sceneries : Scenery[];
-  currentId : number = 1;
-  private pathSceneries : string = '/';
-  private pathSceneriesChild : string = '/sceneries/';
+  sceneries: Scenery[];
+  currentId: number = 1;
+  private pathSceneriesChild: string = '/sceneries/';
 
   constructor() { }
 
@@ -23,51 +26,50 @@ export class SceneryService {
     this.getSceneriesFromServer();
   }
 
-  getSceneriesFromServer() : void {
-    var ref = firebase.database().ref(this.pathSceneriesChild);
+  getSceneriesFromServer(): void {
+    const ref = firebase.database().ref(this.pathSceneriesChild);
 
-    ref.on("value", (data) =>
-        {this.sceneries=(<Scenery[]>data.val());
-        this.scenery=this.sceneries[this.currentId];
+    ref.on('value', (data) => {this.sceneries = ( data.val() as Scenery[]);
+                               this.scenery = this.sceneries[this.currentId];
         },
-        (Error) => console.log("error : ",Error)
+        (Error) => console.log('error : ', Error)
     );
   }
-  
-  saveSceneryToServer() : void {
-    
-    if (!this.sceneries[this.currentId]){
+
+  saveSceneryToServer(): void {
+
+    if (!this.sceneries[this.currentId]) {
       this.sceneries.push(this.scenery);
-      console.log("scenery.service.saveSceneryToServer() : A new scenery is created : ",this.scenery);
+      console.log('scenery.service.saveSceneryToServer() : A new scenery is created : ', this.scenery);
     }
 
-    firebase.database().ref().child('sceneries/'+this.currentId).set(this.sceneries[this.currentId]);
-    
-    console.log("scenery.service.saveSceneryToServer() : the current scenery is saved : ",this.scenery);
+    firebase.database().ref().child('sceneries/' + this.currentId).set(this.sceneries[this.currentId]);
+
+    console.log('scenery.service.saveSceneryToServer() : the current scenery is saved : ', this.scenery);
   }
 
-  setCurrentId(id:number) : void {
+  setCurrentId(id: number): void {
     this.currentId = id;
-    this.sceneries[this.currentId].id=this.currentId;
+    this.sceneries[this.currentId].id = this.currentId;
   }
 
-  private setCharacters(characters : Character[]) : void {
+  private setCharacters(characters: Character[]): void {
     this.sceneries[this.currentId].characters = characters;
   }
 
-  setBackground(imageName: string) : void {
+  setBackground(imageName: string): void {
     this.sceneries[this.currentId].background = imageName;
   }
 
-  setDialog(dialogId : number, dialog : string) : void {
+  setDialog(dialogId: number, dialog: string): void {
     this.sceneries[this.currentId].dialog[dialogId] = dialog;
   }
 
-  getCurrentId() : Observable<Number> {
+  getCurrentId(): Observable<number> {
     return of(this.currentId);
   }
 
-  getSceneries() : Observable<Scenery[]> {
+  getSceneries(): Observable<Scenery[]> {
     return of(this.sceneries);
   }
 
