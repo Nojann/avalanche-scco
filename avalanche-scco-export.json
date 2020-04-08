@@ -1,0 +1,177 @@
+{
+  "sceneries" : [ {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 8,
+      "positionTop" : 39,
+      "width" : 16
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 65,
+      "positionTop" : 73,
+      "width" : 0
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 43,
+      "positionTop" : 62,
+      "width" : 0
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 23,
+      "positionTop" : 50,
+      "width" : 0
+    } ],
+    "dialog" : [ "Welcome", "Maintenant à toi de jouer !", "Commence par prendre connaissance des habiletés des membres de ton groupe. Pour cela clique sur la personne qui apparaît. Ensuite évalue la confiance que tu lui attribues grâce au curseur à droite." ],
+    "id" : 0
+  }, {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 8,
+      "positionTop" : 39,
+      "width" : 16
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 65,
+      "positionTop" : 73,
+      "width" : 0
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 43,
+      "positionTop" : 62,
+      "width" : 0
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 23,
+      "positionTop" : 50,
+      "width" : 0
+    } ],
+    "dialog" : [ "Welcome", "Maintenant à toi de jouer !", "Commence par prendre connaissance des habiletés des membres de ton groupe. Pour cela clique sur la personne qui apparaît. Ensuite évalue la confiance que tu lui attribues grâce au curseur à droite." ],
+    "id" : 1
+  }, {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 77,
+      "positionTop" : 64,
+      "width" : 2
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 51,
+      "positionTop" : 56,
+      "width" : 21
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 43,
+      "positionTop" : 62,
+      "width" : 0
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 23,
+      "positionTop" : 50,
+      "width" : 0
+    } ],
+    "dialog" : [ "Welcome", "Voilà un nouveau coéquipier !", "Tiens le skieurs à la veste rouge se dirige vers le second couloir." ],
+    "id" : 2
+  }, {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 77,
+      "positionTop" : 64,
+      "width" : 2
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 85,
+      "positionTop" : 62,
+      "width" : 4
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 47,
+      "positionTop" : 56,
+      "width" : 18
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 23,
+      "positionTop" : 50,
+      "width" : 0
+    } ],
+    "dialog" : [ "Welcome", "Ah encore un !", "Il a l'air de regarder l'heure..." ],
+    "id" : 3
+  }, {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 77,
+      "positionTop" : 64,
+      "width" : 2
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 85,
+      "positionTop" : 62,
+      "width" : 4
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 92,
+      "positionTop" : 60,
+      "width" : 3
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 24,
+      "positionTop" : 48,
+      "width" : 23
+    } ],
+    "dialog" : [ "Welcome", "Le dernier ?", "Cette fois on est au complet." ],
+    "id" : 4
+  }, {
+    "background" : "background01.png",
+    "characters" : [ null, {
+      "id" : 1,
+      "imageName" : "skier1.png",
+      "positionLeft" : 77,
+      "positionTop" : 64,
+      "width" : 2
+    }, {
+      "id" : 2,
+      "imageName" : "skier2.png",
+      "positionLeft" : 85,
+      "positionTop" : 62,
+      "width" : 4
+    }, {
+      "id" : 3,
+      "imageName" : "skier3.png",
+      "positionLeft" : 92,
+      "positionTop" : 60,
+      "width" : 3
+    }, {
+      "id" : 4,
+      "imageName" : "skier4.png",
+      "positionLeft" : 80,
+      "positionTop" : 63,
+      "width" : 4
+    } ],
+    "dialog" : [ "Welcome", "L'aventure s'arrête ici...", " Bientôt tu pourras rejoindre tes amis !" ],
+    "id" : 5
+  } ]
+}

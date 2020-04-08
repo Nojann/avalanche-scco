@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Character } from '../../../models/character.model';
 import { CharacterService } from '../../../services/character.service';
+import { SceneryService } from 'src/app/services/scenery.service';
 
 /**
  * Editor Character Component allows to edit Character data.
@@ -18,13 +19,34 @@ import { CharacterService } from '../../../services/character.service';
 export class CharacterEditorComponent implements OnInit {
   @Input() character: Character;
 
-  constructor(private _characterService: CharacterService) {
+  constructor(private _characterService: CharacterService, private _sceneryService: SceneryService) {
 
   }
 
   ngOnInit(): void {
     this._characterService.ngOnInit();
   }
+
+  getCharacters(): Character[] {
+    let characters: Character[];
+    let id: number = 1;
+
+    this._sceneryService.getCurrentId().subscribe(
+        (currentId) => currentId ?
+          id = currentId.valueOf()
+          : console.log('Waiting id...')
+        );
+
+    this._sceneryService.getSceneries().subscribe(
+      (sceneries) => sceneries ?
+      characters = sceneries[id].characters.filter(
+        (character) => character !== undefined)
+      : console.log('.')
+      );
+
+    return characters;
+}
+
 
   positionTopUp(): void {
     this._characterService.setPositionTop(1);

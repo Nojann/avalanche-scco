@@ -5,24 +5,10 @@
 
       <div class="container">
 
-        <!--<div class="row mx-auto mt-3">
-          <select class="form-control" id="FormControlSelect1" (change)="idChange(selected)">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div> -->
-
         <div class="row mx-auto mt-3">
-          <form (submit)="idChange(id.value)">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-              </div>
-              <input #id type="text" class="form-control">
-            </div>
-          </form>
+          <select class="form-control" id="FormControlSelect1" #select (change)="idChange(select.value)">
+              <option  *ngFor="let scenery of getCharacters()" value="{{scenery.id}}">{{scenery.id}}</option>
+          </select>
         </div>
 
         <div class="row mx-auto mt-3">

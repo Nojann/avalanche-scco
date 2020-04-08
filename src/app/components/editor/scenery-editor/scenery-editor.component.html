@@ -5,25 +5,48 @@
 
       <div class="container">
 
-        <!--<div class="row mx-auto mt-3">
-          <select class="form-control" id="FormControlSelect1" (change)="idChange(selected)">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div> -->
+        <div class="row mx-auto mt-3">
+          <div class="col-fluid">
+            <span class="input-group-text">Scenery ID</span>
+          </div>
+          <div class="col-fluid">
+            <select class="form-control" id="FormControlSelect1" #select (change)="idChange(select.value)">
+              <option  *ngFor="let scenery of getSceneries()" value="{{scenery.id}}">{{scenery.id}}</option>
+            </select>
+          </div>
+
+        </div>
 
         <div class="row mx-auto mt-3">
-          <form (submit)="idChange(id.value)">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
-              </div>
-              <input #id type="text" class="form-control">
-            </div>
-          </form>
+          <div class="col-9 p-0">
+            <button type="button" class="btn btn-outline-secondary" id="AddScenery" (click)="addScenery(select.value)">
+              <img src="assets/images/icons/add-24px.svg" class="img-fluid" alt="add">
+              Add a scenery
+            </button>
+          </div>
+
+          <div class="col-3 p-0">
+            <button type="button" class="btn btn-outline-secondary float-right" id="LeftPosition" (click)="deleteScenery(select.value)">
+              <img src="assets/images/icons/clear-24px.svg" class="img-fluid" alt="skip_next">
+            </button>
+          </div>
+
+          <!-- <div class="col-3 p-1">
+            <button type="button" class="btn btn-outline-secondary" (click)="reverseElmtLeft(select.value)">
+              <img src="assets/images/icons/skip_previous-24px.svg" class="img-fluid" alt="Up">
+            </button>
+          </div> -->
+      
         </div>
+
+        <div class="row mx-auto mt-3">
+          <div class="col p-0">
+            <button type="button" class="btn btn-outline-secondary float-right" id="LeftPosition" (click)="reverseElmtRight(select.value)">
+              <img src="assets/images/icons/skip_next-24px.svg" class="img-fluid" alt="skip_next">
+            </button>
+          </div>
+        </div>
+
 
         <div class="row mx-auto mt-3">
           <form (submit)="imageNameChange(imageName.value)">
@@ -42,7 +65,7 @@
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dialog 1</label>
                 <textarea #dialog1 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <button type="submit" class="btn btn-outline-primary float-right">Submit</button>
+                <button type="submit" class="btn btn-outline-secondary float-right">Submit</button>
               </div>
             </div>
           </form>
@@ -54,7 +77,7 @@
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dialog 2</label>
                 <textarea #dialog2 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <button type="submit" class="btn btn-outline-primary float-right">Submit</button>
+                <button type="submit" class="btn btn-outline-secondary float-right">Submit</button>
               </div>
             </div>
           </form>

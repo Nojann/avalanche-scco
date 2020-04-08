@@ -38,7 +38,8 @@ export class EditorComponent implements OnInit {
   }
 
   save(): void {
-    this._sceneryService.saveSceneryToServer();
+    //this._sceneryService.saveSceneryToServer();
+    this._sceneryService.saveSceneriesToServer();
   }
 
   /**

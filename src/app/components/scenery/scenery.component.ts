@@ -21,7 +21,7 @@ export class SceneryComponent implements OnInit {
 
   getScenery(): Scenery {
         let scenery: Scenery;
-        let id: number = 1;
+        let id: number = 0;
 
         this._sceneryService.getCurrentId().subscribe(
         (currentId) => currentId ? 
