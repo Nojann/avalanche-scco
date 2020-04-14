@@ -5,10 +5,13 @@
         <div *ngFor="let character of getScenery().characters" (click)="characterClicked()">
             <img *ngIf="character" src="assets/images/scenery/skiers/{{character.imageName}}"
             class="character img-fluid" 
-            alt="character" 
-            [ngStyle]="{'top.%': character.positionTop, 
+            alt="character"
+            [ngStyle]="{
+                        'top.%': character.positionTop, 
                         'left.%': character.positionLeft,
-                        'width.%': character.width}">
+                        'width.%': character.width,
+                        'transform':'scaleX('+character.scaleX+') rotate('+character.rotate+'deg)'
+                        }">
         </div>
     </div>
 </div>

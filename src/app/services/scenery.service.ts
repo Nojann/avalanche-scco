@@ -137,29 +137,37 @@ export class SceneryService {
     return {
         background : 'background01.png',
         characters : [{
-          id : 1,
+          id : 0,
           imageName : 'skier1.png',
           positionLeft : 8,
           positionTop : 8,
-          width : 8
+          width : 8,
+          rotate: 0,
+          scaleX: 1
         }, {
-          id : 2,
+          id : 1,
           imageName : 'skier2.png',
           positionLeft : 16,
           positionTop : 16,
-          width : 8
+          width : 8,
+          rotate: 0,
+          scaleX: 1
         }, {
-          id : 3,
+          id : 2,
           imageName : 'skier3.png',
           positionLeft : 24,
           positionTop : 24,
-          width : 8
+          width : 8,
+          rotate: 0,
+          scaleX: 1
         }, {
-          id : 4,
+          id : 3,
           imageName : 'skier4.png',
           positionLeft : 32,
           positionTop : 32,
-          width : 8
+          width : 8,
+          rotate: 0,
+          scaleX: 1
         } ],
         dialog : [ 'Hello ', 'World' ],
         id

@@ -81,4 +81,16 @@ export class CharacterEditorComponent implements OnInit {
     this._characterService.setCurrentId(id);
   }
 
+  rotateLeft(): void {
+    this._characterService.setRotate(-1);
+  }
+
+  rotateRight(): void {
+    this._characterService.setRotate(1);
+  }
+
+  flip(): void {
+    this._characterService.setScaleX();
+  }
+
 }

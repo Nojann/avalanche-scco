@@ -13,7 +13,7 @@ export class CharacterService implements OnInit {
 
   characters: Character[];
   // Current id is the id selected to set and get Character data in Character[].
-  currentId: number = 1;
+  currentId: number = 0;
 
   constructor(private _sceneryService: SceneryService) {}
 
@@ -22,7 +22,7 @@ export class CharacterService implements OnInit {
   }
 
   initCharacters(): void {
-    let id: number = 1;
+    let id: number = 0;
 
     this._sceneryService.getCurrentId().subscribe(
       (currentId) => currentId ?
@@ -60,6 +60,19 @@ export class CharacterService implements OnInit {
   setWidth(widthIncrement: number): void {
     this.initCharacters();
     this.characters[this.currentId].width -= widthIncrement;
+    if (this.characters[this.currentId].width < 0) {
+      this.characters[this.currentId].width = 0;
+    }
+  }
+
+  setScaleX(): void {
+    this.initCharacters();
+    this.characters[this.currentId].scaleX = -this.characters[this.currentId].scaleX;
+  }
+
+  setRotate(rotate: number): void {
+    this.initCharacters();
+    this.characters[this.currentId].rotate += rotate;
   }
 
 }

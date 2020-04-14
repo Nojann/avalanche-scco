@@ -4,4 +4,6 @@ export interface Character {
   positionTop: number;
   positionLeft: number;
   width: number;
+  rotate: number;
+  scaleX: number;
 }
