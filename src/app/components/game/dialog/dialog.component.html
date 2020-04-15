@@ -1,7 +1,10 @@
-<div class="alert alert-success" role="alert" *ngIf="getDialog()">
-    <h2 class="alert-heading">{{getDialog()[1]}}</h2>
-    <hr>
-    <p class="text-justify">{{getDialog()[2]}}</p>
+<div class="card shadow-lg mb-5 bg-white rounded">
+    <div class="card-header"><h2>{{getDialog()[0]}}</h2></div>
+    <div class="card-body text-justify">
+        {{getDialog()[1]}}
+        <hr/>
+        {{getDialog()[2]}}
+    </div>
 </div>
 
 

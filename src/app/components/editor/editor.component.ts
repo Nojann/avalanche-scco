@@ -37,6 +37,17 @@ export class EditorComponent implements OnInit {
     );
   }
 
+  getCurrentId(): number {
+    let id: number;
+
+    this._sceneryService.getCurrentId().subscribe(
+      (currentId) => currentId ?
+      id = currentId.valueOf()
+      : console.log('Editor : Waiting id...')
+    );
+    return id;
+  }
+
   save(): void {
     //this._sceneryService.saveSceneryToServer();
     this._sceneryService.saveSceneriesToServer();

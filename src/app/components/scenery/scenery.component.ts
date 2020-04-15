@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { Scenery } from '../../models/scenery.model';
 import { SceneryService } from '../../services/scenery.service';
 import { GameService } from 'src/app/services/game.service';
@@ -13,6 +13,8 @@ import { GameService } from 'src/app/services/game.service';
   styleUrls: ['./scenery.component.scss']
 })
 export class SceneryComponent implements OnInit {
+  @Input() id: number;
+
   constructor(private _sceneryService: SceneryService, private _gameService: GameService) { }
 
   ngOnInit(): void {
@@ -21,17 +23,17 @@ export class SceneryComponent implements OnInit {
 
   getScenery(): Scenery {
         let scenery: Scenery;
-        let id: number = 0;
+        //let id: number = 0;
 
-        this._sceneryService.getCurrentId().subscribe(
+        /*this._sceneryService.getCurrentId().subscribe(
         (currentId) => currentId ? 
           id = currentId.valueOf()
           : console.log('Waiting scenery...')
-        );
+        );*/
 
         this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
-      scenery = sceneries[id]
+      scenery = sceneries[this.id]
       : console.log('.')
     );
 

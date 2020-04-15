@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">Formulaire de participation</div>
+  <div class="card-body">
+  <form > <!-- [formGroup]="options" -->
+    <div class="row p-3">
+      <mat-slide-toggle>Je souhaite participer à l'étude.</mat-slide-toggle>
+    </div>
+      <div class="row p-3">
+        <label class="col">Genre : </label>
+        <mat-radio-group class="col"> <!-- [formControl]="floatLabelControl" -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><mat-radio-button value="F">Femme</mat-radio-button></li>
+            <li class="list-group-item"><mat-radio-button value="H">Homme</mat-radio-button></li>
+            <li class="list-group-item"><mat-radio-button value="A">Autre</mat-radio-button></li>
+          </ul>
+        </mat-radio-group>
+      </div>
+    <div class="row p-3">
+          <label class="col">Age : </label>
+          <mat-slider
+              class="col"
+              thumbLabel
+              tickInterval="100"
+              min="14"
+              max="100"></mat-slider>
+    </div>
+    <div class="row p-3">
+      <div>
+          <mat-form-field>
+              <mat-label>Niveau de ski</mat-label>
+              <mat-select>
+                <mat-option value="mauvais">Mauvais</mat-option>
+                <mat-option value="intermediaire">Intermédiaire</mat-option>
+                <mat-option value="bon">Bon</mat-option>
+                <mat-option value="excellent">Excellent</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+    </div>
+    <div class="row p-3">
+      <div>
+          <mat-form-field>
+              <mat-label>Pratique le hors-piste</mat-label>
+              <mat-select>
+                <mat-option value="jamais">Jamais</mat-option>
+                <mat-option value="rarement">Rarement</mat-option>
+                <mat-option value="souvent">Souvent</mat-option>
+                <mat-option value="tresSouvent">Très souvent</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+    </div>       
+  </form>
+</div>
+</div>

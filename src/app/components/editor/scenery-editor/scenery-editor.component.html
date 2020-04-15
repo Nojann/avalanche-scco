@@ -60,10 +60,21 @@
         </div>
 
         <div class="row mx-auto mt-3">
-          <form (submit)="dialogChange(1, dialog1.value)"> 
+          <form (submit)="dialogChange(0, dialog0.value)"> 
             <div class="input-group mb-3">
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Dialog 1</label>
+                <label for="exampleFormControlTextarea1">Header dialog</label>
+                <input #dialog0 class="form-control" id="exampleFormControlTextarea1" rows="3">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="row mx-auto mt-3">
+          <form (submit)="dialogChange(1, dialog1.value)">
+            <div class="input-group mb-3">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Dialog</label>
                 <textarea #dialog1 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <button type="submit" class="btn btn-outline-secondary float-right">Submit</button>
               </div>
@@ -75,7 +86,7 @@
           <form (submit)="dialogChange(2, dialog2.value)">
             <div class="input-group mb-3">
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Dialog 2</label>
+                <label for="exampleFormControlTextarea1">Dialog</label>
                 <textarea #dialog2 class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <button type="submit" class="btn btn-outline-secondary float-right">Submit</button>
               </div>

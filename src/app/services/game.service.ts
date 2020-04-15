@@ -9,7 +9,7 @@ export class GameService {
 
   constructor() { }
 
-  set characterClicked(state :boolean){
+  set characterClicked(state: boolean){
     this._characterClicked = state;
   }
 

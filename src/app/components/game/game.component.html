@@ -1,31 +1,38 @@
 <div class="container-fluid">
-    
-
-    <!--<div class="row mt-2">
-        <div class="col">
-            <app-dialog></app-dialog>
+    <div class="row mt-2" *ngIf="getType()=='Scenery'">
+        <div class="col" *ngIf="getComponents().indexOf('dialog')!=-1">
+            <app-dialog [id]='getOption()'></app-dialog>
         </div>
-      <div class="col-lg-8 p-0">
-          <app-scenery></app-scenery>
-      </div>
-      <div class="col">
-          <div class="container-fluid " *ngIf=(characterClicked())>
-            <div class="row pb-2" >
-                <app-character-features></app-character-features>
-            </div>
-            <div class="row pb-2">
-                <app-risk-perception></app-risk-perception>
-            </div>
-            <div class="row pb-2">
-                <div class="col">
-                    <button type="button" class="btn btn-outline-success float-right" (click)="setIndex(); characterClickedOff()">
-                        Poursuivre
-                    </button>
+        <div class="col-lg-8 p-0">
+            <app-scenery [id]='getOption()'></app-scenery>
+        </div>
+        <div class="col" >
+            <div class="container-fluid">
+                <div class="row pb-2" *ngIf="getComponents().indexOf('user-form')!=-1 && characterClicked()">
+                    <app-user-form></app-user-form>
+                </div>
+                <div class="row pb-2" *ngIf="getComponents().indexOf('character-features')!=-1 && characterClicked()">
+                    <app-character-features></app-character-features>
+                </div>
+                <div class="row pb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1 && characterClicked()">
+                    <app-risk-perception></app-risk-perception>
+                </div>
+                <div  class="row pb-2" *ngIf="getComponents().indexOf('choice-task')!=-1 && characterClicked()">
+                    <app-choice-task></app-choice-task>
+                </div>
+                <div class="row pb-2" *ngIf="characterClicked()">
+                    <div class="col" *ngIf="getNextOption()=='button'">
+                        <button mat-raised-button (click)="nextIndex(); characterClickedOff()">{{getNextButtonText()}}</button>
+                    </div>
                 </div>
             </div>
-          </div>
-      </div>
-    </div> -->
+        </div>
+    </div>
+
+    <div *ngIf="getType()=='Video'">
+        <app-video-priming></app-video-priming>
+    </div>
+    
 </div>
     
 

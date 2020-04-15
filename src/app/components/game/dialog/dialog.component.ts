@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SceneryService } from 'src/app/services/scenery.service';
 
 /**
@@ -11,6 +11,7 @@ import { SceneryService } from 'src/app/services/scenery.service';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  @Input() id: number;
 
   constructor(private _sceneryService: SceneryService) { }
 
@@ -19,17 +20,17 @@ export class DialogComponent implements OnInit {
 
   getDialog(): string[] {
     let dialog: string[];
-    let id: number = 1;
+    //let id: number = 0;
 
-    this._sceneryService.getCurrentId().subscribe(
+    /*this._sceneryService.getCurrentId().subscribe(
       (currentId) => currentId ?
       id = currentId.valueOf()
       : console.log('Waiting scenery...')
-    );
+    );*/
 
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
-      dialog = sceneries[id].dialog
+      dialog = sceneries[this.id].dialog
       : console.log('.')
     );
 
