@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { ChoiceTaskService } from '../../../services/choice-task.service';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-choice-task',
@@ -8,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChoiceTaskComponent implements OnInit {
 
-  constructor() { }
+  @Input() _alternativeList: string[];
+
+  constructor(private _choiceTaskService: ChoiceTaskService, private _gameService: GameService) { }
 
   ngOnInit(): void {
+  }
+
+  saveChoice(choice: string) {
+    this._choiceTaskService.addChoice(choice);
+  }
+
+  getChoiceList() {
+    console.log(this._choiceTaskService.choiceList);
+    return this._choiceTaskService.choiceList;
+  }
+
+  getAlternativeList() {
+    return this._alternativeList;
   }
 
 }

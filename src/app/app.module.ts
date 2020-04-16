@@ -20,6 +20,7 @@ import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthService } from './services/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ChoiceTaskService } from './services/choice-task.service';
 
 import { GameComponent } from './components/game/game.component';
 import { CharacterFeaturesComponent } from './components/game/character-features/character-features.component';
@@ -37,12 +38,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatButtonModule } from '@angular/material/button'; 
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HomeComponent } from './components/home/home.component';
 import { ChoiceTaskComponent } from './components/game/choice-task/choice-task.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { SurveyComponent } from './components/survey/survey.component';
+import { DialogStartComponent } from './components/video-priming/dialog-start/dialog-start.component';
+import { DialogEndComponent } from './components/video-priming/dialog-end/dialog-end.component';
+import { EndComponent } from './components/game/end/end.component';
 
 
 @NgModule({
@@ -64,6 +71,10 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     HomeComponent,
     ChoiceTaskComponent,
     UserFormComponent,
+    SurveyComponent,
+    DialogStartComponent,
+    DialogEndComponent,
+    EndComponent,
   ],
   imports: [
     NgbModule,
@@ -82,8 +93,10 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     MatSlideToggleModule,
     MatRadioModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatDialogModule,
   ],
-  providers: [AuthService, AuthGuardService, CharacterService],
+  providers: [AuthService, AuthGuardService, CharacterService, ChoiceTaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

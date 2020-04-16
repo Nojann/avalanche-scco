@@ -5,16 +5,28 @@ import { Injectable } from '@angular/core';
 })
 export class GameService {
 
-  _characterClicked : boolean = false;
+  _characterClicked: boolean;
+  _dialogEndClicked: boolean;
 
-  constructor() { }
+  constructor() {
+    this._characterClicked = false;
+    this._dialogEndClicked = false;
+  }
 
-  set characterClicked(state: boolean){
+  set characterClicked(state: boolean) {
     this._characterClicked = state;
   }
 
-  get characterClicked(){
+  get characterClicked() {
     return this._characterClicked;
+  }
+
+  set dialogEndClicked(state: boolean) {
+    this._dialogEndClicked = state;
+  }
+
+  get dialogEndClicked() {
+    return this._dialogEndClicked;
   }
 
 

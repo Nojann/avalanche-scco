@@ -1,10 +1,13 @@
 <div class="container-fluid">
+    <form (submit)="setIndex(index.value)">
+        <input #index>
+    </form>
     <div class="row mt-2" *ngIf="getType()=='Scenery'">
         <div class="col" *ngIf="getComponents().indexOf('dialog')!=-1">
-            <app-dialog [id]='getOption()'></app-dialog>
+            <app-dialog [id]='getOption(0)'></app-dialog>
         </div>
         <div class="col-lg-8 p-0">
-            <app-scenery [id]='getOption()'></app-scenery>
+            <app-scenery [id]='getOption(0)'></app-scenery>
         </div>
         <div class="col" >
             <div class="container-fluid">
@@ -17,8 +20,14 @@
                 <div class="row pb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1 && characterClicked()">
                     <app-risk-perception></app-risk-perception>
                 </div>
-                <div  class="row pb-2" *ngIf="getComponents().indexOf('choice-task')!=-1 && characterClicked()">
-                    <app-choice-task></app-choice-task>
+                <div class="row pb-2" *ngIf="getComponents().indexOf('survey')!=-1">
+                    <app-survey (mouseenter)="characterClickedOn()"></app-survey>
+                </div>
+                <div  class="row pb-2" *ngIf="getComponents().indexOf('choice-task')!=-1">
+                    <app-choice-task [_alternativeList]='getOption(1)' (click)="nextIndex()"></app-choice-task>
+                </div>
+                <div  class="row pb-2" *ngIf="getComponents().indexOf('end')!=-1">
+                    <app-end></app-end>
                 </div>
                 <div class="row pb-2" *ngIf="characterClicked()">
                     <div class="col" *ngIf="getNextOption()=='button'">
@@ -30,7 +39,12 @@
     </div>
 
     <div *ngIf="getType()=='Video'">
-        <app-video-priming></app-video-priming>
+        <div *ngIf="!dialogEndClicked()">
+            <app-video-priming></app-video-priming>
+        </div>
+        <div *ngIf="dialogEndClicked()" (mouseenter)="nextIndex()">
+            <app-scenery [id]='getOption(0)'></app-scenery> 
+        </div>
     </div>
     
 </div>

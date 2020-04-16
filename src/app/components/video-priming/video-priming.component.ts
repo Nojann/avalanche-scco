@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SurveyComponent } from '../survey/survey.component';
+import { DialogStartComponent } from './dialog-start/dialog-start.component';
+import { DialogEndComponent } from './dialog-end/dialog-end.component';
 
 @Component({
   selector: 'app-video-priming',
@@ -10,9 +14,14 @@ export class VideoPrimingComponent implements OnInit {
   // https://medium.com/angular-in-depth/the-new-angular-youtube-player-component-9ce52ecf3dee
   // https://github.com/angular/components/blob/master/src/youtube-player/README.md
 
-  videoStop: boolean = false;
+  videoStop: boolean;
+  _openDialog: boolean;
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {
+    this.videoStop = false;
+    this._openDialog = false;
+  }
+
 
   ngOnInit(): void {
     const tag = document.createElement('script');
@@ -21,8 +30,26 @@ export class VideoPrimingComponent implements OnInit {
     document.body.appendChild(tag);
   }
 
+  openDialogStart(): void {
+    if (this._openDialog === false) {
+      const dialogRef = this.dialog.open(DialogStartComponent, {
+        width: '500px',
+        height: '300px'
+      });
+    }
+    this._openDialog = true;
+  }
+
+  openDialogEnd(): void {
+    const dialogRef = this.dialog.open(DialogEndComponent, {
+      width: '500px',
+      height: '300px'
+    });
+  }
+
   setVideoStop(state: number): void {
       if (state === 0) {
+        this.openDialogEnd();
         this.videoStop = true;
       }
   }

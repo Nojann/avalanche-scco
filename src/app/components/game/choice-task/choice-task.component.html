@@ -1,24 +1,17 @@
-
-<mat-card>
-    <mat-card-title>Actions possibles</mat-card-title>
-    <mat-card-content>
-        <div class="row p-3">
-            <button type="button" class="btn btn-outline-secondary mx-auto">
-                <img src="assets/images/icons/explore-24px.svg">
-            </button>
-        </div>
+<div class="card">
+    <div class="card-header text-center"><img src="assets/images/icons/explore-24px.svg" height="50" width="50" class="mx-auto"></div>
+    <div class="card-body">
         <div>
-            <div class="row">
-                <mat-form-field>
-                    <mat-label>Choix</mat-label>
-                    <mat-select>
-                        <mat-option value="Prudent">S'engager prudement</mat-option>
-                        <mat-option value="Normal">Slalomer avec retenu</mat-option>
-                        <mat-option value="Excessif">Se pencher et attaquer la pente</mat-option>
-                    </mat-select>
-              </mat-form-field>
+
+            <ul class="list-group" *ngIf="getChoiceList()!=null">
+                <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
+            </ul>
+            <div class="row p-3">
+                <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle *ngFor="let alternative of getAlternativeList()" value=alternative (click)="saveChoice(alternative)">{{alternative}}</mat-button-toggle>
+                  </mat-button-toggle-group>
             </div>
         </div>
-    </mat-card-content>
-</mat-card>
+    </div>
+</div>
 

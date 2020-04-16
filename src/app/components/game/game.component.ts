@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SceneryService } from 'src/app/services/scenery.service';
-import { Scenery } from 'src/app/models/scenery.model';
 import { Story } from 'src/app/models/story.model';
 import { GameService } from 'src/app/services/game.service';
+import { ChoiceTaskService } from '../../services/choice-task.service';
 
 /**
  * Game Component contains:
@@ -24,7 +24,7 @@ export class GameComponent implements OnInit {
   stories: Story[];
   currentId: number;
 
-  constructor(private _sceneryService: SceneryService, private _gameService: GameService) {
+  constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService) {
     this.stories = this.initStories();
     this.currentId = 0;
 }
@@ -42,8 +42,8 @@ export class GameComponent implements OnInit {
     return this.stories[this.currentId].components;
   }
 
-  getOption(): number {
-    return this.stories[this.currentId].options[0];
+  getOption(id: number): number {
+    return this.stories[this.currentId].options[id];
   }
 
   getNextOption(): string{
@@ -62,44 +62,31 @@ export class GameComponent implements OnInit {
   }
 
   nextIndex(): void {
-    this.currentId++;
+    //TODO : à refaire !!
+
+    let choiceList = this._choiceTaskService.choiceList;
+    console.log("lenght:",choiceList.length);
+    console.log("search:",choiceList.indexOf('Attendre'))
+    if(choiceList.length === 3 && choiceList.indexOf('Attendre') != -1){
+      this.currentId = 21;
+    }
+    else {
+      this.currentId++;
+    }
+
   }
 
-  /*getGame(): Scenery {
-    let game: Scenery;
-    let id: number = 1;
+  setIndex(id: number) {
+    this.currentId = id;
+  }
 
-    this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ?
-      id = currentId.valueOf()
-      : console.log('Waiting game...')
-    );
-
-    this._sceneryService.getSceneries().subscribe(
-      (sceneries) => sceneries ?
-      game = sceneries[id]
-      : console.log('.')
-    );
-
-    return game;
-  }*/
-
-  /*setIndex(): void {
-    console.log('setIndex()');
-
-    let id: number = 1;
-
-    this._sceneryService.getCurrentId().subscribe(
-      (currentId) => currentId ?
-      id = currentId.valueOf()+1
-      : console.log('Waiting scenery...')
-    );
-
-    this._sceneryService.setCurrentId(id);
-  }*/
 
   characterClickedOff(): void {
     this._gameService.characterClicked = false;
+  }
+
+  characterClickedOn(): void {
+    this._gameService.characterClicked = true;
   }
 
   /**
@@ -107,6 +94,10 @@ export class GameComponent implements OnInit {
    */
   characterClicked(): boolean {
     return this._gameService.characterClicked;
+  }
+
+  dialogEndClicked(): boolean {
+    return this._gameService.dialogEndClicked;
   }
 
   initStories(): Story[]{
@@ -158,11 +149,155 @@ export class GameComponent implements OnInit {
     },
     {
       type: 'Video',
-      options: null,
+      options: [5],
       components: [],
       interactions: {
         nextOption: null,
         nextButtonText: null
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [5],
+      components: ['dialog', 'survey'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Poursuivre'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [6],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Poursuivre'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [7],
+      components: ['dialog', 'character-features', 'risk-perception'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [8],
+      components: ['dialog', 'character-features', 'risk-perception'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [9],
+      components: ['dialog', 'character-features', 'risk-perception'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [10],
+      components: ['dialog', 'character-features', 'risk-perception'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [11],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'elementClicked',
+        nextButtonText: null
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [12, ["Renoncer", "Ne pas renoncer"]],
+      components: ['dialog', 'choice-task'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [13],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'elementClicked',
+        nextButtonText: null
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [14, ["Avec vitesse", "Avec prudence"]],
+      components: ['dialog', 'choice-task'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: "S'élancer"
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [15, ["Attendre", "Tracer"]],
+      components: ['dialog', 'choice-task'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [16],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [17],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [18],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [19],
+      components: ['dialog', 'end'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      type: 'Scenery',
+      options: [20],
+      components: ['dialog', 'end'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
       }
     }
   ];

@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="card-header">Merci d'avoir participer !</div>
+    <div class="card-body">
+        <h2>Résultats</h2>
+        <ul class="list-group" *ngIf="getChoiceList()!=null">
+            <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
+        </ul>
+    </div>
+</div>
