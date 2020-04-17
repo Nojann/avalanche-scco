@@ -1,61 +1,26 @@
 <div class="container-fluid">
-    <div class="row mt-2">
-        <div class="col">
-            <div class="alert alert-success" role="alert">
-                <h2 class="alert-heading"> Avalanche Risk est une expérience interactive.</h2>
-                <hr>
-                <p>
-                    Ce petit jeu de type "Point and click" est conçu pour mesurer comment un skieur perçoit le risque d'avalanche. 
-                </p>
-                <hr>
-                <p class="text-justify">
-                    Il est temps de commencer. Voilà une belle journée ensoleillée ! Tu as pris un peu d'avance sur tes coéquipiers.
-                    Tiens ! Ce paysage te rappelle un souvenir, une sortie de ski particulière...
-                </p>
-            </div>
-        </div>
-      <div class="col-lg-8 p-0">
-        <div class="container-fluid p-0">
-            <div class="card">
-                <img src="assets/images/scenery/background/background01.png" class="img" alt="scenery">
-            </div>
-        </div>
-      </div>
-      <div class="col">
-          <div class="container-fluid">
-            <div class="row pb-2" >
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Informations
-                    </div>
-                
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <h4 class="card-subtitle mb-2 text-muted">Météo</h4>
-                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="100"></mat-progress-bar>
-                        </li>
-                        <li class="list-group-item">
-                            <h4 class="card-subtitle mb-2 text-muted">Qualité de la neige</h4>
-                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="70"></mat-progress-bar>
-                        </li>
-                        <li class="list-group-item">
-                            <h4 class="card-subtitle mb-2 text-muted">Température</h4>
-                            <mat-progress-bar class="progress-bar" role="progressbar" [value]="10"></mat-progress-bar>
-                        </li>
-                      </ul>
-                  </div>
-            </div>
-            <div class="row pb-2">
-                <app-risk-perception></app-risk-perception>
-            </div>
-            <div class="row pb-2">
-                <div class="col">
-                    <button type="button" class="btn btn-outline-success float-right">
-                        <a routerLink="/priming" routerLinkActive="active">Accéder au souvenir</a>
-                    </button>
-                </div>
-            </div>
-          </div>
-      </div>
-    </div> 
+        <mat-card class="mx-auto col-6">
+            <mat-card-header><h1>Informations aux testeurs</h1></mat-card-header>
+                <mat-card-content>
+                    <p>Tout d'abord, merci de participer au test ! <br/>
+                            Cette application est une expérience gamifiée, il s'agit d'une expérience de psychologie cognitive ayant deux objectifs : 
+                            effectuer des mesures et faire de la prévention au sujet du ski hors-piste. 
+                            Cela se présente sous forme de jeu afin de stimuler l'engagement du participant.<br/>
+                            <br/>
+                            C'est une version beta, il reste encore de nombreuses améliorations à développer, et c'est pour cela que nous avons besoin d'avis d'utilisateur.<br/>
+                            La durée est d'environ 10-15 min. Pour le moment, aucune donnée n'est collectée.<br/>
+                            <br/>
+                            N'hésite pas à noter :</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">Les bugs rencontrés (certains sont connus, pas tous).</li>
+                        <li class="list-group-item">Les incohérences dans le scénario notamemnt au sujet de la pratique du ski.</li>
+                        <li class="list-group-item">Les améliorations possibles.</li>
+                        <li class="list-group-item">Les incompréhensions au sujet des tâches demandées.</li>
+                        <li class="list-group-item">Des idées pour la fin du jeu.</li>
+                    </ul>
+                    <br/>
+                <h3>Bonne expérience !</h3> 
+            </mat-card-content>
+        <mat-card-footer class="text-center"><a routerLink="/game" routerLinkActive="active"><button mat-raised-button>Commencer</button></a></mat-card-footer>
+    </mat-card>    
 </div>

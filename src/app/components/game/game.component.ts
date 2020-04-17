@@ -23,10 +23,12 @@ export class GameComponent implements OnInit {
 
   stories: Story[];
   currentId: number;
+  end: boolean;
 
   constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService) {
     this.stories = this.initStories();
     this.currentId = 0;
+    this.end = false;
 }
 
   ngOnInit(): void {
@@ -46,10 +48,10 @@ export class GameComponent implements OnInit {
     return this.stories[this.currentId].options[id];
   }
 
-  getNextOption(): string{
+  getNextOption(): string {
     const nextOption = this.stories[this.currentId].interactions.nextOption;
 
-    if (nextOption === 'elementClicked') {
+    if (nextOption === 'elementClicked' && this._gameService.characterClicked === true) {
       this.nextIndex();
       this.characterClickedOff();
     }
@@ -74,9 +76,17 @@ export class GameComponent implements OnInit {
       this.currentId++;
     }
 
+    if(this.currentId == 20 || this.currentId == 21){
+      this.end = true;
+    }
+
   }
 
-  setIndex(id: number) {
+  getEnd(): boolean {
+    return this.end;
+  }
+
+  setIndex(id: number): void {
     this.currentId = id;
   }
 
@@ -161,7 +171,7 @@ export class GameComponent implements OnInit {
       options: [5],
       components: ['dialog', 'survey'],
       interactions: {
-        nextOption: 'button',
+        nextOption: 'buttonActived',
         nextButtonText: 'Poursuivre'
       }
     },
@@ -170,7 +180,7 @@ export class GameComponent implements OnInit {
       options: [6],
       components: ['dialog'],
       interactions: {
-        nextOption: 'button',
+        nextOption: 'buttonActived',
         nextButtonText: 'Poursuivre'
       }
     },
@@ -243,7 +253,7 @@ export class GameComponent implements OnInit {
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
-        nextButtonText: "S'élancer"
+        nextButtonText: null
       }
     },
     {
@@ -278,8 +288,8 @@ export class GameComponent implements OnInit {
       options: [18],
       components: ['dialog'],
       interactions: {
-        nextOption: 'button',
-        nextButtonText: 'Continuer'
+        nextOption: 'buttonActived',
+        nextButtonText: 'Se faire emporter'
       }
     },
     {
@@ -288,7 +298,7 @@ export class GameComponent implements OnInit {
       components: ['dialog', 'end'],
       interactions: {
         nextOption: 'button',
-        nextButtonText: 'Continuer'
+        nextButtonText: null
       }
     },
     {
@@ -297,7 +307,7 @@ export class GameComponent implements OnInit {
       components: ['dialog', 'end'],
       interactions: {
         nextOption: 'button',
-        nextButtonText: 'Continuer'
+        nextButtonText: null
       }
     }
   ];

@@ -1,9 +1,28 @@
 <div class="card">
-    <div class="card-header">Merci d'avoir participer !</div>
+    <div class="card-header"><h2>Résultats</h2></div>
     <div class="card-body">
-        <h2>Résultats</h2>
-        <ul class="list-group" *ngIf="getChoiceList()!=null">
-            <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h3>Comparatif questionnaire</h3>
+                A venir...
+            </li>
+            <li class="list-group-item">
+                <h3>Choix du leader</h3>
+                A venir...
+            </li>
+            <li class="list-group-item">
+                <h3>Listes des choix</h3>
+                <ul class="list-group" *ngIf="getChoiceList()!=null">
+                    <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
+                </ul>
+            </li>
         </ul>
+    <br/>
+    <br/>
+        <p>
+        Note aux testeurs :
+        Un champ est apparu en haut à gauche avec lequel tu peux naviguer à travers les différentes scènes (de 0 à 21).
+        La gestion des choix n'est alors plus stable..
+        </p>
     </div>
 </div>

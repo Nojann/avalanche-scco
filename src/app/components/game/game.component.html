@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <form (submit)="setIndex(index.value)">
+    <form *ngIf="getEnd()" (submit)="setIndex(index.value)">
         <input #index>
-    </form>
+    </form> 
     <div class="row mt-2" *ngIf="getType()=='Scenery'">
         <div class="col" *ngIf="getComponents().indexOf('dialog')!=-1">
             <app-dialog [id]='getOption(0)'></app-dialog>
@@ -21,7 +21,7 @@
                     <app-risk-perception></app-risk-perception>
                 </div>
                 <div class="row pb-2" *ngIf="getComponents().indexOf('survey')!=-1">
-                    <app-survey (mouseenter)="characterClickedOn()"></app-survey>
+                    <app-survey></app-survey>
                 </div>
                 <div  class="row pb-2" *ngIf="getComponents().indexOf('choice-task')!=-1">
                     <app-choice-task [_alternativeList]='getOption(1)' (click)="nextIndex()"></app-choice-task>
@@ -29,8 +29,13 @@
                 <div  class="row pb-2" *ngIf="getComponents().indexOf('end')!=-1">
                     <app-end></app-end>
                 </div>
-                <div class="row pb-2" *ngIf="characterClicked()">
+                <div class="row pb-2" *ngIf="characterClicked()" >
                     <div class="col" *ngIf="getNextOption()=='button'">
+                        <button mat-raised-button (click)="nextIndex(); characterClickedOff()">{{getNextButtonText()}}</button>
+                    </div>
+                </div>
+                <div class="row pb-2" *ngIf="getNextOption()=='buttonActived'" >
+                    <div class="col">
                         <button mat-raised-button (click)="nextIndex(); characterClickedOff()">{{getNextButtonText()}}</button>
                     </div>
                 </div>
