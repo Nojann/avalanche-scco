@@ -19,7 +19,7 @@ export class DialogComponent implements OnInit {
   }
 
   getDialog(): string[] {
-    let dialog: string[];
+    let dialog: string[] = ['', '', ''];
     //let id: number = 0;
 
     /*this._sceneryService.getCurrentId().subscribe(
@@ -31,7 +31,7 @@ export class DialogComponent implements OnInit {
     this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
       dialog = sceneries[this.id].dialog
-      : console.log('.')
+      : dialog
     );
 
     return dialog;

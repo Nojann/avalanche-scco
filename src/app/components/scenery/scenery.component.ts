@@ -23,18 +23,11 @@ export class SceneryComponent implements OnInit {
 
   getScenery(): Scenery {
         let scenery: Scenery;
-        //let id: number = 0;
-
-        /*this._sceneryService.getCurrentId().subscribe(
-        (currentId) => currentId ? 
-          id = currentId.valueOf()
-          : console.log('Waiting scenery...')
-        );*/
 
         this._sceneryService.getSceneries().subscribe(
       (sceneries) => sceneries ?
       scenery = sceneries[this.id]
-      : console.log('.')
+      : scenery
     );
 
         return scenery;

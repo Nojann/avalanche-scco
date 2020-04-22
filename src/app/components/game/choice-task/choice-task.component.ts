@@ -21,7 +21,6 @@ export class ChoiceTaskComponent implements OnInit {
   }
 
   getChoiceList() {
-    console.log(this._choiceTaskService.choiceList);
     return this._choiceTaskService.choiceList;
   }
 

@@ -29,5 +29,4 @@ export class GameService {
     return this._dialogEndClicked;
   }
 
-
 }

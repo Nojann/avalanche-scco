@@ -1,45 +1,44 @@
 <div class="container-fluid">
-    <form *ngIf="getEnd()" (submit)="setIndex(index.value)">
+    <form  (submit)="setIndex(index.value)">
         <input #index>
     </form> 
-    <div class="row mt-2" *ngIf="getType()=='Scenery'">
-        <div class="col" *ngIf="getComponents().indexOf('dialog')!=-1">
+    <div class="row mt-2 " *ngIf="getType()=='Scenery'">
+        <div class="col-2" *ngIf="getComponents().indexOf('dialog')!=-1">
             <app-dialog [id]='getOption(0)'></app-dialog>
         </div>
-        <div class="col-lg-8 p-0">
-            <app-scenery [id]='getOption(0)'></app-scenery>
+        <!-- <div class="col-lg-8 p-0" style="width:50%"> -->
+        <div class="col-8">
+            <app-scenery [id]='getOption(0)' (click)="clickToNext('scenery')" ></app-scenery>
         </div>
-        <div class="col" >
-            <div class="container-fluid">
-                <div class="row pb-2" *ngIf="getComponents().indexOf('user-form')!=-1 && characterClicked()">
+        <div class="col-2">
+                <div class="mb-2" *ngIf="getComponents().indexOf('user-form')!=-1 && componentDisplay">
                     <app-user-form></app-user-form>
                 </div>
-                <div class="row pb-2" *ngIf="getComponents().indexOf('character-features')!=-1 && characterClicked()">
+                <div class="mb-2" *ngIf="getComponents().indexOf('character-features')!=-1 && componentDisplay">
                     <app-character-features></app-character-features>
                 </div>
-                <div class="row pb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1 && characterClicked()">
+                <div class="mb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1 && componentDisplay">
                     <app-risk-perception></app-risk-perception>
                 </div>
-                <div class="row pb-2" *ngIf="getComponents().indexOf('survey')!=-1">
+                <div class="mb-2" *ngIf="getComponents().indexOf('survey')!=-1">
                     <app-survey></app-survey>
                 </div>
-                <div  class="row pb-2" *ngIf="getComponents().indexOf('choice-task')!=-1">
-                    <app-choice-task [_alternativeList]='getOption(1)' (click)="nextIndex()"></app-choice-task>
+                <div class="mb-2" *ngIf="getComponents().indexOf('choice-task')!=-1">
+                    <app-choice-task [_alternativeList]='getOption(1)' (click)="clickToNext('choice-task')"></app-choice-task>
                 </div>
-                <div  class="row pb-2" *ngIf="getComponents().indexOf('end')!=-1">
+                <div class="mb-2" *ngIf="getComponents().indexOf('end')!=-1">
                     <app-end></app-end>
                 </div>
-                <div class="row pb-2" *ngIf="characterClicked()" >
+                <div class="mb-2" *ngIf="componentDisplay" >
                     <div class="col" *ngIf="getNextOption()=='button'">
-                        <button mat-raised-button (click)="nextIndex(); characterClickedOff()">{{getNextButtonText()}}</button>
+                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
                     </div>
                 </div>
-                <div class="row pb-2" *ngIf="getNextOption()=='buttonActived'" >
+                <div class="mb-2" *ngIf="getNextOption()=='buttonActived'" >
                     <div class="col">
-                        <button mat-raised-button (click)="nextIndex(); characterClickedOff()">{{getNextButtonText()}}</button>
+                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 

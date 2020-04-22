@@ -23,17 +23,26 @@ export class GameComponent implements OnInit {
 
   stories: Story[];
   currentId: number;
-  end: boolean;
+  nextStory: boolean;
+
+  _componentDisplay: boolean;
 
   constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService) {
     this.stories = this.initStories();
     this.currentId = 0;
-    this.end = false;
+    this.nextStory = false;
+    this._componentDisplay = false;
 }
 
   ngOnInit(): void {
     this._sceneryService.ngOnInit();
-    //setTimeout(() => this.getGame(), 100);
+  }
+
+  get componentDisplay(): boolean {
+    if (this._gameService.characterClicked) {
+      this._componentDisplay = true;
+    }
+    return this._componentDisplay;
   }
 
   getType(): any {
@@ -49,70 +58,75 @@ export class GameComponent implements OnInit {
   }
 
   getNextOption(): string {
-    const nextOption = this.stories[this.currentId].interactions.nextOption;
-
-    if (nextOption === 'elementClicked' && this._gameService.characterClicked === true) {
-      this.nextIndex();
-      this.characterClickedOff();
-    }
-
-    return nextOption;
+    return this.stories[this.currentId].interactions.nextOption;
   }
 
   getNextButtonText(): string {
     return this.stories[this.currentId].interactions.nextButtonText;
   }
 
-  nextIndex(): void {
-    //TODO : à refaire !!
+  /**
+   * Evaluate the conditions to go to next index.
+   * @param component
+   */
+  clickToNext(component: string) {
 
-    let choiceList = this._choiceTaskService.choiceList;
-    console.log("lenght:",choiceList.length);
-    console.log("search:",choiceList.indexOf('Attendre'))
-    if(choiceList.length === 3 && choiceList.indexOf('Attendre') != -1){
-      this.currentId = 21;
-    }
-    else {
-      this.currentId++;
+    const nextOption = this.stories[this.currentId].interactions.nextOption;
+
+    if (nextOption === 'elementClicked' && component === 'scenery' && this._gameService.characterClicked) {
+      this.nextStory = true;
+    } else if ((nextOption === 'button' || nextOption === 'buttonActived') && component === 'button') {
+      this.nextStory = true;
+    } else if (nextOption === 'button' && component === 'choice-task') {
+      this.nextStory = true;
     }
 
-    if(this.currentId == 20 || this.currentId == 21){
-      this.end = true;
+    if (this.nextStory) {
+      this.nextIndex();
     }
-
   }
 
-  getEnd(): boolean {
-    return this.end;
+  /**
+   * Change index by incrementation or by branching, integrate the narrative branching.
+   * @param component
+   */
+  nextIndex(): void {
+    const choiceList = this._choiceTaskService.choiceList;
+
+    if (this.nextStory === true) {
+      if (this.getIdByName('corniche') === this.currentId && choiceList.indexOf('Attendre') !== -1) {
+        this.currentId = this.getIdByName('happyEnd');
+      } else {
+        this.currentId++;
+        this.nextStory = false;
+      }
+    }
+
+    this._componentDisplay = false;
+    this._gameService.characterClicked = false;
+  }
+
+  /**
+   * Return a story position by this name.
+   * @param name
+   */
+  getIdByName(name: string): number {
+    return this.stories.indexOf(this.stories.filter(
+      (story) => name === story.name)[0]);
   }
 
   setIndex(id: number): void {
     this.currentId = id;
   }
 
-
-  characterClickedOff(): void {
-    this._gameService.characterClicked = false;
-  }
-
-  characterClickedOn(): void {
-    this._gameService.characterClicked = true;
-  }
-
-  /**
-   * Is used to display or not the {@link CharacterFeaturesComponent}, {@link RiskPerceptionComponent}.
-   */
-  characterClicked(): boolean {
-    return this._gameService.characterClicked;
-  }
-
   dialogEndClicked(): boolean {
     return this._gameService.dialogEndClicked;
   }
 
-  initStories(): Story[]{
+  initStories(): Story[] {
     const stories: Story[] = [
       {
+      name: null,
       type: 'Scenery',
       options: [0],
       components: ['dialog', 'user-form'],
@@ -122,6 +136,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [1],
       components: ['dialog'],
@@ -131,6 +146,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [2],
       components: ['dialog'],
@@ -140,6 +156,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [3],
       components: ['dialog'],
@@ -149,6 +166,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [4],
       components: ['dialog'],
@@ -158,6 +176,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Video',
       options: [5],
       components: [],
@@ -167,6 +186,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [5],
       components: ['dialog', 'survey'],
@@ -176,6 +196,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [6],
       components: ['dialog'],
@@ -185,6 +206,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [7],
       components: ['dialog', 'character-features', 'risk-perception'],
@@ -194,6 +216,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [8],
       components: ['dialog', 'character-features', 'risk-perception'],
@@ -203,6 +226,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [9],
       components: ['dialog', 'character-features', 'risk-perception'],
@@ -212,6 +236,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [10],
       components: ['dialog', 'character-features', 'risk-perception'],
@@ -221,6 +246,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [11],
       components: ['dialog'],
@@ -230,6 +256,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [12, ["Renoncer", "Ne pas renoncer"]],
       components: ['dialog', 'choice-task'],
@@ -239,6 +266,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [13],
       components: ['dialog'],
@@ -248,6 +276,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [14, ["Avec vitesse", "Avec prudence"]],
       components: ['dialog', 'choice-task'],
@@ -257,6 +286,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: 'corniche',
       type: 'Scenery',
       options: [15, ["Attendre", "Tracer"]],
       components: ['dialog', 'choice-task'],
@@ -266,6 +296,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [16],
       components: ['dialog'],
@@ -275,6 +306,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [17],
       components: ['dialog'],
@@ -284,6 +316,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: null,
       type: 'Scenery',
       options: [18],
       components: ['dialog'],
@@ -293,6 +326,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: 'end',
       type: 'Scenery',
       options: [19],
       components: ['dialog', 'end'],
@@ -302,6 +336,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
+      name: 'happyEnd',
       type: 'Scenery',
       options: [20],
       components: ['dialog', 'end'],

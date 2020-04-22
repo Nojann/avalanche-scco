@@ -39,19 +39,6 @@ export class SceneryService {
     );
   }
 
-  // deprecated
-  saveSceneryToServer(): void {
-
-    if (!this.sceneries[this.currentId]) {
-      this.sceneries.push(this.scenery);
-      console.log('scenery.service.saveSceneryToServer() : A new scenery is created : ', this.scenery);
-    }
-
-    firebase.database().ref().child('sceneries/' + this.currentId).set(this.sceneries[this.currentId]);
-
-    console.log('scenery.service.saveSceneryToServer() : the current scenery is saved : ', this.scenery);
-  }
-
   saveSceneriesToServer(): void {
     firebase.database().ref().child('sceneries/').set(this.sceneries);
   }
@@ -59,11 +46,6 @@ export class SceneryService {
   setCurrentId(id: number): void {
     this.currentId = id;
     this.sceneries[this.currentId].id = this.currentId;
-  }
-
-  // Deprecated
-  private setCharacters(characters: Character[]): void {
-    this.sceneries[this.currentId].characters = characters;
   }
 
   setBackground(imageName: string): void {
