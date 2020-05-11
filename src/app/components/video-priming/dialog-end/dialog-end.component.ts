@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { VideoPrimingComponent } from '../video-priming.component';
 import { GameService } from 'src/app/services/game.service';
@@ -9,6 +9,8 @@ import { GameService } from 'src/app/services/game.service';
   styleUrls: ['./dialog-end.component.scss']
 })
 export class DialogEndComponent implements OnInit {
+
+  @Input() videoId;
 
   constructor(public dialogRef: MatDialogRef<VideoPrimingComponent>, private _gameService: GameService) { }
 

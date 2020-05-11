@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../../services/user-data.service';
 
 @Component({
   selector: 'app-user-form',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userData: UserDataService) { }
 
   ngOnInit(): void {
+  }
+
+  toConsole(value: any) {
+    console.log(value);
+  }
+
+
+  set skiExperience(value: number) {
+    this.userData.skiExperience = value;
+  }
+
+  set finalChoice(value: boolean) {
+    this.userData.finalChoice = value;
   }
 
 }

@@ -29,8 +29,7 @@ export class SceneryComponent implements OnInit {
       scenery = sceneries[this.id]
       : scenery
     );
-
-        return scenery;
+      return scenery;
   }
 
   characterClicked(): void {

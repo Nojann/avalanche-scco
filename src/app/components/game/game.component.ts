@@ -3,6 +3,7 @@ import { SceneryService } from 'src/app/services/scenery.service';
 import { Story } from 'src/app/models/story.model';
 import { GameService } from 'src/app/services/game.service';
 import { ChoiceTaskService } from '../../services/choice-task.service';
+import { UserDataService } from '../../services/user-data.service';
 
 /**
  * Game Component contains:
@@ -24,14 +25,17 @@ export class GameComponent implements OnInit {
   stories: Story[];
   currentId: number;
   nextStory: boolean;
+  experimentModality: number;
 
   _componentDisplay: boolean;
 
-  constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService) {
+  constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService, private userData: UserDataService ) {
     this.stories = this.initStories();
     this.currentId = 0;
     this.nextStory = false;
     this._componentDisplay = false;
+
+    this.randomExperimentModality();
 }
 
   ngOnInit(): void {
@@ -79,6 +83,8 @@ export class GameComponent implements OnInit {
       this.nextStory = true;
     } else if (nextOption === 'button' && component === 'choice-task') {
       this.nextStory = true;
+    } else if (nextOption === 'mouseEnter') {
+      this.nextStory = true;
     }
 
     if (this.nextStory) {
@@ -94,7 +100,29 @@ export class GameComponent implements OnInit {
     const choiceList = this._choiceTaskService.choiceList;
 
     if (this.nextStory === true) {
-      if (this.getIdByName('corniche') === this.currentId && choiceList.indexOf('Attendre') !== -1) {
+      console.log('nextStory : ', this.getIdByName('souvenir'));
+      console.log('currentId : ', this.currentId);
+      if (this.getIdByName('souvenir') == this.currentId) {
+        console.log('souvenir');
+        switch (this.experimentModality) {
+          case 1: {
+            this.currentId = this.getIdByName('videoAvalanche');
+            console.log('videoAvalanche');
+            break;
+          }
+          case 2: {
+            this.currentId = this.getIdByName('videoNormal');
+            console.log('videoNormal');
+            break;
+          }
+          case 3: {
+            this.currentId = this.getIdByName('surveyGletty');
+            break;
+          }
+        }
+      } else if ((this.getIdByName('videoNormal') || this.getIdByName('videoAvalanche')) == this.currentId) {
+        this.currentId = this.getIdByName('surveyGletty');
+      } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf('Attendre') !== -1) {
         this.currentId = this.getIdByName('happyEnd');
       } else {
         this.currentId++;
@@ -104,6 +132,17 @@ export class GameComponent implements OnInit {
 
     this._componentDisplay = false;
     this._gameService.characterClicked = false;
+  }
+
+  /**
+   * Initialize the experiment modality :
+   * 1 : Video with avalanche
+   * 2 : Video without avalanche
+   * 3 : no video
+   */
+  randomExperimentModality() {
+    this.experimentModality = Math.floor((Math.random() * 3) + 1);
+    this.userData.videoType = this.experimentModality;
   }
 
   /**
@@ -117,6 +156,15 @@ export class GameComponent implements OnInit {
 
   setIndex(id: number): void {
     this.currentId = id;
+  }
+
+  getData(): void {
+    var theJSON = JSON.stringify(this.userData.userData);
+    console.log(theJSON);
+  }
+
+  addUserData(): void {
+    this.userData.addUserData();
   }
 
   dialogEndClicked(): boolean {
@@ -166,7 +214,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: null,
+      name: 'souvenir',
       type: 'Scenery',
       options: [4],
       components: ['dialog'],
@@ -176,17 +224,27 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: null,
+      name: 'videoAvalanche',
       type: 'Video',
-      options: [5],
+      options: [5, 'YW5AcukbD3k'],
       components: [],
       interactions: {
-        nextOption: null,
+        nextOption: 'mouseEnter',
         nextButtonText: null
       }
     },
     {
-      name: null,
+      name: 'videoNormal',
+      type: 'Video',
+      options: [5, '4sY0W9s7puM'],
+      components: [],
+      interactions: {
+        nextOption: 'mouseEnter',
+        nextButtonText: null
+      }
+    },
+    {
+      name: 'surveyGletty',
       type: 'Scenery',
       options: [5],
       components: ['dialog', 'survey'],

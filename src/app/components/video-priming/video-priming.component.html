@@ -1,7 +1,7 @@
-<div (mouseenter)="openDialogStart()">
+<div  (mouseenter)="openDialogStart()">
     <div *ngIf="getVideoStop()" (mouseenter)="openDialogEnd()"></div>
-    <div class="embed-responsive embed-responsive-16by9" *ngIf="!getVideoStop()">
-        <youtube-player videoId="D6dEBgrQp0Q" [endSeconds]="291" (stateChange)="setVideoStop($event.data)"></youtube-player>
-    </div>
-    <!-- Right [endSeconds]="291"-->
+        <div class="embed-responsive embed-responsive-16by9" *ngIf="!getVideoStop()">
+            <youtube-player videoId={{videoId}} (ready)="$event.target.mute()" [endSeconds]="120" (stateChange)="setVideoStop($event.data, $event.target.isMuted())"></youtube-player>
+        </div>
 </div>
+

@@ -41,6 +41,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HomeComponent } from './components/home/home.component';
@@ -50,6 +51,7 @@ import { SurveyComponent } from './components/survey/survey.component';
 import { DialogStartComponent } from './components/video-priming/dialog-start/dialog-start.component';
 import { DialogEndComponent } from './components/video-priming/dialog-end/dialog-end.component';
 import { EndComponent } from './components/game/end/end.component';
+import { FocusDirective } from './focus.directive';
 
 
 @NgModule({
@@ -75,6 +77,7 @@ import { EndComponent } from './components/game/end/end.component';
     DialogStartComponent,
     DialogEndComponent,
     EndComponent,
+    FocusDirective,
   ],
   imports: [
     NgbModule,
@@ -95,6 +98,7 @@ import { EndComponent } from './components/game/end/end.component';
     MatButtonModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatInputModule,
   ],
   providers: [AuthService, AuthGuardService, CharacterService, ChoiceTaskService],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Character } from '../models/character.model';
 import { Scenery } from '../models/scenery.model';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import * as firebase from 'firebase';
 
@@ -14,9 +14,9 @@ import * as firebase from 'firebase';
 })
 export class SceneryService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.currentId = 0;
-    this.pathSceneriesChild = '/sceneries/';
+    this.pathSceneriesChild = '/sceneriesWebp/';
    }
 
   scenery: Scenery;
@@ -25,11 +25,13 @@ export class SceneryService {
   currentId: number;
   private pathSceneriesChild: string;
 
+  uri = 'http://localhost:4000/sceneries';
+
   ngOnInit(): void {
     this.getSceneriesFromServer();
   }
 
-  getSceneriesFromServer(): void {
+  /*getSceneriesFromServer(): void {
     const ref = firebase.database().ref(this.pathSceneriesChild);
 
     ref.on('value', (data) =>
@@ -37,10 +39,27 @@ export class SceneryService {
         (scenery) => scenery !== undefined),
         (Error) => console.log('error : ', Error)
     );
+  }*/
+
+  getSceneriesFromServer() {
+
+    this.http.get(`${this.uri}`).subscribe((data) => {
+      this.sceneries = data[0].sceneries;
+  });
+  
   }
 
-  saveSceneriesToServer(): void {
-    firebase.database().ref().child('sceneries/').set(this.sceneries);
+  /*saveSceneriesToServer(): void {
+    firebase.database().ref().child('sceneriesWebp/').set(this.sceneries);
+  }*/
+
+  saveSceneriesToServer(){
+    console.log(this.sceneries);
+
+    let dataServer = { sceneries: this.sceneries };
+
+    this.http.post(`${this.uri}/add`, dataServer)
+        .subscribe(res => console.log('Done'));
   }
 
   setCurrentId(id: number): void {

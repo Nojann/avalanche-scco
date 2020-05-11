@@ -1,0 +1,77 @@
++ cors@2.8.5
++ express@4.17.1
++ body-parser@1.19.0
++ mongoose@5.9.12
++ nodemon@2.0.3
+
+We have installed the CORS module because our both angular and node application is running on the different ports.
+We have installed the Mongoose module because it provides the ORM for the MongoDB database
+
+mongodb-org-4.2
+
+By default, MongoDB runs using the mongodb user account. If you change the user that runs the MongoDB process, you must also modify the permission to the data and log directories to give this user access to these directories.
+
+You can optionally ensure that MongoDB will start following a system reboot by issuing the following command:
+sudo systemctl enable mongod
+
+I solved the issue by changing the storage engine to wiredTiger. I did this by editing /etc/mongod.conf and adding "engine: wiredTiger" after "journal: enabled: true"
+
+nodemon server
+system's file watchers limit :
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p 
+
+So, right now, you have three servers running.
+   - Angular Development Server for frontend.
+   - Nodemon server for the backend.
+   - MongoDB server for database.
+
+const port = process.env.PORT || 4000;
+
+----------------------------------------
+
+BackendServer :
+Js-workspace/avalanche-scco/api
+nodemon server
+system's file watchers limit :
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+localhost:4000
+
+MongoDB :
+sudo systemctl start mongod
+sudo systemctl status mongod
+
+----------------------------------------
+Connect URI : mongodb://localhost:27017/gameDb
+
+GET sceneries :
+
+uri = 'http://localhost:4000/sceneries';
+  this.http.get(`${this.uri}`).subscribe((data) => {
+      this.sceneries = data[0].sceneries;
+  });
+
+api/DB.js : 
+Connect URI : 'mongodb://localhost:27017/gameDb'
+
+-----------------------------------------
+In mongo Shell :
+
+- Create DB : 
+use gameDb
+
+- Create Collection : 
+db.createCollection('Sceneries')
+db.createCollection('UserData')
+
+- Add Sceneries Document :
+var file = cat('avalanche-scco.json');
+var o = JSON.parse(file);
+db.Sceneries.insert(o);
+
+- Query :
+db.UserData.find()
+
+- Export (not in mongo shell) :
+mongoexport --db=gameDb --collection=UserData --db=gameDb --fieldFile=results.json
+
+

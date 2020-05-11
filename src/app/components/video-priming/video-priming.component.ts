@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { SurveyComponent } from '../survey/survey.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogStartComponent } from './dialog-start/dialog-start.component';
 import { DialogEndComponent } from './dialog-end/dialog-end.component';
 
@@ -10,6 +9,8 @@ import { DialogEndComponent } from './dialog-end/dialog-end.component';
   styleUrls: ['./video-priming.component.scss']
 })
 export class VideoPrimingComponent implements OnInit {
+
+  @Input() videoId: string;
 
   // https://medium.com/angular-in-depth/the-new-angular-youtube-player-component-9ce52ecf3dee
   // https://github.com/angular/components/blob/master/src/youtube-player/README.md
@@ -47,8 +48,8 @@ export class VideoPrimingComponent implements OnInit {
     });
   }
 
-  setVideoStop(state: number): void {
-      if (state === 0) {
+  setVideoStop(state: number, isMuted: boolean): void {
+    if (state === 0) {
         this.openDialogEnd();
         this.videoStop = true;
       }
@@ -57,4 +58,12 @@ export class VideoPrimingComponent implements OnInit {
   getVideoStop(): boolean {
     return this.videoStop;
   }
+
+
+  print(event: any) {
+    console.log("click !");
+    console.log(event);
+  }
+
+
 }

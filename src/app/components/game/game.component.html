@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <form  (submit)="setIndex(index.value)">
         <input #index>
-    </form> 
+    </form>
+    <button mat-raised-button (click)="getData()">getData()</button>
+    <button mat-raised-button (click)="addUserData()">addUserData()</button>
     <div class="row mt-2 " *ngIf="getType()=='Scenery'">
         <div class="col-2" *ngIf="getComponents().indexOf('dialog')!=-1">
             <app-dialog [id]='getOption(0)'></app-dialog>
@@ -44,9 +46,9 @@
 
     <div *ngIf="getType()=='Video'">
         <div *ngIf="!dialogEndClicked()">
-            <app-video-priming></app-video-priming>
+            <app-video-priming [videoId]='getOption(1)'></app-video-priming>
         </div>
-        <div *ngIf="dialogEndClicked()" (mouseenter)="nextIndex()">
+        <div *ngIf="dialogEndClicked()" (mouseenter)="clickToNext('')">
             <app-scenery [id]='getOption(0)'></app-scenery> 
         </div>
     </div>
