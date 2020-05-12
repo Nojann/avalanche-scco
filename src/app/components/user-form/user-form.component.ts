@@ -22,8 +22,4 @@ export class UserFormComponent implements OnInit {
     this.userData.skiExperience = value;
   }
 
-  set finalChoice(value: boolean) {
-    this.userData.finalChoice = value;
-  }
-
 }

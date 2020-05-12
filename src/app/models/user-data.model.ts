@@ -3,6 +3,7 @@ export interface UserData {
     age: number;
     skiLevel: number;
     skiExperience: number;
+    skiPractice: number;
     skiFreeRide: number;
     skiFreeRideFreq: number;
     videoType: number;

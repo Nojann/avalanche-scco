@@ -16,6 +16,7 @@ export class UserDataService {
       age: -1,
       skiLevel: -1,
       skiExperience: -1,
+      skiPractice: -1,
       skiFreeRide: -1,
       skiFreeRideFreq: -1,
       videoType: -1,

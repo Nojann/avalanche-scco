@@ -2,7 +2,7 @@
     <div class="card" *ngIf="getScenery()">
         <img src="assets/images/scenery/background/{{getScenery().background}}" class="img" alt="scenery">
     
-        <div *ngFor="let character of getScenery().characters" (click)="characterClicked()">
+        <div *ngFor="let character of getScenery().characters" (click)="characterClicked(character)">
             <img *ngIf="character" src="assets/images/scenery/skiers/{{character.imageName}}"
             class="character img-fluid" 
             alt="character"

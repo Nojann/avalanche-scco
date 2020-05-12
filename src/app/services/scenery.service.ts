@@ -14,18 +14,20 @@ import * as firebase from 'firebase';
 })
 export class SceneryService {
 
-  constructor(private http: HttpClient) {
-    this.currentId = 0;
-    this.pathSceneriesChild = '/sceneriesWebp/';
-   }
-
   scenery: Scenery;
 
   sceneries: Scenery[];
   currentId: number;
   private pathSceneriesChild: string;
 
+  dataId: any;
+
   uri = 'http://localhost:4000/sceneries';
+
+  constructor(private http: HttpClient) {
+    this.currentId = 0;
+    this.pathSceneriesChild = '/sceneriesWebp/';
+   }
 
   ngOnInit(): void {
     this.getSceneriesFromServer();
@@ -44,9 +46,9 @@ export class SceneryService {
   getSceneriesFromServer() {
 
     this.http.get(`${this.uri}`).subscribe((data) => {
+      this.dataId = data[0]._id;
       this.sceneries = data[0].sceneries;
   });
-  
   }
 
   /*saveSceneriesToServer(): void {
@@ -54,12 +56,27 @@ export class SceneryService {
   }*/
 
   saveSceneriesToServer(){
-    console.log(this.sceneries);
+    //let array: any = [];
+    const dataServer = { sceneries: this.sceneries };
 
-    let dataServer = { sceneries: this.sceneries };
+    /*console.log("add to server :", dataServer);
+    console.log("ID1:", this.dataId);
+
+    this.http.get(`${this.uri}`).subscribe((data) => {
+      console.log("ID2:", data[0]._id);
+  });
+
+    this.http.get(`${this.uri}/delete/${this.dataId}`)
+        .subscribe(res => console.log('Done'),
+                  error => console.log("error GET : ", error));
 
     this.http.post(`${this.uri}/add`, dataServer)
-        .subscribe(res => console.log('Done'));
+        .subscribe(res => console.log('Done'),
+                  error => console.log("error POST : ", error));*/
+
+    this.http.post(`${this.uri}/replaceOne/${this.dataId}`, dataServer)
+                  .subscribe(res => console.log('Done'),
+                  error => console.log("error GET : ", error));
   }
 
   setCurrentId(id: number): void {
@@ -136,10 +153,10 @@ export class SceneryService {
 
   private defaultScenery(id: number): Scenery {
     return {
-        background : 'background01.png',
+        background : 'background01.webp',
         characters : [{
           id : 0,
-          imageName : 'skier1.png',
+          imageName : 'skier1.webp',
           positionLeft : 8,
           positionTop : 8,
           width : 8,
@@ -147,7 +164,7 @@ export class SceneryService {
           scaleX: 1
         }, {
           id : 1,
-          imageName : 'skier2.png',
+          imageName : 'skier1.webp',
           positionLeft : 16,
           positionTop : 16,
           width : 8,
@@ -155,7 +172,7 @@ export class SceneryService {
           scaleX: 1
         }, {
           id : 2,
-          imageName : 'skier3.png',
+          imageName : 'skier1.webp',
           positionLeft : 24,
           positionTop : 24,
           width : 8,
@@ -163,7 +180,7 @@ export class SceneryService {
           scaleX: 1
         }, {
           id : 3,
-          imageName : 'skier4.png',
+          imageName : 'skier1.webp',
           positionLeft : 32,
           positionTop : 32,
           width : 8,

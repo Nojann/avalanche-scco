@@ -52,6 +52,7 @@ import { DialogStartComponent } from './components/video-priming/dialog-start/di
 import { DialogEndComponent } from './components/video-priming/dialog-end/dialog-end.component';
 import { EndComponent } from './components/game/end/end.component';
 import { FocusDirective } from './focus.directive';
+import { SituationComponent } from './components/game/situation/situation.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { FocusDirective } from './focus.directive';
     DialogEndComponent,
     EndComponent,
     FocusDirective,
+    SituationComponent,
   ],
   imports: [
     NgbModule,

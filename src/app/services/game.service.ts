@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class GameService {
 
   _characterClicked: boolean;
+  _characterClickedId: number;
   _dialogEndClicked: boolean;
 
   constructor() {
@@ -13,8 +15,18 @@ export class GameService {
     this._dialogEndClicked = false;
   }
 
-  set characterClicked(state: boolean) {
+  setCharacterClicked(state: boolean, id: number) {
+    this._characterClickedId = id;
     this._characterClicked = state;
+  }
+
+  /*getcharacterClickedId(): Observable<number> {
+    console.log("characterClickedId Obs", of(this._characterClickedId));
+    return of(this._characterClickedId);
+  }*/
+
+  get characterClickedId(): number {
+    return this._characterClickedId;
   }
 
   get characterClicked() {

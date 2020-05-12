@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharactersFeaturesService } from 'src/app/services/characters-features.service';
+import { GameService } from 'src/app/services/game.service';
 
 /**
  * Display features discribing a character.
@@ -13,27 +15,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterFeaturesComponent implements OnInit {
 
-  randomValue: number[] = [0, 0, 0, 0];
-  constructor() { }
+  constructor(private characterFeatures: CharactersFeaturesService, private gameService: GameService) {
+  }
 
   ngOnInit(): void {
-  /*let i
-  for (i; i<4; i++) {
-      this.randomValue[i] = this.random();
-   }*/
-
-   this.randomValue[0] = this.random();
-   this.randomValue[1] = this.random();
-   this.randomValue[2] = this.random();
-   this.randomValue[3] = this.random();
+    this.characterFeatures.InitCharactersFeatures();
   }
 
-  random(): number {
-    return Math.floor(Math.random() * Math.floor(100));
+  get familiarity(): number {
+    return this.characterFeatures.getFamiliarity(this.gameService.characterClickedId);
   }
 
-  getRandomValue(id: number): number {
-    return this.randomValue[id];
+  get technicalLevel(): number {
+    return this.characterFeatures.getTechnicalLevel(this.gameService.characterClickedId);
+  }
+
+  get backcountryExperience(): number {
+    return this.characterFeatures.getBackcountryExperience(this.gameService.characterClickedId);
+  }
+
+  get physicalCondition(): number {
+    return this.characterFeatures.getPhysicalCondition(this.gameService.characterClickedId);
   }
 
 }

@@ -7,6 +7,7 @@ let UserData = new Schema({
     age: Number,
     skiLevel : Number,
     skiExperience: Number,
+    skiPractice : Number,
     skiFreeRide: Number,
     skiFreeRideFreq: Number,
     videoType: Number,

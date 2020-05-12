@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { Scenery } from '../../models/scenery.model';
 import { SceneryService } from '../../services/scenery.service';
 import { GameService } from 'src/app/services/game.service';
+import { Character } from 'src/app/models/character.model';
 
 /**
  * Scenery Component displays images depending a {@link Scenery} data.
@@ -32,7 +33,7 @@ export class SceneryComponent implements OnInit {
       return scenery;
   }
 
-  characterClicked(): void {
-    this._gameService.characterClicked = true;
+  characterClicked(character: Character): void {
+    this._gameService.setCharacterClicked(true, character.id);
   }
 }

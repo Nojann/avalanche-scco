@@ -89,6 +89,7 @@ export class GameComponent implements OnInit {
 
     if (this.nextStory) {
       this.nextIndex();
+      this._gameService.setCharacterClicked(false, -1);
     }
   }
 
@@ -100,19 +101,14 @@ export class GameComponent implements OnInit {
     const choiceList = this._choiceTaskService.choiceList;
 
     if (this.nextStory === true) {
-      console.log('nextStory : ', this.getIdByName('souvenir'));
-      console.log('currentId : ', this.currentId);
       if (this.getIdByName('souvenir') == this.currentId) {
-        console.log('souvenir');
         switch (this.experimentModality) {
           case 1: {
             this.currentId = this.getIdByName('videoAvalanche');
-            console.log('videoAvalanche');
             break;
           }
           case 2: {
             this.currentId = this.getIdByName('videoNormal');
-            console.log('videoNormal');
             break;
           }
           case 3: {
@@ -131,7 +127,7 @@ export class GameComponent implements OnInit {
     }
 
     this._componentDisplay = false;
-    this._gameService.characterClicked = false;
+    
   }
 
   /**
@@ -160,7 +156,6 @@ export class GameComponent implements OnInit {
 
   getData(): void {
     var theJSON = JSON.stringify(this.userData.userData);
-    console.log(theJSON);
   }
 
   addUserData(): void {
@@ -197,26 +192,16 @@ export class GameComponent implements OnInit {
       name: null,
       type: 'Scenery',
       options: [2],
-      components: ['dialog'],
+      components: ['dialog', 'situation'],
       interactions: {
-        nextOption: 'elementClicked',
-        nextButtonText: ''
-      }
-    },
-    {
-      name: null,
-      type: 'Scenery',
-      options: [3],
-      components: ['dialog'],
-      interactions: {
-        nextOption: 'elementClicked',
-        nextButtonText: ''
+        nextOption: 'buttonActived',
+        nextButtonText: 'OK'
       }
     },
     {
       name: 'souvenir',
       type: 'Scenery',
-      options: [4],
+      options: [3],
       components: ['dialog'],
       interactions: {
         nextOption: 'button',
@@ -226,7 +211,7 @@ export class GameComponent implements OnInit {
     {
       name: 'videoAvalanche',
       type: 'Video',
-      options: [5, 'YW5AcukbD3k'],
+      options: [4, 'YW5AcukbD3k'],
       components: [],
       interactions: {
         nextOption: 'mouseEnter',
@@ -236,7 +221,7 @@ export class GameComponent implements OnInit {
     {
       name: 'videoNormal',
       type: 'Video',
-      options: [5, '4sY0W9s7puM'],
+      options: [4, '4sY0W9s7puM'],
       components: [],
       interactions: {
         nextOption: 'mouseEnter',
@@ -244,19 +229,9 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: 'surveyGletty',
-      type: 'Scenery',
-      options: [5],
-      components: ['dialog', 'survey'],
-      interactions: {
-        nextOption: 'buttonActived',
-        nextButtonText: 'Poursuivre'
-      }
-    },
-    {
       name: null,
       type: 'Scenery',
-      options: [6],
+      options: [4],
       components: ['dialog'],
       interactions: {
         nextOption: 'buttonActived',
@@ -266,8 +241,28 @@ export class GameComponent implements OnInit {
     {
       name: null,
       type: 'Scenery',
+      options: [5],
+      components: ['dialog'],
+      interactions: {
+        nextOption: 'buttonActived',
+        nextButtonText: 'Poursuivre'
+      }
+    },
+    {
+      name: null,
+      type: 'Scenery',
+      options: [6],
+      components: ['dialog', 'character-features'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      name: null,
+      type: 'Scenery',
       options: [7],
-      components: ['dialog', 'character-features', 'risk-perception'],
+      components: ['dialog', 'character-features'],
       interactions: {
         nextOption: 'button',
         nextButtonText: 'Continuer'
@@ -277,7 +272,7 @@ export class GameComponent implements OnInit {
       name: null,
       type: 'Scenery',
       options: [8],
-      components: ['dialog', 'character-features', 'risk-perception'],
+      components: ['dialog', 'character-features'],
       interactions: {
         nextOption: 'button',
         nextButtonText: 'Continuer'
@@ -287,7 +282,7 @@ export class GameComponent implements OnInit {
       name: null,
       type: 'Scenery',
       options: [9],
-      components: ['dialog', 'character-features', 'risk-perception'],
+      components: ['dialog', 'character-features'],
       interactions: {
         nextOption: 'button',
         nextButtonText: 'Continuer'
@@ -306,17 +301,7 @@ export class GameComponent implements OnInit {
     {
       name: null,
       type: 'Scenery',
-      options: [11],
-      components: ['dialog'],
-      interactions: {
-        nextOption: 'elementClicked',
-        nextButtonText: null
-      }
-    },
-    {
-      name: null,
-      type: 'Scenery',
-      options: [12, ["Renoncer", "Ne pas renoncer"]],
+      options: [11, ["Renoncer", "Ne pas renoncer"]],
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
@@ -326,7 +311,7 @@ export class GameComponent implements OnInit {
     {
       name: null,
       type: 'Scenery',
-      options: [13],
+      options: [12],
       components: ['dialog'],
       interactions: {
         nextOption: 'elementClicked',
@@ -336,7 +321,7 @@ export class GameComponent implements OnInit {
     {
       name: null,
       type: 'Scenery',
-      options: [14, ["Avec vitesse", "Avec prudence"]],
+      options: [13, ["Avec vitesse", "Avec prudence"]],
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
@@ -346,8 +331,18 @@ export class GameComponent implements OnInit {
     {
       name: 'corniche',
       type: 'Scenery',
-      options: [15, ["Attendre", "Tracer"]],
+      options: [14, ["Attendre", "Tracer"]],
       components: ['dialog', 'choice-task'],
+      interactions: {
+        nextOption: 'button',
+        nextButtonText: 'Continuer'
+      }
+    },
+    {
+      name: null,
+      type: 'Scenery',
+      options: [15],
+      components: ['dialog'],
       interactions: {
         nextOption: 'button',
         nextButtonText: 'Continuer'
@@ -369,16 +364,6 @@ export class GameComponent implements OnInit {
       options: [17],
       components: ['dialog'],
       interactions: {
-        nextOption: 'button',
-        nextButtonText: 'Continuer'
-      }
-    },
-    {
-      name: null,
-      type: 'Scenery',
-      options: [18],
-      components: ['dialog'],
-      interactions: {
         nextOption: 'buttonActived',
         nextButtonText: 'Se faire emporter'
       }
@@ -386,7 +371,7 @@ export class GameComponent implements OnInit {
     {
       name: 'end',
       type: 'Scenery',
-      options: [19],
+      options: [18],
       components: ['dialog', 'end'],
       interactions: {
         nextOption: 'button',
@@ -396,7 +381,7 @@ export class GameComponent implements OnInit {
     {
       name: 'happyEnd',
       type: 'Scenery',
-      options: [20],
+      options: [19],
       components: ['dialog', 'end'],
       interactions: {
         nextOption: 'button',

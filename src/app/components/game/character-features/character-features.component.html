@@ -1,24 +1,38 @@
 <div class="card" style="width: 18rem;">
     <div class="card-header">
-        <h3>Caractéristiques</h3>
+        <h2>Caractéristiques</h2>
     </div>
 
+<li class="list-group-item">
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
-            <h4 class="card-subtitle mb-2 text-muted">Niveau Technique</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(0)"></mat-progress-bar>
+            <h3 class="card-title text-center">Familiarité</h3>
         </li>
-        <li class="list-group-item">
-            <h4 class="card-subtitle mb-2 text-muted">Expérience du hors piste</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(1)"></mat-progress-bar>
+        <li class="list-group-item mb-2 text-muted">
+            <h4 class="card-title mb-2">Connaissance du lieu</h4>
+            <mat-progress-bar class="progress-bar" role="progressbar" [value]="familiarity"></mat-progress-bar>
         </li>
-        <li class="list-group-item">
-            <h4 class="card-subtitle mb-2 text-muted">Condition physique</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(2)"></mat-progress-bar>
-        </li>
-        <li class="list-group-item">
-            <h4 class="card-subtitle mb-2 text-muted">Connaissance du lieu</h4>
-            <mat-progress-bar class="progress-bar" role="progressbar" [value]="getRandomValue(3)"></mat-progress-bar>
-        </li>
-      </ul>
+    
+    </ul>
+</li>
+
+    <li class="list-group-item">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h3 class="card-title text-center">Compétences en ski</h3>
+            </li>
+            <li class="list-group-item">
+                <h4 class="card-subtitle mb-2 text-muted">Niveau Technique</h4>
+                <mat-progress-bar class="progress-bar" role="progressbar" [value]="technicalLevel"></mat-progress-bar>
+            </li>
+            <li class="list-group-item">
+                <h4 class="card-subtitle mb-2 text-muted">Expérience du hors piste</h4>
+                <mat-progress-bar class="progress-bar" role="progressbar" [value]="backcountryExperience"></mat-progress-bar>
+            </li>
+            <li class="list-group-item">
+                <h4 class="card-subtitle mb-2 text-muted">Condition physique</h4>
+                <mat-progress-bar class="progress-bar" role="progressbar" [value]="physicalCondition"></mat-progress-bar>
+            </li>
+        </ul>
+    </li>
   </div>

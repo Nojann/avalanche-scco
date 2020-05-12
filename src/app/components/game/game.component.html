@@ -16,10 +16,13 @@
                 <div class="mb-2" *ngIf="getComponents().indexOf('user-form')!=-1 && componentDisplay">
                     <app-user-form></app-user-form>
                 </div>
+                <div class="mb-2" *ngIf="getComponents().indexOf('situation')!=-1">
+                    <app-situation></app-situation>
+                </div>
                 <div class="mb-2" *ngIf="getComponents().indexOf('character-features')!=-1 && componentDisplay">
                     <app-character-features></app-character-features>
                 </div>
-                <div class="mb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1 && componentDisplay">
+                <div class="mb-2" *ngIf="getComponents().indexOf('risk-perception')!=-1">
                     <app-risk-perception></app-risk-perception>
                 </div>
                 <div class="mb-2" *ngIf="getComponents().indexOf('survey')!=-1">
