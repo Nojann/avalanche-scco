@@ -53,6 +53,7 @@ import { DialogEndComponent } from './components/video-priming/dialog-end/dialog
 import { EndComponent } from './components/game/end/end.component';
 import { FocusDirective } from './focus.directive';
 import { SituationComponent } from './components/game/situation/situation.component';
+import { ConsentFormComponent } from './components/consent-form/consent-form.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { SituationComponent } from './components/game/situation/situation.compon
     EndComponent,
     FocusDirective,
     SituationComponent,
+    ConsentFormComponent,
   ],
   imports: [
     NgbModule,

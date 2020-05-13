@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 })
 export class AppComponent {
   constructor() {
-    
+
   // Web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyDqS5ez4rGQb73KW3eNBp4yvInSHCh3oWE",

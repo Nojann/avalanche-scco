@@ -50,7 +50,7 @@ export class CharactersFeaturesService {
     const large = 85;
     const low = 10;
     const familiarity = (Math.random() > 0.5) ? large : low;
-    this.userData.familiarity = familiarity === large ? true : false;
+    this.userData.familiarity = (familiarity === large ? true : false);
     return familiarity;
   }
 

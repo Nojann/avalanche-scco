@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>Notice d'information et consentement éclairé</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Titre du projet </h3></div>
+            <div class="col"><p>Étude du comportement de prise de risque en situation de hors-piste.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Responsable scientifique du projet :</h3></div>
+            <div class="col-4"><p>Carole Adam (MCF, LIG, UGA)</p></div>
+            <div class="col-4"><p>Laboratoire d’informatique de Grenoble</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>But du projet de recherche :</h3></div>
+            <div class="col"><p>Étudier le comportement de prise de risque en situation de hors-piste.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Ce que l’on attend de vous (méthodologie)</h3></div>
+            <div class="col"><p>Si vous acceptez de participer à cette étude, vous serez susceptible de visionner une vidéo mettant en scène un skieur (cela durera 2 min). 
+                A la suite de cela vous réaliserez un jeu interactif où votre rôle sera celui du skieur. Il vous sera demandé d’évaluer des situations et de faire des choix étant donné votre rôle (cela durera environ 8 minutes).</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Vos droits de vous retirer de la recherche en tout temps</h3></div>
+            <div class="col"><p>La participation à cette étude est volontaire, si vous le souhaitez vous pouvez quitter à tout moment l’application.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Vos droits à la confidentialité et au respect de la vie privée</h3></div>
+            <div class="col"><p>Des données seront recueillies sur votre évaluation de la situation ainsi que sur vos choix. Ces données sont strictement anonymes. Elles seront traitées avec la plus entière confidentialité, et seront stockées sur un serveur sécurisé, seuls la responsable scientifique et les chercheurs adjoints y auront accès.
+                Les données étant à caractère anonyme, les demandes de rectification ou de destruction a posteriori ne pourront être traitées.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Bénéfices</h3></div>
+            <div class="col"><p>L’étude que nous allons réaliser a pour vocation d’apporter des connaissances aux acteurs de la prévention d’avalanche, aux secouristes et aux pratiquants de la montagne.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Risques possibles</h3></div>
+            <div class="col"><p>La vidéo à visionner en début d’expérience peut contenir une situation d’avalanche avec ensevelissement de la victime. Si cette vidéo vous met mal à l’aise, vous pouvez interrompre l’expérience à tout moment en quittant l’application. </p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Diffusion</h3></div>
+            <div class="col"><p>Les résultats de cette étude sont susceptibles d’être diffusés dans des articles scientifiques. Seules des données agrégées et des statistiques seront publiées. </p></div>
+        </div>
+        <div class="row">
+            <div class="col-4"><h3>Vos droits de poser des questions en tout temps</h3></div>
+            <div class="col"><p>Pour toute question, n’hésitez pas à contacter la responsable du projet par email : carole.adam@imag.fr</p></div>
+        </div>
+        <mat-slide-toggle #slide (click)="checked(slide.checked)">J'ai déjà participer à l'étude.</mat-slide-toggle>
+        <h3>Consentement à la participation</h3>
+        <p>En cliquant sur le bouton “poursuivre”, vous certifiez que vous avez lu et compris les renseignements ci-dessus, qu’on a répondu à vos questions de façon satisfaisante et qu’on vous a avisé que vous étiez libre d’annuler votre consentement ou de vous retirer de cette recherche en tout temps, sans préjudice.</p>
+    </div>
+
+
+<mat-dialog-actions >
+        <a href="https://www.whiterisk.ch/fr/explore"><button mat-raised-button>Abandon</button></a>
+        <button mat-raised-button (click)="formConsent(); close()">Poursuivre</button> 
+</mat-dialog-actions>
+
+

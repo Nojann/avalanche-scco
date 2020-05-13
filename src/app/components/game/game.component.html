@@ -39,6 +39,11 @@
                         <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
                     </div>
                 </div>
+                <div class="mb-2" *ngIf="componentDisplay_formFilled" >
+                    <div class="col" *ngIf="getNextOption()=='button_formFilled'">
+                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                    </div>
+                </div>
                 <div class="mb-2" *ngIf="getNextOption()=='buttonActived'" >
                     <div class="col">
                         <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
@@ -51,9 +56,9 @@
         <div *ngIf="!dialogEndClicked()">
             <app-video-priming [videoId]='getOption(1)'></app-video-priming>
         </div>
-        <div *ngIf="dialogEndClicked()" (mouseenter)="clickToNext('')">
+        <!--<div *ngIf="dialogEndClicked()" (mouseenter)="clickToNext('mouseEnter')">
             <app-scenery [id]='getOption(0)'></app-scenery> 
-        </div>
+        </div>-->
     </div>
     
 </div>

@@ -3,7 +3,19 @@
         <h3>Évalue la probabilité de t'engager</h3>
     </div>
     <div class="card-body">
-        <mat-slider layout-align='center center' thumbLabel tickInterval="1"></mat-slider>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    
+                        <mat-slider layout-align='center center' thumbLabel tickInterval="1" [formControl]="finalEvaluation" required></mat-slider>
+                        <div *ngIf="finalEvaluation.invalid && !validForm">
+                            <mat-error *ngIf="finalEvaluation.errors.required">Réponse requise.</mat-error>
+                        </div>
+                    
+                </div>
+                <div class="col-3 ml-2"><button mat-raised-button (click)="validate()">OK</button></div>
+            </div>
+        </div>
     </div>
 </div>
 

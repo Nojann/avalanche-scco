@@ -54,6 +54,11 @@ export class UserDataService {
     this.userData.skiExperience = value;
   }
 
+  set skiPractice(value: number) {
+    this.userData.skiPractice = value;
+    console.log(this.userData.skiPractice);
+  }
+
   set skiFreeRide(value: number) {
     this.userData.skiFreeRide = value;
   }

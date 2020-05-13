@@ -18,7 +18,7 @@ userDataRoutes.route('/add').post(function (req, res) {
 });
 
 // Defined get data(index or listing) route
-userDataRoutes.route('/').get(function (req, res) {
+/*userDataRoutes.route('/').get(function (req, res) {
   UserData.find(function (err, userDatas){
     if(err){
       console.log(err);
@@ -27,7 +27,7 @@ userDataRoutes.route('/').get(function (req, res) {
       res.json(userDatas);
     }
   });
-});
+});*/
 
 /*
 // Defined edit route

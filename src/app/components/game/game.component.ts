@@ -49,7 +49,15 @@ export class GameComponent implements OnInit {
     return this._componentDisplay;
   }
 
+  get componentDisplay_formFilled(): boolean {
+    if (this._gameService._formFilled) {
+      this._gameService._formFilled = true;
+    }
+    return this._gameService._formFilled;
+  }
+
   getType(): any {
+    console.log("getType()", this.stories[this.currentId].type);
     return this.stories[this.currentId].type;
   }
 
@@ -79,11 +87,12 @@ export class GameComponent implements OnInit {
 
     if (nextOption === 'elementClicked' && component === 'scenery' && this._gameService.characterClicked) {
       this.nextStory = true;
-    } else if ((nextOption === 'button' || nextOption === 'buttonActived') && component === 'button') {
+    } else if ((nextOption === 'button' || nextOption === 'buttonActived' || nextOption === 'button_formFilled') 
+    && component === 'button') {
       this.nextStory = true;
     } else if (nextOption === 'button' && component === 'choice-task') {
       this.nextStory = true;
-    } else if (nextOption === 'mouseEnter') {
+    } else if (nextOption === 'videoEnd') {
       this.nextStory = true;
     }
 
@@ -112,12 +121,12 @@ export class GameComponent implements OnInit {
             break;
           }
           case 3: {
-            this.currentId = this.getIdByName('surveyGletty');
+            this.currentId = this.getIdByName('sceneryAfterVideo');
             break;
           }
         }
       } else if ((this.getIdByName('videoNormal') || this.getIdByName('videoAvalanche')) == this.currentId) {
-        this.currentId = this.getIdByName('surveyGletty');
+        this.currentId = this.getIdByName('sceneryAfterVideo');
       } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf('Attendre') !== -1) {
         this.currentId = this.getIdByName('happyEnd');
       } else {
@@ -127,7 +136,6 @@ export class GameComponent implements OnInit {
     }
 
     this._componentDisplay = false;
-    
   }
 
   /**
@@ -163,6 +171,9 @@ export class GameComponent implements OnInit {
   }
 
   dialogEndClicked(): boolean {
+    if (this._gameService.dialogEndClicked) {
+        this.clickToNext('videoEnd');
+    }
     return this._gameService.dialogEndClicked;
   }
 
@@ -174,7 +185,7 @@ export class GameComponent implements OnInit {
       options: [0],
       components: ['dialog', 'user-form'],
       interactions: {
-        nextOption: 'button',
+        nextOption: 'button_formFilled',
         nextButtonText: 'Commencer l\'aventure',
       }
     },
@@ -214,7 +225,7 @@ export class GameComponent implements OnInit {
       options: [4, 'YW5AcukbD3k'],
       components: [],
       interactions: {
-        nextOption: 'mouseEnter',
+        nextOption: 'videoEnd',
         nextButtonText: null
       }
     },
@@ -224,12 +235,12 @@ export class GameComponent implements OnInit {
       options: [4, '4sY0W9s7puM'],
       components: [],
       interactions: {
-        nextOption: 'mouseEnter',
+        nextOption: 'videoEnd',
         nextButtonText: null
       }
     },
     {
-      name: null,
+      name: 'sceneryAfterVideo',
       type: 'Scenery',
       options: [4],
       components: ['dialog'],
@@ -294,7 +305,7 @@ export class GameComponent implements OnInit {
       options: [10],
       components: ['dialog', 'character-features', 'risk-perception'],
       interactions: {
-        nextOption: 'button',
+        nextOption: 'button_formFilled',
         nextButtonText: 'Continuer'
       }
     },
