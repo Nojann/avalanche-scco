@@ -20,10 +20,22 @@ export class ChoiceTaskComponent implements OnInit {
   saveChoice(choice: string) {
     this._choiceTaskService.addChoice(choice);
     if (choice == 'Renoncer') {
-      this.finalChoice = true;
+      this.finalChoice1 = true;
     } else if (choice == 'Ne pas renoncer') {
-      this.finalChoice = false;
+      this.finalChoice1 = false;
     }
+    if (choice == "Droite") {
+      this.finalChoice2 = true;
+    } else if (choice == "Gauche") {
+      this.finalChoice2 = false;
+    }
+    if (choice == "S'engager") {
+      this.finalChoice3 = true;
+    } else if (choice == "Discuter") {
+      this.finalChoice3 = false;
+    }
+
+
   }
 
   getChoiceList() {
@@ -34,8 +46,16 @@ export class ChoiceTaskComponent implements OnInit {
     return this._alternativeList;
   }
 
-  set finalChoice(value: boolean) {
+  set finalChoice1(value: boolean) {
     this.userData.choice1 = value;
+  }
+
+  set finalChoice2(value: boolean) {
+    this.userData.choice2 = value;
+  }
+
+  set finalChoice3(value: boolean) {
+    this.userData.choice3 = value;
   }
 
 }

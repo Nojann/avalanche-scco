@@ -1,20 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div *ngIf="!display">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img src="assets/images/mountain.svg" width="40" height="40" alt="">
     </a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">Avalanche Risk</a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Expérience intéractive</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/priming" routerLinkActive="active">Video</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/game" routerLinkActive="active">Game</a>
+        </li>-->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/notice" routerLinkActive="active">Notice d'information</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/editor" routerLinkActive="active">Editor</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Message de fin</a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isAuth" routerLink="/editor" routerLinkActive="active">Editor</a>
         </li>
       </ul>
     </div>
@@ -35,6 +42,7 @@
           </li>
         </ul>
       </div>
-      
-    
-  </nav>
+</nav>
+
+</div>
+

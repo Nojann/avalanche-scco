@@ -15,7 +15,7 @@ import { GameService } from 'src/app/services/game.service';
 export class RiskPerceptionComponent implements OnInit {
 
   finalEvaluation = new FormControl('', [Validators.required]);
-  _validForm;
+  _validForm: boolean;
 
   constructor(private userData: UserDataService, private gameService: GameService) {
     this._validForm = true;
@@ -29,14 +29,16 @@ export class RiskPerceptionComponent implements OnInit {
   }
 
   validate(): void {
-    this.formFilled(true);
     this._validForm = false;
 
     if (!this.finalEvaluation.invalid) {
         this.userData.finalEvaluation = this.finalEvaluation.value;
         this._validForm = true;
-        this.formFilled(true);
       }
+
+    if (this.validForm) {
+      this.formFilled(true);
+    }
   }
 
   get validForm() {

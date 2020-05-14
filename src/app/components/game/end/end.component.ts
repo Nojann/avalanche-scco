@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChoiceTaskService } from 'src/app/services/choice-task.service';
+//import { MatDialogRef } from '@angular/material/dialog';
+import { GameComponent } from '../game.component';
 
 @Component({
   selector: 'app-end',
@@ -8,13 +10,14 @@ import { ChoiceTaskService } from 'src/app/services/choice-task.service';
 })
 export class EndComponent implements OnInit {
 
-  constructor(private _choiceTaskService: ChoiceTaskService) { }
+  //constructor(public dialogRef: MatDialogRef<GameComponent>) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  getChoiceList() {
+  /*getChoiceList() {
     return this._choiceTaskService.choiceList;
-  }
+  }*/
 
 }

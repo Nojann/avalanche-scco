@@ -1,0 +1,1045 @@
+{ 
+    "_id" : ObjectId("5eba8f396e513c8fc4f66392"), 
+    "sceneries" : [
+        {
+            "dialog" : [
+                "Nous te proposons une expérience intéractive.", 
+                "AvalancheRisk est un jeu narratif de type \"point and click\". Tu évolueras à travers un scénario de sortie à ski et différentes intéractions te seront proposées. Afin de mieux comprendre la prise de décision chez les skieurs, nous souhaitons observer ton comportement.", 
+                "Pour commencer la partie, il faut te préparer. Choisi une paire de ski."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4572c"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4572d"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "ski-blue.webp", 
+                    "positionLeft" : NumberInt(11), 
+                    "positionTop" : NumberInt(7), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(11)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4572e"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "ski-green.webp", 
+                    "positionLeft" : NumberInt(45), 
+                    "positionTop" : NumberInt(2), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(11)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4572f"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "ski-grey.webp", 
+                    "positionLeft" : NumberInt(77), 
+                    "positionTop" : NumberInt(6), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(11)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45730"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background_intro.webp", 
+            "id" : NumberInt(0)
+        }, 
+        {
+            "dialog" : [
+                "Aux portes du parc des Écrins", 
+                "Tu t'es présenté et tu as choisi tes skis. Maintenant le scénario commence : te voilà en dans une station de ski, après une montée en télésiège, tu attends un groupe de skieurs. Aujourd'hui vous avez planifié une session de hors piste : une ligne pas très fréquentée mais parait-il, exptionnelle !", 
+                "Clique sur le brouillard pour faire apparaître la montagne."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4573b"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4573c"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "fog02s.webp", 
+                    "positionLeft" : NumberInt(0), 
+                    "positionTop" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(100)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4573d"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4573e"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4573f"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background01.webp", 
+            "id" : NumberInt(1)
+        }, 
+        {
+            "dialog" : [
+                "Premier arrivé", 
+                "Le brouillard s'est levé. Tu es le premier arrivé, les autres ne devraient pas tarder. Profites-en pour t'informer sur les conditions de la descente. ", 
+                "Prends connaissance des informations."
+            ], 
+            "_id" : ObjectId("5eba9dd69f7f9e154574786b"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba9dd69f7f9e154574786c"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(8), 
+                    "positionTop" : NumberInt(8), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5eba9dd69f7f9e154574786d"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5eba9dd69f7f9e154574786e"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5eba9dd69f7f9e154574786f"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }
+            ], 
+            "background" : "background01.webp", 
+            "id" : NumberInt(2)
+        }, 
+        {
+            "dialog" : [
+                "Petite pause", 
+                "Toujours personne à l'horizon...\nQue fait le groupe qui doit te rejoindre ? ", 
+                "Tu attends."
+            ], 
+            "_id" : ObjectId("5ebaa2039f7f9e1545747933"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5ebaa2039f7f9e1545747934"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(8), 
+                    "positionTop" : NumberInt(8), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5ebaa2039f7f9e1545747935"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5ebaa2039f7f9e1545747936"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5ebaa2039f7f9e1545747937"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "width" : NumberInt(0), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1)
+                }
+            ], 
+            "background" : "background01.webp", 
+            "id" : NumberInt(3)
+        }, 
+        {
+            "dialog" : [
+                "Enfin,  le groupe !", 
+                "Tu as pris connaissance des conditions de la descente et peut-être que tu as visionné une vidéo pour patienter.", 
+                "Voilà maintenant le groupe au complet."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45745"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45746"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(14), 
+                    "positionTop" : NumberInt(49), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(14)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45747"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(65), 
+                    "positionTop" : NumberInt(57), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(20)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45748"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(39), 
+                    "positionTop" : NumberInt(60), 
+                    "rotate" : NumberInt(-4), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(14)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45749"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(56), 
+                    "positionTop" : NumberInt(64), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(11)
+                }
+            ], 
+            "background" : "background01.webp", 
+            "id" : NumberInt(4)
+        }, 
+        {
+            "dialog" : [
+                "L'itinéraire", 
+                "Tu longes la crête puis te diriges vers le second couloir. Tu as la possibilité de suivre l'itinéraire hors-piste ou de retourner sur le domaine skiable.", 
+                "Avant de faire ton choix, tu peux observer les skieurs du groupe."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4574a"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4574b"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(8), 
+                    "positionTop" : NumberInt(8), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4574c"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4574d"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4574e"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(5)
+        }, 
+        {
+            "dialog" : [
+                "Le premier co-équipier", 
+                "Tu observes ton co-équipier et découvres ses caractéristiques.", 
+                "Clique sur le skieur pour découvrir ses caractéristiques."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4574f"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45750"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(36), 
+                    "positionTop" : NumberInt(51), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(12)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45751"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45752"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45753"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(34), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(6)
+        }, 
+        {
+            "dialog" : [
+                "Un second co-équipier", 
+                "Tu observes ton co-équipier et découvres ses caractéristiques.", 
+                "Clique sur le skieur pour découvrir ses caractéristiques."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45754"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45755"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(66), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(4)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45756"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(33), 
+                    "positionTop" : NumberInt(50), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(22)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45757"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45758"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(7)
+        }, 
+        {
+            "dialog" : [
+                "Le troisième co-équipier", 
+                "Tu observes ton co-équipier et découvres ses caractéristiques.", 
+                "Clique sur le skieur pour découvrir ses caractéristiques."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45759"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4575a"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(66), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(4)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4575b"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(73), 
+                    "positionTop" : NumberInt(35), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(7)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4575c"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(31), 
+                    "positionTop" : NumberInt(50), 
+                    "rotate" : NumberInt(5), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(20)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4575d"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(8)
+        }, 
+        {
+            "dialog" : [
+                "Un dernier co-équipier", 
+                "Tu observes ton co-équipier et découvres ses caractéristiques.", 
+                "Clique sur le skieur pour découvrir ses caractéristiques."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4575e"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4575f"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(66), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(4)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45760"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(73), 
+                    "positionTop" : NumberInt(35), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(7)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45761"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(83), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(6)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45762"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(31), 
+                    "positionTop" : NumberInt(46), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(23)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(9)
+        }, 
+        {
+            "dialog" : [
+                "S'engager ?", 
+                "Tu as le choix, tu peux t'engager dans la descente en hors-piste avec le groupe ou alors tu peux renoncer, c'est à dire retourner sur les pistes.", 
+                "Évalue sur une barre de 0 à 100 la probabilité de t'engager dans la situation.\nTu peux cliquer sur un personnage pour afficher ses caractéristiques."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45763"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45764"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(66), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(4)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45765"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(73), 
+                    "positionTop" : NumberInt(35), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(7)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45766"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(83), 
+                    "positionTop" : NumberInt(36), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(6)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45767"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(90), 
+                    "positionTop" : NumberInt(34), 
+                    "rotate" : NumberInt(7), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(6)
+                }
+            ], 
+            "background" : "background03.webp", 
+            "id" : NumberInt(10)
+        }, 
+        {
+            "dialog" : [
+                "Face à la pente", 
+                "Tu dépasses le groupe, et te positionnes face à la pente.\nAprès avoir évalué la probabillité de t'engager, quel choix fais-tu ? ", 
+                "Tu peux t'engager dans la pente ou renoncer et alors retourner sur les pistes balisée."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45768"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45769"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(48), 
+                    "positionTop" : NumberInt(33), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4576a"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(79), 
+                    "positionTop" : NumberInt(26), 
+                    "rotate" : NumberInt(-6), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4576b"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(47), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4576c"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(88), 
+                    "positionTop" : NumberInt(9), 
+                    "rotate" : NumberInt(11), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background04.webp", 
+            "id" : NumberInt(11)
+        }, 
+        {
+            "dialog" : [
+                "Freeride", 
+                "Tu as choisi de continuer vers l'itinéraire de hors-piste. Face à ce versant, tu ne t'engages pas en premier et laisses les autres faire la trace.", 
+                "Clique sur le skieur pour continuer."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4576d"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4576e"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(73), 
+                    "positionTop" : NumberInt(21), 
+                    "rotate" : NumberInt(34), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(7)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4576f"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45770"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45771"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background04.webp", 
+            "id" : NumberInt(12)
+        }, 
+        {
+            "dialog" : [
+                "La decente", 
+                "Mais où sont passé les 30 cm de neige fraîche !? Peut-être le vent...\n", 
+                "Quelle trajectoire souhaites-tu prendre ?\nPlutôt à gauche où la neige est moins bonne ou à droite en passant en amont des autres skieurs. "
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45772"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45773"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(48), 
+                    "positionTop" : NumberInt(45), 
+                    "rotate" : NumberInt(4), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45774"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(50), 
+                    "positionTop" : NumberInt(44), 
+                    "rotate" : NumberInt(-18), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(2)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45775"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(54), 
+                    "positionTop" : NumberInt(42), 
+                    "rotate" : NumberInt(-16), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(2)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45776"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(52), 
+                    "positionTop" : NumberInt(44), 
+                    "rotate" : NumberInt(24), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(2)
+                }
+            ], 
+            "background" : "background04-2.webp", 
+            "id" : NumberInt(13)
+        }, 
+        {
+            "dialog" : [
+                "La corniche", 
+                "La descente s'est bien déroulée. Il manque un peu de neige mais cela ne t'as pas empêcher de retrouver tes sensations préférées. Voilà une corniche ! C'est l'occasion d'en profiter pour réaliser un saut. Tu sais que la reception n'est pas mauvaise et qu'il y a suffisement de neige. Cependant tu hésites.", 
+                "Quel choix fais-tu ?"
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45777"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45778"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(2), 
+                    "positionTop" : NumberInt(39), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(9)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45779"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(67), 
+                    "positionTop" : NumberInt(28), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(12)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4577a"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(13), 
+                    "positionTop" : NumberInt(40), 
+                    "rotate" : NumberInt(-7), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(8)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4577b"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(63), 
+                    "positionTop" : NumberInt(26), 
+                    "rotate" : NumberInt(13), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(8)
+                }
+            ], 
+            "background" : "background07.webp", 
+            "id" : NumberInt(14)
+        }, 
+        {
+            "dialog" : [
+                "Skieur à droite !", 
+                "Le saut est validé, quelques mètres de vol, tu trouves ça génial ! Tu as encore beaucoup de vitesse et tu vois que quelqu'un est partit sur la droite. Le manteau neigeux ne semble pas très stable...", 
+                "Clique sur le skieur pour continuer."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4577c"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4577d"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(44), 
+                    "positionTop" : NumberInt(79), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4577e"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(88), 
+                    "positionTop" : NumberInt(0), 
+                    "rotate" : NumberInt(-39), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(7)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4577f"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(40), 
+                    "positionTop" : NumberInt(85), 
+                    "rotate" : NumberInt(2), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45780"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(48), 
+                    "positionTop" : NumberInt(74), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background08.webp", 
+            "id" : NumberInt(15)
+        }, 
+        {
+            "dialog" : [
+                "Une avalanche !", 
+                "La neige bouge au dessus ! Une plaque se détache.. Tout va très vite, tout va trop vite.\nTu essaies de ralentir mais impossible d'éviter le danger.", 
+                " Clique sur l'avalanche."
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45781"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45782"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(63), 
+                    "positionTop" : NumberInt(54), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(1)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45783"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(89), 
+                    "positionTop" : NumberInt(10), 
+                    "rotate" : NumberInt(-52), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(8)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45784"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(62), 
+                    "positionTop" : NumberInt(57), 
+                    "rotate" : NumberInt(6), 
+                    "scaleX" : NumberInt(-1), 
+                    "width" : NumberInt(2)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45785"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "avalanche.webp", 
+                    "positionLeft" : NumberInt(6), 
+                    "positionTop" : NumberInt(3), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(94)
+                }
+            ], 
+            "background" : "background09.webp", 
+            "id" : NumberInt(16)
+        }, 
+        {
+            "dialog" : [
+                "Aaaah !", 
+                ""
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45786"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45787"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(8), 
+                    "positionTop" : NumberInt(8), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45788"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45789"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4578a"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "avalanche_zoom.webp", 
+            "id" : NumberInt(17)
+        }, 
+        {
+            "dialog" : [
+                "C'est fini !", 
+                "L'aventure se termine ici... Tu n'as pa su éviter l'avalanche.", 
+                "Nous te remerçions d'avoir participer à cette expérience intéractive.\nN'hésite pas à faire un retour par mail au développeur : robin.couret@protonmail.com"
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b4578b"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4578c"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(8), 
+                    "positionTop" : NumberInt(8), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4578d"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(16), 
+                    "positionTop" : NumberInt(16), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4578e"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(24), 
+                    "positionTop" : NumberInt(24), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b4578f"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(32), 
+                    "positionTop" : NumberInt(32), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(0)
+                }
+            ], 
+            "background" : "background_fin.webp", 
+            "id" : NumberInt(18)
+        }, 
+        {
+            "dialog" : [
+                "Tout est bien qui finit bien", 
+                "L'aventure se termine ici, le retour dans la vallée se fera sans problème.\nTu as réussit à déjouer l'avalanche, bien joué !", 
+                "Nous te remerçions d'avoir participer à cette expérience intéractive.\nN'hésite pas à faire un retour par mail au développeur : robin.couret@protonmail.com"
+            ], 
+            "_id" : ObjectId("5eba8fb4bf911f1524b45790"), 
+            "characters" : [
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45791"), 
+                    "id" : NumberInt(0), 
+                    "imageName" : "skier1.webp", 
+                    "positionLeft" : NumberInt(36), 
+                    "positionTop" : NumberInt(49), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(12)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45792"), 
+                    "id" : NumberInt(1), 
+                    "imageName" : "skier2.webp", 
+                    "positionLeft" : NumberInt(68), 
+                    "positionTop" : NumberInt(31), 
+                    "rotate" : NumberInt(-11), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(14)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45793"), 
+                    "id" : NumberInt(2), 
+                    "imageName" : "skier3.webp", 
+                    "positionLeft" : NumberInt(60), 
+                    "positionTop" : NumberInt(48), 
+                    "rotate" : NumberInt(-19), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(3)
+                }, 
+                {
+                    "_id" : ObjectId("5eba8fb4bf911f1524b45794"), 
+                    "id" : NumberInt(3), 
+                    "imageName" : "skier4.webp", 
+                    "positionLeft" : NumberInt(46), 
+                    "positionTop" : NumberInt(53), 
+                    "rotate" : NumberInt(0), 
+                    "scaleX" : NumberInt(1), 
+                    "width" : NumberInt(5)
+                }
+            ], 
+            "background" : "background10.webp", 
+            "id" : NumberInt(19)
+        }
+    ], 
+    "__v" : NumberInt(0)
+}

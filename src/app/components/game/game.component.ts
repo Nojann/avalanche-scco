@@ -4,6 +4,9 @@ import { Story } from 'src/app/models/story.model';
 import { GameService } from 'src/app/services/game.service';
 import { ChoiceTaskService } from '../../services/choice-task.service';
 import { UserDataService } from '../../services/user-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EndComponent } from './end/end.component';
+import { Router } from '@angular/router';
 
 /**
  * Game Component contains:
@@ -29,7 +32,10 @@ export class GameComponent implements OnInit {
 
   _componentDisplay: boolean;
 
-  constructor(private _sceneryService: SceneryService, private _gameService: GameService, private _choiceTaskService: ChoiceTaskService, private userData: UserDataService ) {
+  constructor(private _sceneryService: SceneryService, private _gameService: GameService,
+              private _choiceTaskService: ChoiceTaskService, private userData: UserDataService,
+              public _dialog: MatDialog,
+              private _router: Router) {
     this.stories = this.initStories();
     this.currentId = 0;
     this.nextStory = false;
@@ -50,6 +56,7 @@ export class GameComponent implements OnInit {
   }
 
   get componentDisplay_formFilled(): boolean {
+    
     if (this._gameService._formFilled) {
       this._gameService._formFilled = true;
     }
@@ -57,7 +64,6 @@ export class GameComponent implements OnInit {
   }
 
   getType(): any {
-    console.log("getType()", this.stories[this.currentId].type);
     return this.stories[this.currentId].type;
   }
 
@@ -125,16 +131,23 @@ export class GameComponent implements OnInit {
             break;
           }
         }
+      } else if (this.getIdByName('choice1') && choiceList.indexOf("Renoncer") !== -1){
+        this.addUserData();
+        this._router.navigate(['/end']);
       } else if ((this.getIdByName('videoNormal') || this.getIdByName('videoAvalanche')) == this.currentId) {
         this.currentId = this.getIdByName('sceneryAfterVideo');
-      } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf('Attendre') !== -1) {
+      } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf("Discuter") == -1) {
+        this.addUserData();
+        this.currentId++;
+      } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf("Discuter") !== -1) {
+        this.addUserData();
         this.currentId = this.getIdByName('happyEnd');
       } else {
         this.currentId++;
         this.nextStory = false;
       }
     }
-
+    this._gameService._formFilled = false;
     this._componentDisplay = false;
   }
 
@@ -177,6 +190,13 @@ export class GameComponent implements OnInit {
     return this._gameService.dialogEndClicked;
   }
 
+  openDialog(): void {
+    const dialogRef = this._dialog.open(EndComponent, {
+      width: '1300px',
+      height: '600px'
+    });
+  }
+
   initStories(): Story[] {
     const stories: Story[] = [
       {
@@ -215,8 +235,8 @@ export class GameComponent implements OnInit {
       options: [3],
       components: ['dialog'],
       interactions: {
-        nextOption: 'button',
-        nextButtonText: 'Découvrir le souvenir'
+        nextOption: 'buttonActived',
+        nextButtonText: 'Attendre'
       }
     },
     {
@@ -310,7 +330,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: null,
+      name: 'choice1',
       type: 'Scenery',
       options: [11, ["Renoncer", "Ne pas renoncer"]],
       components: ['dialog', 'choice-task'],
@@ -332,7 +352,7 @@ export class GameComponent implements OnInit {
     {
       name: null,
       type: 'Scenery',
-      options: [13, ["Avec vitesse", "Avec prudence"]],
+      options: [13, ["Gauche", "Droite"]],
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
@@ -342,7 +362,7 @@ export class GameComponent implements OnInit {
     {
       name: 'corniche',
       type: 'Scenery',
-      options: [14, ["Attendre", "Tracer"]],
+      options: [14, ["S'engager", "Discuter"]],
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
@@ -370,33 +390,23 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: null,
+      name: 'end',
       type: 'Scenery',
       options: [17],
       components: ['dialog'],
       interactions: {
-        nextOption: 'buttonActived',
-        nextButtonText: 'Se faire emporter'
-      }
-    },
-    {
-      name: 'end',
-      type: 'Scenery',
-      options: [18],
-      components: ['dialog', 'end'],
-      interactions: {
-        nextOption: 'button',
-        nextButtonText: null
+        nextOption: 'button_end',
+        nextButtonText: 'Message de fin'
       }
     },
     {
       name: 'happyEnd',
       type: 'Scenery',
-      options: [19],
-      components: ['dialog', 'end'],
+      options: [18],
+      components: ['dialog'],
       interactions: {
-        nextOption: 'button',
-        nextButtonText: null
+        nextOption: 'button_end',
+        nextButtonText: 'Message de fin'
       }
     }
   ];

@@ -49,6 +49,12 @@
                         <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
                     </div>
                 </div>
+                <div class="mb-2" *ngIf="getNextOption()=='button_end'" >
+                    <div class="col">
+                        <button mat-raised-button (click)="openDialog()"><a routerLink="/end" routerLinkActive="active">{{getNextButtonText()}}</a></button>
+                    </div>
+                </div>
+                
         </div>
     </div>
 

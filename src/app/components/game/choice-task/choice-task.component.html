@@ -2,10 +2,6 @@
     <div class="card-header text-center"><img src="assets/images/icons/explore-24px.svg" height="50" width="50" class="mx-auto"></div>
     <div class="card-body">
         <div>
-
-            <ul class="list-group" *ngIf="getChoiceList()!=null">
-                <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
-            </ul>
             <div class="row p-3">
                 <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
                     <mat-button-toggle *ngFor="let alternative of getAlternativeList()" value=alternative (click)="saveChoice(alternative)">{{alternative}}</mat-button-toggle>

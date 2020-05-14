@@ -1,28 +1,97 @@
-<div class="card">
-    <div class="card-header"><h2>Résultats</h2></div>
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <h3>Comparatif questionnaire</h3>
-                A venir...
-            </li>
-            <li class="list-group-item">
-                <h3>Choix du leader</h3>
-                A venir...
-            </li>
-            <li class="list-group-item">
-                <h3>Listes des choix</h3>
-                <ul class="list-group" *ngIf="getChoiceList()!=null">
-                    <li class="list-group-item" *ngFor="let choice of getChoiceList()">{{choice}}</li>
-                </ul>
-            </li>
-        </ul>
-    <br/>
-    <br/>
-        <p>
-        Note aux testeurs :
-        Un champ est apparu en haut à gauche avec lequel tu peux naviguer à travers les différentes scènes (de 0 à 21).
-        La gestion des choix n'est alors plus stable..
-        </p>
+    <div class="container">
+        <div class="card m-2" style="width: 50rem;">
+            <div class="card-title"><h1>Merci d'avoir participé !</h1><div>
+            <div class="card-body">
+                <div class="row">
+                  <mat-card>
+                            <p>Tu nous as permis d'améliorer notre compréhension des comportements de prises de décisions
+                            en situation de ski hors-piste. Les résultats de cette étude pourront servir aux secouristes de haute montagne et 
+                            ainsi qu'à tous les passionnés de ski.</p>
+                          </mat-card>
+                </div>
+                <div class="row">
+                  <mat-card>
+                    <div class="media">
+                        <img height="63" width="63"  src="assets/images/icons/hands-and-gestures.svg" class="mr-3" alt="smileys">
+                        <div class="media-body">
+                          <h2 class="mt-0">Un petit coup de pouce</h2>
+                          <p>Tu souhaites nous soutenir dans cette démarche ? Partage l'expérience auprès de tes proches amateurs de freeride, 
+                            par exemple avec un petit message sur ton réseau social préféré.</p>
+                        </div>
+                      </div>
+                    </mat-card> 
+                </div>
+            </div>
+        <div class="row mt-5">
+            <div class="card">
+                <div class="card-title">En savoir plus</div>
+                <div class="card-body">
+                    <p>A travers ce scénario intéractif nous avons cherché à mesurer le comportement humain dans une situation d'incertitude : 
+                    la décision de pratiquer ou non un itinéraire de hors-piste.
+                    Lors d'une prise de décision, nous avons tendance à faire usage d'heuristiques, c'est à dire de jugements
+                    rapides mais sujets aux erreurs.
+                    Pour une situation de hors-piste, différentes heuristiques ont été identifiées :
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <th scope="row"><h2>La recherche de rareté</h2></th>
+                            <td><p>disposition à s'engager dans une pente où il n'y a aucune trace.</p></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><h2>La familiarité</h2></th>
+                            <td><p>disposition à s’engager davantage dans une pente connnue malgré un risque d'avalanche.</p></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><h2>Facilitation sociale</h2></th>
+                            <td><p>disposition à s'engager dans une pente car d'autres skieurs y sont présents.</p></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><h2>Le halo de l’expert</h2></th>
+                            <td><p>disposition à faire confiance à un leader selon des qualités qui diffèrent de ses connaissances du risque d'avalanche.</p></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                        <div class="row">
+                            <div class="col-3"><h2>Pour en savoir plus</h2></div>
+                            <div class="col"><a href="http://www.anena.org/7059-avalanches-et-prises-de-decision-les-raccourcis-qui-tuent.html">http://www.anena.org/7059-avalanches-et-prises-de-decision-les-raccourcis-qui-tuent.html</a></div>
+                        </div>   
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="card">
+                <div class="card-title">Vidéos utilisées dans cette étude :</div>
+                <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <th scope="row"><h2>Vidéo d'avalanche :</h2></th>
+                                <td><a href="https://www.youtube.com/watch?v=YW5AcukbD3k">https://www.youtube.com/watch?v=YW5AcukbD3k</a></td>
+                                <td><p>La victime de l'avalanche est secourue par son co-équipier, elle ne gardera pas de séquelle.</p></td>
+                              </tr>
+                              <tr>
+                                <th scope="row"><h2>Vidéo de descente freeride :</h2></th>
+                                <td><a href="https://www.youtube.com/watch?v=4sY0W9s7puM">https://www.youtube.com/watch?v=4sY0W9s7puM</a></td>
+                                <td><p></p></td>
+                              </tr>
+                            </tbody>
+                          </table>        
+                </div>
+            </div>
+        <div class="row mt-5">
+            <div class="card mx-auto">
+                <div class="card-title">Contacts</div>
+                <div class="card-body">
+                    <div class="row">
+                        <p>Pour toutes questions, n'hésite pas à nous contacter.</p>
+                    </div>
+                    <div class="row">
+                        <p>Responsable scientifique du projet : carole.adam@imag.fr</p>
+                    </div>
+                    <div class="row">
+                        <p>Réalisation de l'expérience intéractive : robin.couret@protonmail.com</p>
+                    </div>  
+                </div>
+            </div>
+        </div>
     </div>
-</div>

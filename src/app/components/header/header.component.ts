@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import * as firebase from 'firebase';
+import { GameService } from 'src/app/services/game.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,11 @@ export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private gameService: GameService) { }
+
+  get display() {
+    return this.gameService.formConsent;
+  }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(
