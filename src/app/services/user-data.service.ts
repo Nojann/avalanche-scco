@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserDataService {
 
-  uri = 'http://localhost:4000/userData';
+  uri = 'http://cartodialect.imag.fr/userData';
   _userData: UserData;
 
   constructor(private http: HttpClient) {
@@ -33,7 +33,6 @@ export class UserDataService {
 
 
   addUserData() {
-    console.log(this.userData);
     this.http.post(`${this.uri}/add`, this.userData)
         .subscribe(res => console.log('Done'));
   }

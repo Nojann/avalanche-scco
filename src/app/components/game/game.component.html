@@ -1,16 +1,40 @@
 <div class="container-fluid">
-    <form  (submit)="setIndex(index.value)">
+    <!-- <form  (submit)="setIndex(index.value)">
         <input #index>
     </form>
     <button mat-raised-button (click)="getData()">getData()</button>
-    <button mat-raised-button (click)="addUserData()">addUserData()</button>
+    <button mat-raised-button (click)="addUserData()">addUserData()</button>-->
     <div class="row mt-2 " *ngIf="getType()=='Scenery'">
         <div class="col-2" *ngIf="getComponents().indexOf('dialog')!=-1">
             <app-dialog [id]='getOption(0)'></app-dialog>
+
+            
         </div>
         <!-- <div class="col-lg-8 p-0" style="width:50%"> -->
         <div class="col-8">
             <app-scenery [id]='getOption(0)' (click)="clickToNext('scenery')" ></app-scenery>
+
+            <div class="m-2" *ngIf="componentDisplay" >
+                <div class="col text-center" *ngIf="getNextOption()=='button'">
+                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                </div>
+            </div>
+            <div class="m-2 mx-auto" *ngIf="getNextOption()=='buttonActived'" >
+                <div class="col text-center">
+                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                </div>
+            </div>
+            <div class="m-2 mx-auto" *ngIf="getNextOption()=='button_end'" >
+                <div class="col text-center">
+                    <button mat-raised-button (click)="openDialog()"><a routerLink="/end" routerLinkActive="active">{{getNextButtonText()}}</a></button>
+                </div>
+            </div>
+            <div class="m-2 mx-auto" *ngIf="componentDisplay_formFilled && name=='evaluation'">
+                <div class="col text-center" *ngIf="getNextOption()=='button_formFilled'">
+                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                </div>
+            </div>
+
         </div>
         <div class="col-2">
                 <div class="mb-2" *ngIf="getComponents().indexOf('user-form')!=-1 && componentDisplay">
@@ -34,26 +58,12 @@
                 <div class="mb-2" *ngIf="getComponents().indexOf('end')!=-1">
                     <app-end></app-end>
                 </div>
-                <div class="mb-2" *ngIf="componentDisplay" >
-                    <div class="col" *ngIf="getNextOption()=='button'">
+                <div class="m-2 mx-auto" *ngIf="componentDisplay_formFilled && name=='intro'">
+                    <div class="col text-center" *ngIf="getNextOption()=='button_formFilled'">
                         <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
                     </div>
                 </div>
-                <div class="mb-2" *ngIf="componentDisplay_formFilled" >
-                    <div class="col" *ngIf="getNextOption()=='button_formFilled'">
-                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
-                    </div>
-                </div>
-                <div class="mb-2" *ngIf="getNextOption()=='buttonActived'" >
-                    <div class="col">
-                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
-                    </div>
-                </div>
-                <div class="mb-2" *ngIf="getNextOption()=='button_end'" >
-                    <div class="col">
-                        <button mat-raised-button (click)="openDialog()"><a routerLink="/end" routerLinkActive="active">{{getNextButtonText()}}</a></button>
-                    </div>
-                </div>
+                
                 
         </div>
     </div>

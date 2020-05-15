@@ -55,6 +55,8 @@ import { FocusDirective } from './focus.directive';
 import { SituationComponent } from './components/game/situation/situation.component';
 import { ConsentFormComponent } from './components/consent-form/consent-form.component';
 
+import { ClipboardModule } from 'ngx-clipboard';
+
 
 @NgModule({
   declarations: [
@@ -103,6 +105,7 @@ import { ConsentFormComponent } from './components/consent-form/consent-form.com
     MatButtonToggleModule,
     MatDialogModule,
     MatInputModule,
+    ClipboardModule,
   ],
   providers: [AuthService, AuthGuardService, CharacterService, ChoiceTaskService],
   bootstrap: [AppComponent]

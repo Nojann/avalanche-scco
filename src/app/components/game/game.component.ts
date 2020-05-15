@@ -83,6 +83,10 @@ export class GameComponent implements OnInit {
     return this.stories[this.currentId].interactions.nextButtonText;
   }
 
+  get name() {
+    return this.stories[this.currentId].name;
+  }
+
   /**
    * Evaluate the conditions to go to next index.
    * @param component
@@ -200,7 +204,7 @@ export class GameComponent implements OnInit {
   initStories(): Story[] {
     const stories: Story[] = [
       {
-      name: null,
+      name: 'intro',
       type: 'Scenery',
       options: [0],
       components: ['dialog', 'user-form'],
@@ -320,7 +324,7 @@ export class GameComponent implements OnInit {
       }
     },
     {
-      name: null,
+      name: 'evaluation',
       type: 'Scenery',
       options: [10],
       components: ['dialog', 'character-features', 'risk-perception'],
@@ -366,7 +370,7 @@ export class GameComponent implements OnInit {
       components: ['dialog', 'choice-task'],
       interactions: {
         nextOption: 'button',
-        nextButtonText: 'Continuer'
+        nextButtonText: null
       }
     },
     {
