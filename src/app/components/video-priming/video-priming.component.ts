@@ -34,8 +34,8 @@ export class VideoPrimingComponent implements OnInit {
   openDialogStart(): void {
     if (this._openDialog === false) {
       const dialogRef = this.dialog.open(DialogStartComponent, {
-        width: '500px',
-        height: '300px'
+        width: '30vw',
+        height: '20vw'
       });
     }
     this._openDialog = true;
@@ -43,8 +43,8 @@ export class VideoPrimingComponent implements OnInit {
 
   openDialogEnd(): void {
     const dialogRef = this.dialog.open(DialogEndComponent, {
-      width: '500px',
-      height: '300px'
+      width: '30vw',
+      height: '10vw'
     });
   }
 

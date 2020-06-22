@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserDataService {
 
   uri = 'http://cartodialect.imag.fr/userData';
+  //uri = 'http://localhost:4000/userData';
   _userData: UserData;
 
   constructor(private http: HttpClient) {
@@ -55,7 +56,6 @@ export class UserDataService {
 
   set skiPractice(value: number) {
     this.userData.skiPractice = value;
-    console.log(this.userData.skiPractice);
   }
 
   set skiFreeRide(value: number) {

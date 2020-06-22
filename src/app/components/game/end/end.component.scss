@@ -2,32 +2,36 @@
 
 h1{
     font-family: 'Port Lligat Slab', serif;
-    font-size: xx-large;
+    font-size: 1.6vw;
 }
 
 h2{
     font-family: 'Port Lligat Slab', serif;
+    font-size: 1.3vw;
+    line-height:1.4;
 }
 
 h5{
     font-family: 'Port Lligat Slab', serif;
     font-weight: bold;
+    font-size: 1vw;
+    line-height:1.4;
 }
 
 th{
     font-family: 'Port Lligat Slab', serif;
-
+    font-size: 1vw;
 }
 
 .card-title{
     font-family: 'Port Lligat Slab', serif;
-    font-size: x-large;
+    font-size: 1.2vw;
 }
 
 p{
     font-family: 'Roboto';
-    font-size: large;
-    line-height:1.4
+    line-height:1.4;
+    font-size: 0.9vw;
 }
 
 .card{
@@ -35,16 +39,18 @@ p{
 }
 
 .share{
-    font-size: 25px;
+    font-size: 1.2vw;
 }
 
 a{
-    font-size: medium;
+    font-size: 0.9vw;
+    line-height:1.2;
 }
 
 input{
     font-family: 'Roboto';
-    font-size: large;
+    font-size: 1.2vw;
+
     line-height:1.4;
-    width: 380px;
+    width: 80%;
 }

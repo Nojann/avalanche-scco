@@ -8,6 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { EndComponent } from './end/end.component';
 import { Router } from '@angular/router';
 
+import { HostListener } from "@angular/core";
+
 /**
  * Game Component contains:
  *
@@ -18,6 +20,7 @@ import { Router } from '@angular/router';
  * internal methods to interact with user.
  */
 
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -25,10 +28,16 @@ import { Router } from '@angular/router';
 })
 export class GameComponent implements OnInit {
 
+
   stories: Story[];
   currentId: number;
   nextStory: boolean;
   experimentModality: number;
+
+  screenHeight: number;
+  screenWidth: number;
+  _screenError: boolean;
+  _screenErrorClick: boolean;
 
   _componentDisplay: boolean;
 
@@ -40,12 +49,38 @@ export class GameComponent implements OnInit {
     this.currentId = 0;
     this.nextStory = false;
     this._componentDisplay = false;
+    this._screenError = false;
+    this._screenErrorClick = false;
+    this.onResize();
 
     this.randomExperimentModality();
 }
 
   ngOnInit(): void {
     this._sceneryService.ngOnInit();
+  }
+
+  @HostListener('window:resize', ['$event'])
+    onResize(event?) {
+      this.screenHeight = window.innerHeight;
+      this.screenWidth = window.innerWidth;
+
+      if (this.screenHeight < 768 && !this._screenErrorClick) {
+        this._screenError = true;
+      } else if (this.screenWidth < 1366 && !this._screenErrorClick) {
+        this._screenError = true;
+      } else {
+        this._screenError = false;
+      }
+  }
+
+  get screenError() {
+    return this._screenError;
+  }
+
+  setScreenErrorClick() {
+    this._screenError = false;
+    this._screenErrorClick = true;
   }
 
   get componentDisplay(): boolean {
@@ -56,7 +91,6 @@ export class GameComponent implements OnInit {
   }
 
   get componentDisplay_formFilled(): boolean {
-    
     if (this._gameService._formFilled) {
       this._gameService._formFilled = true;
     }
@@ -137,7 +171,8 @@ export class GameComponent implements OnInit {
         }
       } else if (this.getIdByName('choice1') && choiceList.indexOf("Renoncer") !== -1){
         this.addUserData();
-        this._router.navigate(['/end']);
+        this.currentId = this.getIdByName('happyEnd');
+        //this._router.navigate(['/end']);
       } else if ((this.getIdByName('videoNormal') || this.getIdByName('videoAvalanche')) == this.currentId) {
         this.currentId = this.getIdByName('sceneryAfterVideo');
       } else if (this.getIdByName('corniche') == this.currentId && choiceList.indexOf("Discuter") == -1) {

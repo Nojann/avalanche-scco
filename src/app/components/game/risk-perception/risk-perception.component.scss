@@ -2,4 +2,28 @@
 
 h3{
     font-family: 'Port Lligat Slab', serif;
+    font-size: 1.3vw;
+    line-height: 1;
+}
+
+/*
+mat-slider{
+    width: 10vw;
+    height: 30vw;
+}*/
+
+.mat-slider-wrapper{
+    /*height: 2px;
+    top: 23px;
+    left: 8px;
+    right: 8px;*/
+    height: 4px;
+    top: 46px;
+    left: 16px;
+    right: 16px;
+}
+
+.mat-slider .mat-slider-thumb{
+    width: 40px;
+    height: 40px;
 }

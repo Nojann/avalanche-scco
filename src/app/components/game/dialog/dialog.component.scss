@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins|Port+Lligat+Slab&display=swap');
 
+.card{
+    //font-size: 160%;
+}
+
 .card-header{
     font-family: 'Port Lligat Slab', serif;
     color: white;
@@ -8,11 +12,11 @@
 
 h2{
     font-family: 'Port Lligat Slab', serif;
-    font-size: x-large;
+    font-size: 1.3vw;
+    line-height: 1;
 }
     
 .card-body{
     font-family: 'Poppins';
-    font-size: medium;
 }
 

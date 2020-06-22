@@ -4,7 +4,7 @@
         <div>
             <div class="row p-3">
                 <mat-button-toggle-group appearance="legacy" class="mx-auto" name="fontStyle" aria-label="Font Style" vertical>
-                    <mat-button-toggle *ngFor="let alternative of getAlternativeList()" value=alternative (click)="saveChoice(alternative)">{{alternative}}</mat-button-toggle>
+                    <mat-button-toggle *ngFor="let alternative of getAlternativeList()" value=alternative (click)="saveChoice(alternative)"><p class="m-2">{{alternative}}</p></mat-button-toggle>
                   </mat-button-toggle-group>
             </div>
         </div>

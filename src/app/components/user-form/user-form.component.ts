@@ -31,8 +31,8 @@ export class UserFormComponent implements OnInit {
 
   openDialogStart(): void {
     const dialogRef = this.dialog.open(ConsentFormComponent, {
-      width: '800px',
-      height: '500px'
+      width: '80%',
+      height: '80%'
     });
   }
 

@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Notice d'information et consentement éclairé</h1>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4"><h3>Titre du projet </h3></div>
             <div class="col"><p>Étude du comportement de prise de risque en situation de hors-piste.</p></div>
@@ -38,21 +38,21 @@
         </div>
         <div class="row">
             <div class="col-4"><h3>Diffusion</h3></div>
-            <div class="col"><p>Les résultats de cette étude sont susceptibles d’être diffusés dans des articles scientifiques. Seul des données agrégées et des statistiques seront publiées. </p></div>
+            <div class="col"><p>Les résultats de cette étude sont susceptibles d’être diffusés dans des articles scientifiques. Seules des données agrégées et des statistiques seront publiées. </p></div>
         </div>
         <div class="row">
             <div class="col-4"><h3>Vos droits de poser des questions en tout temps</h3></div>
             <div class="col"><p>Pour toute question, n’hésitez pas à contacter la responsable du projet par email : carole.adam@imag.fr</p></div>
         </div>
-        <mat-slide-toggle #slide (click)="checked(slide.checked)">J'ai déjà participé à l'étude.</mat-slide-toggle>
+        <mat-slide-toggle #slide (click)="checked(slide.checked)" class="m-2"><p>J'ai déjà participé à l'étude.</p></mat-slide-toggle>
         <h3>Consentement à la participation</h3>
         <p>En cliquant sur le bouton “poursuivre”, vous certifiez que vous avez lu et compris les renseignements ci-dessus, qu’on a répondu à vos questions de façon satisfaisante et qu’on vous a avisé que vous étiez libre d’annuler votre consentement ou de vous retirer de cette recherche en tout temps, sans préjudice.</p>
     </div>
 
 
 <mat-dialog-actions >
-        <a href="https://www.whiterisk.ch/fr/explore"><button mat-raised-button>Abandon</button></a>
-        <button mat-raised-button (click)="formConsent(); close()">Poursuivre</button> 
+        <a href="https://www.whiterisk.ch/fr/explore"><button mat-raised-button><p class="m-2">Abandon</p></button></a>
+        <button mat-raised-button (click)="formConsent(); close()"><p class="m-2">Poursuivre</p></button> 
 </mat-dialog-actions>
 
 

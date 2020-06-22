@@ -22,4 +22,10 @@ export class DialogEndComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  closeEvent(value) {
+    if (value._state != 0) {
+      this._gameService.dialogEndClicked = true;
+      this.dialogRef.close();
+    }
+  }
 }

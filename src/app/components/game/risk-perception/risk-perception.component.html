@@ -9,13 +9,13 @@
                     
                         <mat-slider layout-align='center center' thumbLabel tickInterval="1" [formControl]="finalEvaluation" required></mat-slider>
                         <div *ngIf="finalEvaluation.invalid && !validForm">
-                            <mat-error *ngIf="finalEvaluation.errors.required">Réponse requise.</mat-error>
+                            <mat-error *ngIf="finalEvaluation.errors.required"><p>Réponse requise.</p></mat-error>
                         </div>
                     
                 </div>
             </div>
             <div class="row">
-                <button mat-raised-button class="mx-auto" (click)="validate()">OK</button>
+                <button mat-raised-button class="mx-auto" (click)="validate()"><p class="m-2">OK</p></button>
             </div>
         </div>
     </div>

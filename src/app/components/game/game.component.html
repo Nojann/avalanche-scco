@@ -1,13 +1,26 @@
 <div class="container-fluid">
+    <div *ngIf="screenError">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Attention</strong><p>Cette application n'est pas optimisée avec la résolution de votre fenêtre.
+            Exemple : utilisation de smartphone, mode d'affichage de la fenêtre.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="setScreenErrorClick()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
     <!-- <form  (submit)="setIndex(index.value)">
         <input #index>
     </form>
     <button mat-raised-button (click)="getData()">getData()</button>
-    <button mat-raised-button (click)="addUserData()">addUserData()</button>-->
+    <button mat-raised-button (click)="addUserData()">addUserData()</button> -->
     <div class="row mt-2 " *ngIf="getType()=='Scenery'">
         <div class="col-2" *ngIf="getComponents().indexOf('dialog')!=-1">
             <app-dialog [id]='getOption(0)'></app-dialog>
-
+            <div class="m-2 mx-auto" *ngIf="componentDisplay_formFilled && name=='intro'">
+                <div class="col text-center" *ngIf="getNextOption()=='button_formFilled'">
+                    <button mat-raised-button (click)="clickToNext('button')"><p class="m-2">{{getNextButtonText()}}</p></button>
+                </div>
+            </div>
             
         </div>
         <!-- <div class="col-lg-8 p-0" style="width:50%"> -->
@@ -16,22 +29,22 @@
 
             <div class="m-2" *ngIf="componentDisplay" >
                 <div class="col text-center" *ngIf="getNextOption()=='button'">
-                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                    <button mat-raised-button (click)="clickToNext('button')"><p class="m-2">{{getNextButtonText()}}</p></button>
                 </div>
             </div>
             <div class="m-2 mx-auto" *ngIf="getNextOption()=='buttonActived'" >
                 <div class="col text-center">
-                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                    <button mat-raised-button (click)="clickToNext('button')"><p class="m-2">{{getNextButtonText()}}</p></button>
                 </div>
             </div>
             <div class="m-2 mx-auto" *ngIf="getNextOption()=='button_end'" >
                 <div class="col text-center">
-                    <button mat-raised-button (click)="openDialog()"><a routerLink="/end" routerLinkActive="active">{{getNextButtonText()}}</a></button>
+                    <button mat-raised-button (click)="openDialog()"><a routerLink="/end" routerLinkActive="active"><p class="m-2">{{getNextButtonText()}}</p></a></button>
                 </div>
             </div>
             <div class="m-2 mx-auto" *ngIf="componentDisplay_formFilled && name=='evaluation'">
                 <div class="col text-center" *ngIf="getNextOption()=='button_formFilled'">
-                    <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
+                    <button mat-raised-button (click)="clickToNext('button')"><p class="m-2">{{getNextButtonText()}}</p></button>
                 </div>
             </div>
 
@@ -58,13 +71,6 @@
                 <div class="mb-2" *ngIf="getComponents().indexOf('end')!=-1">
                     <app-end></app-end>
                 </div>
-                <div class="m-2 mx-auto" *ngIf="componentDisplay_formFilled && name=='intro'">
-                    <div class="col text-center" *ngIf="getNextOption()=='button_formFilled'">
-                        <button mat-raised-button (click)="clickToNext('button')">{{getNextButtonText()}}</button>
-                    </div>
-                </div>
-                
-                
         </div>
     </div>
 

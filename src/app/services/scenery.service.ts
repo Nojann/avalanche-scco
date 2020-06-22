@@ -22,7 +22,7 @@ export class SceneryService {
 
   dataId: any;
 
-  // dev : http://localhost:4000/
+  //uri = 'http://localhost:4000/sceneries';
   uri = 'http://cartodialect.imag.fr/sceneries';
 
   constructor(private http: HttpClient) {

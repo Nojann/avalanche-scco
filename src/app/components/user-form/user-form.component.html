@@ -1,104 +1,107 @@
 <div class="card">
-  <div class="card-header">Formulaire de participation</div>
+  <div class="card-header text-center"><h2 class="m-2">Formulaire de participation</h2></div>
   
   <div class="card-body">
     <div class="row p-3" *ngIf="!formConsent">
-      <label>Je souhaite participer à l'étude.</label>
-      <mat-slide-toggle (click)="openDialogStart()"></mat-slide-toggle>
+      <div class="container">
+        <div class="row"><label><p>Je souhaite participer à l'étude.</p></label></div>
+        <!--<div class="row"><mat-slide-toggle class="mx-auto" (click)="openDialogStart()"></mat-slide-toggle></div>-->
+        <div class="col"><button mat-raised-button (click)="openDialogStart()" color="accent"><p class="m-2">OK</p></button></div>
+      </div>
     </div>
-    <div *ngIf="formConsent" class="container">
+    <div *ngIf="formConsent" class="container-fluid">
 
         <div id= "gender" class="row p-1">
           <mat-form-field class="mx-auto">
-              <mat-label>Genre</mat-label>
+              <label class="text-muted"><p>Genre</p></label>
               <mat-select name="age" [formControl]="gender" required>
-                <mat-option value="0">Femme</mat-option>
-                <mat-option value="1">Homme</mat-option>
-                <mat-option value="2">Autre</mat-option>
+                <mat-option value="0"><p class="m-2">Femme</p></mat-option>
+                <mat-option value="1"><p class="m-2">Homme</p></mat-option>
+                <mat-option value="2"><p class="m-2">Autre</p></mat-option>
               </mat-select>
                 <div *ngIf="gender.invalid && !validForm">
-                  <mat-error *ngIf="gender.errors.required">Réponse requise.</mat-error>
+                  <mat-error *ngIf="gender.errors.required"><p>Réponse requise.</p></mat-error>
                 </div>
             </mat-form-field>
           </div>
 
         <div class="row p-1">
             <mat-form-field class="mx-auto">
-              <mat-label>Age</mat-label>
+              <label class="text-muted"><p>Age</p></label>
                   <mat-select name="age" [formControl]="age" required>
-                    <mat-option value="0">- de 18 ans</mat-option>
-                    <mat-option value="1">18-25 ans</mat-option>
-                    <mat-option value="2">25-30 ans</mat-option>
-                    <mat-option value="3">30-40 ans</mat-option>
-                    <mat-option value="4">40-50 ans</mat-option>
-                    <mat-option value="5">+ de 50 ans</mat-option>
+                    <mat-option value="0"><p class="m-2">- de 18 ans</p></mat-option>
+                    <mat-option value="1"><p class="m-2">18-25 ans</p></mat-option>
+                    <mat-option value="2"><p class="m-2">25-30 ans</p></mat-option>
+                    <mat-option value="3"><p class="m-2">30-40 ans</p></mat-option>
+                    <mat-option value="4"><p class="m-2">40-50 ans</p></mat-option>
+                    <mat-option value="5"><p class="m-2">+ de 50 ans</p></mat-option>
                   </mat-select>
               <div *ngIf="age.invalid && !validForm">
-                <mat-error *ngIf="age.errors.required">Réponse requise.</mat-error>
+                <mat-error *ngIf="age.errors.required"><p>Réponse requise.</p></mat-error>
               </div>
             </mat-form-field> 
         </div>
 
         <div class="row p-1">
               <mat-form-field class="mx-auto">
-                  <mat-label>Niveau de ski</mat-label>
+                <label class="text-muted"><p>Niveau de ski</p></label>
                   <mat-select name="skiLevel" [formControl]="skiLevel" required>
-                    <mat-option value="0">Mauvais</mat-option>
-                    <mat-option value="1">Intermédiaire</mat-option>
-                    <mat-option value="2">Bon</mat-option>
-                    <mat-option value="3">Excellent</mat-option>
+                    <mat-option value="0"><p class="m-2">Mauvais</p></mat-option>
+                    <mat-option value="1"><p class="m-2">Intermédiaire</p></mat-option>
+                    <mat-option value="2"><p class="m-2">Bon</p></mat-option>
+                    <mat-option value="3"><p class="m-2">Excellent</p></mat-option>
                   </mat-select>
                   <div *ngIf="skiLevel.invalid && !validForm">
-                    <mat-error *ngIf="skiLevel.errors.required">Réponse requise.</mat-error>
+                    <mat-error *ngIf="skiLevel.errors.required"><p>Réponse requise.</p></mat-error>
                   </div>
                 </mat-form-field>
         </div>
 
         <div class="row p-1">
               <mat-form-field class="mx-auto">
-                  <label class="text-muted">Pratique le hors-piste</label>
+                  <label class="text-muted"><p>Pratique le hors-piste</p></label>
                   <mat-select name="skiFreeRideFreq" [formControl]="skiFreeRideFreq" required>
-                    <mat-option value="0">Jamais</mat-option>
-                    <mat-option value="1">Rarement</mat-option>
-                    <mat-option value="2">Souvent</mat-option>
-                    <mat-option value="3">Très souvent</mat-option>
+                    <mat-option value="0"><p class="m-2">Jamais</p></mat-option>
+                    <mat-option value="1"><p class="m-2">Rarement</p></mat-option>
+                    <mat-option value="2"><p class="m-2">Souvent</p></mat-option>
+                    <mat-option value="3"><p class="m-2">Très souvent</p></mat-option>
                   </mat-select>
                   <div *ngIf="skiFreeRideFreq.invalid && !validForm">
-                    <mat-error *ngIf="skiFreeRideFreq.errors.required">Réponse requise.</mat-error>
+                    <mat-error *ngIf="skiFreeRideFreq.errors.required"><p>Réponse requise.</p></mat-error>
                   </div>
                 </mat-form-field>
         </div>
 
         <div class="row p-1">
               <mat-form-field class="mx-auto">
-                  <label class="text-muted">Niveau de ski hors-piste</label>
+                  <label class="text-muted"><p>Niveau de ski hors-piste</p></label>
                   <mat-select name="skiFreeRide" [formControl]="skiFreeRide" required>
-                    <mat-option value="0">Mauvais</mat-option>
-                    <mat-option value="1">Intermédiaire</mat-option>
-                    <mat-option value="2">Bon</mat-option>
-                    <mat-option value="3">Excellent</mat-option>
+                    <mat-option value="0"><p class="m-2">Mauvais</p></mat-option>
+                    <mat-option value="1"><p class="m-2">Intermédiaire</p></mat-option>
+                    <mat-option value="2"><p class="m-2">Bon</p></mat-option>
+                    <mat-option value="3"><p class="m-2">Excellent</p></mat-option>
                   </mat-select>
                   <div *ngIf="skiFreeRide.invalid && !validForm">
-                    <mat-error *ngIf="skiFreeRide.errors.required">Réponse requise.</mat-error>
+                    <mat-error *ngIf="skiFreeRide.errors.required"><p>Réponse requise.</p></mat-error>
                   </div>
                 </mat-form-field>
         </div>
 
         <div class="row p-1">
               <mat-form-field class="mx-auto">
-                  <label class="text-muted">Type de pratique</label>
+                  <label class="text-muted"><p class="m-2">Type de pratique</p></label>
                   <mat-select name="skiPractice" [formControl]="skiPractice" required>
-                    <mat-option value="0">Seulement en loisir</mat-option>
-                    <mat-option value="1">En compétition</mat-option>
-                    <mat-option value="2">En secourisme</mat-option>
+                    <mat-option value="0"><p class="m-2">Seulement en loisir</p></mat-option>
+                    <mat-option value="1"><p class="m-2">En compétition</p></mat-option>
+                    <mat-option value="2"><p class="m-2">En secourisme</p></mat-option>
                   </mat-select>
                   <div *ngIf="skiPractice.invalid && !validForm">
-                    <mat-error *ngIf="skiPractice.errors.required">Réponse requise.</mat-error>
+                    <mat-error *ngIf="skiPractice.errors.required"><p>Réponse requise.</p></mat-error>
                   </div>
                 </mat-form-field>
         </div>
         
-        <button mat-raised-button (click)="validate()">OK</button>
+        <button mat-raised-button (click)="validate()"><p class="m-2">OK</p></button>
   </div>  
 </div>
 </div>
